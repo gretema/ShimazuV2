@@ -101,69 +101,86 @@
         <div class="row">
             <div class="col-md-8">
                 <h2 class="h4 bg-primary text-center py-4 text-light mb-0">您的購物車</h2>
-                <!--表格需要用一個容器裝起來 (調整內距 & 響應式)-->
-                <div class="bg-light p-3 table-responsive">
-                    <table class="table table-sm table-borderless">
-                        <thead>
-                            <tr>
-                                <th width="5%"></th>
-                                <!--留給垃圾桶的空間-->
-                                <th width="10%"></th>
-                                <!--留給商品小圖的空間-->
-                                <th>商品名稱</th>
-                                <th width="15%" class="text-center">數量</th>
-                                <th width="20%" class="text-right">金額</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td class="align-middle text-center">
-                                    <a href="#removeModal" class="text-muted" data-toggle="modal"
-                                        data-target="#removeModal" data-title="薩摩丁骨牛排" data-backdrop="static">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <div class="bg-cover my-4 mr-4 flex-grow-1 flex-md-grow-0"
-                                        style="background-image: url(./images/meat1.jpg); height: 110px; min-width: 110px;">
+                <!--表格會再行動版破版，所以不用-->
+                <div class="bg-light p-3">
+                    <!-- 商品 1 -->
+                    <div class="py-3 d-flex flex-column flex-md-row">
+                        <!-- 圖與 form 水平排列 -->
+                        <div class="d-flex flex-md-grow-1 mr-md-3">
+                            <!-- to grow to fill available space -->
+                            <div class="bg-cover my-4 mr-4 flex-grow-1 flex-md-grow-0"
+                                style="background-image: url(./images/meat1.jpg); height: 110px; min-width: 110px;">
+                            </div>
+                            <!-- 外層 flex-md-grow-1 + Button ml-auto -->
+                            <div class="d-flex flex-column flex-md-row align-items-md-center 
+                                            justify-content-center justify-content-md-between flex-md-grow-1">
+                                <!-- 金額 -->
+                                <div class="mr-md-4">
+                                    <span class="h5">薩摩丁骨牛排</span>
+                                    <br>
+                                    <span>NT$ 2,900</span>
+                                </div>
+                                <!-- 數量按鈕 -->
+                                <div class="input-group ml-md-auto mt-3 mt-md-0" style="width: 120px;">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-primary" type="button">-</button>
                                     </div>
-                                </td>
-                                <td class="align-middle h5">薩摩丁骨牛排</td>
-                                <td class="align-middle">
-                                    <!-- 數量按鈕 -->
-                                    <div class="btn-group" role="group" aria-label="First group">
-                                        <button type="button" class="btn btn-outline-primary">-</button>
-                                        <button class="btn btn-outline-dark disabled">1</button>
-                                        <button type="button" class="btn btn-outline-primary">+</button>
+                                    <input type="text" class="form-control text-center" value="1">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">+</button>
                                     </div>
-                                </td>
-                                <td class="align-middle text-right h5">$2,900</td>
-                            </tr>
-                            <tr>
-                                <td class="align-middle text-center">
-                                    <a href="#removeModal" class="text-muted" data-toggle="modal"
-                                        data-target="#removeModal" data-title="飛驒牛燒烤片" data-backdrop="static">
-                                        <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </a>
-                                </td>
-                                <td>
-                                    <div class="bg-cover my-4 mr-4 flex-grow-1 flex-md-grow-0"
-                                        style="background-image: url(./images/meat4.jpg); height: 110px; min-width: 110px;">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- price -->
+                        <div
+                            class="d-flex align-items-center justify-content-end justify-content-md-start py-3 cart-border">
+                            <span class="h5 mr-md-3 mb-0">NT$ 2,900</span>
+                            <a href="#" class="btn d-none d-md-block">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- 商品 2 -->
+                    <div class="py-3 d-flex flex-column flex-md-row">
+                        <!-- 圖與 form 水平排列 -->
+                        <div class="d-flex flex-md-grow-1 mr-md-3">
+                            <!-- to grow to fill available space -->
+                            <div class="bg-cover my-4 mr-4 flex-grow-1 flex-md-grow-0"
+                                style="background-image: url(./images/meat4.jpg); height: 110px; min-width: 110px;">
+                            </div>
+                            <!-- 外層 flex-md-grow-1 + Button ml-auto -->
+                            <div
+                                class="d-flex flex-column flex-md-row align-items-md-center 
+                                                                justify-content-center justify-content-md-between flex-md-grow-1">
+                                <!-- 金額 -->
+                                <div class="mr-md-4">
+                                    <span class="h5">飛驒牛燒烤片</span>
+                                    <br>
+                                    <span>NT$ 1,800</span>
+                                </div>
+                                <!-- 數量按鈕 -->
+                                <div class="input-group ml-md-auto mt-3 mt-md-0" style="width: 120px;">
+                                    <div class="input-group-prepend">
+                                        <button class="btn btn-primary" type="button">-</button>
                                     </div>
-                                </td>
-                                <td class="align-middle h5">飛驒牛燒烤片</td>
-                                <td class="align-middle">
-                                    <!-- 數量按鈕 -->
-                                    <div class="btn-group" role="group" aria-label="First group">
-                                        <button type="button" class="btn btn-outline-primary">-</button>
-                                        <button class="btn btn-outline-dark disabled">1</button>
-                                        <button type="button" class="btn btn-outline-primary">+</button>
+                                    <input type="text" class="form-control text-center" value="1">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-primary" type="button">+</button>
                                     </div>
-                                </td>
-                                <td class="align-middle text-right h5">$1,800</td>
-                            </tr>
-                        </tbody>
-                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- price -->
+                        <div
+                            class="d-flex align-items-center justify-content-end justify-content-md-start py-3 cart-border">
+                            <span class="h5 mr-md-3 mb-0">NT$ 1,800</span>
+                            <a href="#" class="btn d-none d-md-block">
+                                <i class="fa fa-trash" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4 mb-6 mb-md-0">
@@ -205,7 +222,7 @@
                 </div>
                 <!-- 右側 -->
                 <div class="col-md-6 p-md-0">
-                    <div class="input-group ml-auto" style="width: 445px;">
+                    <div class="input-group ml-auto subscribe-size">
                         <div class="input-group-prepend">
                             <span class="input-group-text bg-primary text-light border-0 pl-4" id="basic-addon"
                                 style="font-size: 18px; width: 60px;">

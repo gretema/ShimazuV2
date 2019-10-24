@@ -12338,6 +12338,16 @@ a.text-accent:hover, a.text-accent:focus {
   color: #f8f9fa;
 }
 
+.cart-border {
+  border-bottom: 1px solid #6c757d;
+}
+
+@media (min-width: 768px) {
+  .cart-border {
+    border: none;
+  }
+}
+
 .item-image {
   height: 315px;
   position: relative;
@@ -12514,5 +12524,11 @@ body {
 .dropdown-menu-right {
   right: 0;
   left: auto;
+}
+
+@media (min-width: 768px) {
+  .subscribe-size {
+    width: 445px;
+  }
 }
 /*# sourceMappingURL=all.css.map */

@@ -57,3 +57,10 @@ body {
   right: 0;
   left: auto;
 }
+
+// 訂閱 input
+.subscribe-size{
+  @media (min-width: 768px) {
+    width: 445px;
+  }
+}
