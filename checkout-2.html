@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="icon" href="images/logo_meat_metaicon.png" type="image/x-icon">
+    <title>島津燒肉 Shimazu - 付款資訊</title>
+    <link rel="stylesheet" href="stylesheets/all.css">
+    <script src="https://kit.fontawesome.com/11dc26bb6c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--導覽列-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <!-- menu toggle button -->
+            <button class="navbar-toggler d-flex align-items-center border-0 d-md-none" type="button"
+                data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <nav class="navbar navbar-dark bg-dark p-0">
+                <a class="navbar-brand d-flex justify-content-center align-items-center mr-0" href="./index.html">
+                    <img src="images/iconfinder_Food_C225_2427885.svg" class="d-none d-md-inline-block mr-3" height="35"
+                        alt="">
+                    <div class="d-inline-block d-flex flex-column">
+                        <h1 class="text-title mb-0" style="letter-spacing: 5px;">島津燒肉</h1>
+                        <span class="h6 align-self-center" style="letter-spacing: 5px;">Shimazu</span>
+                    </div>
+                </a>
+            </nav>
+            <!--購物車按鈕-->
+            <div class="dropdown order-md-3">
+                <button class="btn text-light btn-cart active" data-flip="false">
+                    <i class="fas fa-shopping-cart"></i>
+                </button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"
+                    style="min-width: 300px;">
+                    <div class="px-4 py-3">
+                        <h6>已選購商品</h6>
+                        <table class="table table-sm">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle text-center">
+                                        <a href="#removeModal" class="text-muted" data-toggle="modal"
+                                            data-target="#removeModal" data-title="薩摩丁骨牛排 1 份" data-backdrop="static">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                    <td class="align-middle">薩摩丁骨牛排</td>
+                                    <td class="align-middle">1 份</td>
+                                    <td class="align-middle text-center">$2,900</td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle text-center">
+                                        <a href="#removeModal" class="text-muted" data-toggle="modal"
+                                            data-target="#removeModal" data-title="飛驒牛燒烤片 1 份" data-backdrop="static">
+                                            <i class="fa fa-trash" aria-hidden="true"></i>
+                                        </a>
+                                    </td>
+                                    <td class="align-middle">飛驒牛燒烤片</td>
+                                    <td class="align-middle">1 份</td>
+                                    <td class="align-middle text-center">$1,800</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <a href="./cart.html" class="btn btn-block bg-primary text-white">結帳去</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index.html">首頁 <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./product.html">肉品</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./login.html" tabindex="-1" aria-disabled="true">登入</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mb-5">
+        <div class="row">
+            <div class="col-lg-8">
+                <form class="form bg-light p-5 needs-validation" novalidate>
+                    <!--第一排: 標題 & 步驟-->
+                    <div class="form-row my-4">
+                        <div class="col-6">
+                            <h2>付款資訊</h2>
+                        </div>
+                        <!-- process-steps -->
+                        <div class="col-6 d-flex align-items-center">
+                            <!-- 步驟軸用 w-100 把 block 佔滿，並用 flex 排列 -->
+                            <div class="process-steps d-flex justify-content-between w-100">
+                                <div class="process-circle completed"><i class="fas fa-check"></i></div>
+                                <div class="process-circle active"></div>
+                                <div class="process-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--第二排: 信用卡-->
+                    <div class="form-row mt-3">
+                        <div class="col">
+                            <label for="creditNumber" class="h4">信用卡卡號</label>
+                            <div class="input-group">
+                                <input type="text" class="form-control form-control-lg larger-form rounded-0"
+                                    placeholder="9012-3456-7890-1234" id="creditNumber" required>
+                                <div class="input-group-append">
+                                    <span class="input-group-text" style="font-size: 20px; padding: 0px 16px;"><i
+                                            class="far fa-credit-card"></i></span>
+                                </div>
+                                <div class="invalid-feedback">
+                                    信用卡號不可空白
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="cardName" class="h4 mt-2">持卡人姓名</label>
+                    <!--第三排: 持卡人姓名輸入-->
+                    <div class="form-row">
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-lg larger-form rounded-0"
+                                    placeholder="陳" id="cardName" required>
+                                <div class="invalid-feedback">
+                                    持卡人姓名不可空白
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-lg larger-form rounded-0"
+                                    placeholder="金發" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <label for="expYear" class="h4">有效期限</label>
+                    <!--第四排: 有效期限-->
+                    <div class="form-row">
+                        <div class="col-6">
+                            <div class="form-group">
+                                <select id="expYear" class="form-control form-control-lg larger-form rounded-0"
+                                    style="-webkit-appearance: none;" required>
+                                    <option>月</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <select id="expMonth" class="form-control form-control-lg larger-form rounded-0"
+                                    style="-webkit-appearance: none;" required>
+                                    <option>年</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-group">
+                                <label for="expDate" class="h4">安全碼</label>
+                                <input type="text" class="form-control form-control-lg larger-form rounded-0"
+                                    id="expDate" placeholder="123" required>
+                                <div class="invalid-feedback">
+                                    安全碼不可空白
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--第六排: 上一步 & 下一步-->
+                    <div class="form-row mt-5">
+                        <div class="col">
+                            <a href="./checkout-1.html"
+                                class="btn btn-block btn-primary btn-lg rounded-0 text-white py-3">上一步</a>
+                        </div>
+                        <div class="col">
+                            <a href="./checkout-3.html" id="submit-link"
+                                class="btn btn-block btn-primary btn-lg rounded-0 text-white py-3">下一步</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4 d-none d-lg-block">
+                <!-- 訂單摘要 -->
+                <div class="card mb-4 border-accent">
+                    <h2 class="card-header text-center text-light bg-accent">訂單摘要
+                    </h2>
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>小計</span>
+                            <span>NT$ 4,700</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3">
+                            <span>運費</span>
+                            <span>NT$ 200</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <span class="h5">總計</span>
+                            <span class="h5">NT$ 4,900</span>
+                        </div>
+                    </div>
+                </div>
+                <!--購物清單-->
+                <div class="card border-accent">
+                    <h2 class="card-header text-center text-light bg-accent">購物清單
+                    </h2>
+                    <div class="card-body p-2">
+                        <table class="table table-sm table-borderless">
+                            <tbody>
+                                <tr>
+                                    <td class="align-middle">
+                                        <div class="bg-cover"
+                                            style="background-image: url(./images/meat1.jpg); height: 80px; min-width: 80px;">
+                                        </div>
+                                    </td>
+                                    <td class="align-middle pl-2">
+                                        <span class="h5">薩摩丁骨牛排 (1)</span>
+                                        <br>
+                                        <span>$2,900</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="align-middle">
+                                        <div class="bg-cover"
+                                            style="background-image: url(./images/meat4.jpg); height: 80px; min-width: 80px;">
+                                        </div>
+                                    </td>
+                                    <td class="align-middle pl-2">
+                                        <span class="h5">飛驒牛燒烤片 (1)</span>
+                                        <br>
+                                        <span>$1,800</span>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 訂閱郵件 -->
+    <section class="py-5 bg-primary-light">
+        <div class="container">
+            <div class="row d-flex justify-content-between">
+                <!-- 左側 -->
+                <div
+                    class="col-md-6 d-flex align-items-center justify-content-center justify-content-md-start mb-4 mb-md-0">
+                    <img src="./images/iconfinder_Food_C225_2427885.svg" height="40">
+                    <span class="h4 text-white mb-0 mx-3" style="letter-spacing: 2px;">訂閱你我的鮮嫩郵件</span>
+                </div>
+                <!-- 右側 -->
+                <div class="col-md-6 p-md-0">
+                    <div class="input-group ml-auto" style="width: 445px;">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-primary text-light border-0 pl-4" id="basic-addon"
+                                style="font-size: 18px; width: 60px;">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                        </div>
+                        <input type="email" class="form-control custom-form-input p-5" aria-label="user's email"
+                            aria-describedby="button-addon">
+                        <div class="input-group-append">
+                            <button class="btn btn-primary p-3" type="submit" id="button-addon"
+                                style="font-size: 18px; width: 60px">
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <footer class="py-4 bg-accent">
+        <div class="container">
+            <!--上方-->
+            <div class="text-light d-flex justify-content-between">
+                <!--上左文字區-->
+                <div class="d-flex flex-column justify-content-between">
+                    <h2 class="mb-3 mb-md-0">島津燒肉 Shimazu</h2>
+                    <ul class="list-unstyled">
+                        <li>04-2345-6789</li>
+                        <li><a href="mailto:shimazu_yakiniku@email.com"
+                                class="text-light">shimazu_yakiniku@email.com</a>
+                        </li>
+                        <li>407 臺中市西屯區大墩 22 街 66 號</li>
+                    </ul>
+                </div>
+                <!--上右標語區-->
+                <h3 class="h5 writing-md-vertical text-title ml-auto mr-0 d-none d-md-block">今天是個——<br>　吃肉的好日子。</h3>
+            </div>
+
+            <!--下方-->
+            <div class="row mt-2 d-flex justify-content-md-between">
+                <div class="col-md-5">
+                    <a href="#" style="font-size: 32px;"><i class="fas fa-at"></i></a>
+                    <a href="#" style="font-size: 32px;"><i class="fab fa-facebook"></i></a>
+                </div>
+                <div class="col-md-5 p-md-0 d-flex justify-content-md-end">
+                    <span class="text-primary align-self-center">© 2019 Shimazu All Rights Reserved</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Remove Modal -->
+    <div class="modal fade" id="removeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content rounded-0">
+                <div class="modal-header bg-danger text-white">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h5>是否<strong>刪除</strong>該品項？</h5>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">確定</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--JS-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+    <script src="./js/all.js"></script>
+</body>
+
+</html>
