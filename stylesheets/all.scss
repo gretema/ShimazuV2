@@ -1,6 +1,6 @@
-@import "../bootstrap-4.2.1/scss/functions";
+@import "../node_modules/bootstrap/scss/functions";
 @import "./helpers/variables";
-@import "../bootstrap-4.2.1/scss/bootstrap";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
 
 // 主要區塊
 @import "./components/header";
