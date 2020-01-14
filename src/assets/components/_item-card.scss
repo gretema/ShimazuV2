@@ -1,0 +1,46 @@
+.item-image {
+  height: 315px;
+  position: relative;
+
+  .item-tag {
+    writing-mode: vertical-lr;
+    padding: 15px 10px;
+    color: $light;
+    letter-spacing: 5px;
+    line-height: 1.5;
+    // position
+    position: absolute;
+    left: 20px;
+    top: 0;
+    background-color: $primary;
+  }
+
+  .item-icon {
+    position: absolute;
+    top: 20px;
+    right: 22px;
+    font-size: 1.5em;
+    cursor: pointer;
+  }
+}
+
+.item-info {
+  background-color: $accent;
+  font-size: 1.25rem;
+  text-align: center;
+}
+
+.item-cart {
+  padding: 1rem 1rem;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  border: none;
+  // color
+  color: $light;
+  background-color: $primary;
+
+  &:hover {
+    background-color: $primary-light;
+    border: none;
+  }
+}
