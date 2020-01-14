@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <Header />
     <section class="section my-md-10">
       <!-- (標語) 在 md 以上隱藏 -->
       <div class="row justify-content-center d-md-none no-gutters my-5">
@@ -183,13 +184,12 @@
 </template>
 
 <script>
-// @ is an alias to /src
-// import HelloWorld from "@/components/HelloWorld.vue";
+import Header from "../components/Header.vue";
 
 export default {
-  name: "home"
-  // components: {
-  //   HelloWorld
-  // }
+  name: "home",
+  components: {
+    Header
+  }
 };
 </script>

@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <Navbar />
-    <Header />
     <router-view />
     <Subscribe />
     <Footer />
@@ -14,7 +13,6 @@
 
 <script>
 import Navbar from "./components/Navbar.vue";
-import Header from "./components/Header.vue";
 import Subscribe from "./components/Subscribe.vue";
 import Footer from "./components/Footer.vue";
 import CartRemoveModal from "./components/CartRemoveModal.vue";
@@ -22,7 +20,6 @@ import CartRemoveModal from "./components/CartRemoveModal.vue";
 export default {
   components: {
     Navbar,
-    Header,
     Subscribe,
     Footer,
     CartRemoveModal
