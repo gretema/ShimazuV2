@@ -281,11 +281,9 @@ export default {
       //products: [],
       tempProduct: {}, // 在 Modal 中的商品資訊
       isNew: false, // 先預設為 false
-      //isLoading: false,
       status: {
         fileUploading: false
       }
-      //pagination: {}
     };
   },
   computed: {
@@ -298,7 +296,7 @@ export default {
   },
   methods: {
     getProducts(page = 1) {
-      this.$store.dispatch("getProducts");
+      this.$store.dispatch("getProducts", page);
     },
     openModal(isNew, item) {
       if (isNew) {
