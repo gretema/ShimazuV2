@@ -17,7 +17,9 @@
             <div class="col-md-6 section-image-block">
               <div
                 class="bg-cover h-100 section-image"
-                style="background-image: url(../src/assets/images/meat6.jpg);"
+                :style="{
+                  backgroundImage: `url(${require('../assets/images/meat6.jpg')})`
+                }"
               ></div>
             </div>
             <!--垂直文字區-->
@@ -54,7 +56,9 @@
             <div class="col-md-6 section-image-block">
               <div
                 class="bg-cover h-100 section-image"
-                style="background-image: url(../src/assets/images/meat8.jpg);"
+                :style="{
+                  backgroundImage: `url(${require('../assets/images/meat8.jpg')})`
+                }"
               ></div>
             </div>
             <!--垂直文字區-->
@@ -99,7 +103,9 @@
             <!-- item-image -->
             <div
               class="item-image bg-cover"
-              style="background-image: url(../assets/images/meat1.jpg);"
+              :style="{
+                backgroundImage: `url(${require('../assets/images/meat1.jpg')})`
+              }"
             >
               <div class="item-tag">本日精選</div>
               <div class="item-icon text-primary">
@@ -127,7 +133,9 @@
             <!-- item-image -->
             <div
               class="item-image bg-cover"
-              style="background-image: url(../assets/images/meat2.jpg);"
+              :style="{
+                backgroundImage: `url(${require('../assets/images/meat2.jpg')})`
+              }"
             >
               <div class="item-tag">本日精選</div>
               <div class="item-icon text-primary">
@@ -155,7 +163,9 @@
             <!-- item-image -->
             <div
               class="item-image bg-cover"
-              style="background-image: url(../assets/images/meat4.jpg);"
+              :style="{
+                backgroundImage: `url(${require('../assets/images/meat4.jpg')})`
+              }"
             >
               <div class="item-tag">本日精選</div>
               <div class="item-icon text-primary">

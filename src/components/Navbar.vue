@@ -23,7 +23,7 @@
             <img
               src="../assets/images/iconfinder_Food_C225_2427885.svg"
               class="d-none d-md-inline-block mr-3"
-              height="35"
+              height="45"
               alt=""
             />
             <div class="d-inline-block d-flex flex-column">

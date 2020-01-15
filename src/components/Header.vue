@@ -4,7 +4,13 @@
     <header class="header">
       <div
         class="jumbotron jumbotron-fluid bg-cover d-flex align-items-center"
-        style="background-image: url('../assets/images/restaurant.jpg'); height: 496px;"
+        :style="[
+          {
+            backgroundImage:
+              'url(' + require('../assets/images/restaurant.jpg') + ')'
+          },
+          { height: '496px' }
+        ]"
       >
         <div class="container d-flex justify-content-center">
           <h1 class="text-hide">島津家，最頂級的和牛燒肉</h1>
@@ -25,7 +31,10 @@
                 <span class="frosted-text text-dark">本日精選</span>
                 <div
                   class="frosted-image bg-cover"
-                  style="background-image: url(./images/meat1.jpg)"
+                  :style="{
+                    backgroundImage:
+                      'url(' + require('../assets/images/meat1.jpg') + ')'
+                  }"
                 ></div>
               </a>
               <a
@@ -36,7 +45,9 @@
                 <span class="frosted-text text-dark">人氣推薦</span>
                 <div
                   class="frosted-image bg-cover"
-                  style="background-image: url(./images/meat2.jpg)"
+                  :style="{
+                    backgroundImage: `url(${require('../assets/images/meat2.jpg')})`
+                  }"
                 ></div>
               </a>
               <a
@@ -47,7 +58,9 @@
                 <span class="frosted-text text-dark">新品上市</span>
                 <div
                   class="frosted-image bg-cover"
-                  style="background-image: url(./images/meat4.jpg)"
+                  :style="{
+                    backgroundImage: `url(${require('../assets/images/meat4.jpg')})`
+                  }"
                 ></div>
               </a>
             </div>
