@@ -308,49 +308,13 @@ export default {
       this.$store.dispatch("openModal", { isNew, item });
     },
     updateProduct() {
-      // api 改用 let 宣告
-      let api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/product`;
-      // 先預設 http 方法為 post
-      let httpMethod = "post";
-      const vm = this;
-      // 如果是修改產品，就改用另一個 API 路徑跟方法
-      if (!vm.isNew) {
-        api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/product/${vm.tempProduct.id}`;
-        httpMethod = "put";
-      }
-      // http 方法用中括號變數選取
-      this.$http[httpMethod](api, { data: vm.tempProduct }).then(response => {
-        console.log(response.data);
-        if (response.data.success) {
-          $("#productModal").modal("hide");
-          vm.getProducts();
-        } else {
-          $("#productModal").modal("hide");
-          vm.getProducts();
-          console.log("新增失敗");
-        }
-      });
+      this.$store.dispatch("updateProduct");
     },
     deleteModal(item) {
-      // 將所點選的產品資料帶入
-      this.tempProduct = item;
-      // 開啟刪除產品 modal
-      $("#delProductModal").modal("show");
+      this.$store.dispatch("deleteModal", item);
     },
     delProduct() {
-      const vm = this;
-      const api = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/product/${vm.tempProduct.id}`;
-      this.$http.delete(api).then(response => {
-        if (response.data.success) {
-          console.log(response.data.message);
-          vm.getProducts();
-          $("#delProductModal").modal("hide");
-        } else {
-          console.log(response.data.message);
-          vm.getProducts();
-          $("#delProductModal").modal("hide");
-        }
-      });
+      this.$store.dispatch("delProduct");
     },
     uploadFile() {
       // console.log(this);

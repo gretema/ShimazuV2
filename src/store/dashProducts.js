@@ -2,7 +2,6 @@ import axios from "axios";
 import $ from "jquery";
 
 export default {
-  strict: true,
   state: {
     products: [],
     pagination: {},
@@ -26,6 +25,12 @@ export default {
         state.isNew = false;
       }
       $("#productModal").modal("show");
+    },
+    DELMODAL(state, item) {
+      // 將所點選的產品資料帶入
+      state.tempProduct = item;
+      // 開啟刪除產品 modal
+      $("#delProductModal").modal("show");
     }
   },
   actions: {
@@ -47,6 +52,48 @@ export default {
     },
     openModal(context, { isNew, item }) {
       context.commit("EDITPRODUCT", { isNew, item });
+    },
+    updateProduct(context) {
+      // api 改用 let 宣告
+      let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product`;
+      // 先預設 http 方法為 post
+      let httpMethod = "post";
+      // 如果是修改產品，就改用另一個 API 路徑跟方法
+      if (!context.state.isNew) {
+        api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${context.state.tempProduct.id}`;
+        httpMethod = "put";
+      }
+      // http 方法用中括號變數選取
+      axios[httpMethod](api, { data: context.state.tempProduct }).then(
+        response => {
+          console.log(response.data);
+          if (response.data.success) {
+            $("#productModal").modal("hide");
+            context.dispatch("getProducts");
+          } else {
+            $("#productModal").modal("hide");
+            context.dispatch("getProducts");
+            console.log("新增失敗");
+          }
+        }
+      );
+    },
+    deleteModal(context, item) {
+      context.commit("DELMODAL", item);
+    },
+    delProduct(context) {
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${context.state.tempProduct.id}`;
+      axios.delete(api).then(response => {
+        if (response.data.success) {
+          console.log(response.data.message);
+          context.dispatch("getProducts");
+          $("#delProductModal").modal("hide");
+        } else {
+          console.log(response.data.message);
+          context.dispatch("getProducts");
+          $("#delProductModal").modal("hide");
+        }
+      });
     }
   },
   modules: {}

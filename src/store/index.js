@@ -7,7 +7,6 @@ import dashProducts from "./dashProducts";
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-  strict: true,
   state: {
     isLoading: false
   },
