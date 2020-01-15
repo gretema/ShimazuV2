@@ -1,6 +1,5 @@
 <template>
   <div>
-    <loading :active.sync="isLoading"></loading>
     <div class="text-left mt-4">
       <button class="btn btn-primary" @click="openModal(true)">
         建立新產品
@@ -279,32 +278,27 @@ export default {
   },
   data() {
     return {
-      products: [],
+      //products: [],
       tempProduct: {}, // 在 Modal 中的商品資訊
       isNew: false, // 先預設為 false
-      isLoading: false,
+      //isLoading: false,
       status: {
         fileUploading: false
-      },
-      pagination: {}
+      }
+      //pagination: {}
     };
+  },
+  computed: {
+    products() {
+      return this.$store.state.products;
+    },
+    pagination() {
+      return this.$store.state.pagination;
+    }
   },
   methods: {
     getProducts(page = 1) {
-      // 該 API 透過分頁切換而取得產品列表
-      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/products?page=${page}`;
-      const vm = this;
-      // 開啟 loading
-      vm.isLoading = true;
-      this.$http.get(api).then(response => {
-        // console.log(response.data);
-        // 關閉 loading
-        vm.isLoading = false;
-        // 存到陣列裡
-        vm.products = response.data.products;
-        vm.pagination = response.data.pagination;
-        console.log(response.data);
-      });
+      this.$store.dispatch("getProducts");
     },
     openModal(isNew, item) {
       if (isNew) {
