@@ -17,7 +17,9 @@ import tw from "vee-validate/dist/locale/zh_TW.json";
 
 import App from "./App.vue";
 import router from "./router";
-import store from './store'
+import store from "./store";
+import "./bus";
+import currencyFilter from "./filters/currencyFilter.js";
 
 Vue.config.productionTip = false;
 
@@ -27,6 +29,8 @@ Vue.component("Loading", Loading); // 全域啟用 vue-loading-overlay
 Vue.component("ValidationProvider", ValidationProvider);
 Vue.component("ValidationObserver", ValidationObserver);
 localize("zh_TW", tw);
+
+Vue.filter("currency", currencyFilter); // 全域啟用 Filter
 
 // 將所有驗證條件加入 extend
 Object.keys(rules).forEach(rule => {
@@ -46,7 +50,7 @@ new Vue({
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requiresAuth) {
-    const api = `${process.env.APIPATH}/api/user/check`;
+    const api = `${process.env.VUE_APP_APIPATH}/api/user/check`;
     axios.post(api).then(response => {
       console.log(response.data);
       if (response.data.success) {

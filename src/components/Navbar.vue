@@ -16,12 +16,12 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <nav class="navbar navbar-dark bg-dark p-0">
-          <a
+          <router-link
             class="navbar-brand d-flex justify-content-center align-items-center mr-0"
-            href="./index.html"
+            to="/"
           >
             <img
-              src="images/iconfinder_Food_C225_2427885.svg"
+              src="../assets/images/iconfinder_Food_C225_2427885.svg"
               class="d-none d-md-inline-block mr-3"
               height="35"
               alt=""
@@ -34,7 +34,7 @@
                 >Shimazu</span
               >
             </div>
-          </a>
+          </router-link>
         </nav>
         <!--購物車按鈕-->
         <div class="dropdown order-md-3">
@@ -100,20 +100,18 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="./index.html"
-                >首頁 <span class="sr-only">(current)</span></a
-              >
+              <router-link class="nav-link" to="/">首頁 </router-link>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="./product.html">肉品</a>
             </li>
             <li class="nav-item">
-              <a
+              <router-link
                 class="nav-link"
-                href="./login.html"
+                to="/signin"
                 tabindex="-1"
                 aria-disabled="true"
-                >登入</a
+                >登入</router-link
               >
             </li>
           </ul>
