@@ -1,6 +1,7 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import axios from "axios";
+import $ from "jquery";
 
 Vue.use(Vuex);
 
@@ -9,7 +10,9 @@ export default new Vuex.Store({
   state: {
     isLoading: false,
     products: [],
-    pagination: {}
+    pagination: {},
+    tempProduct: {}, // 在 Modal 中的商品資訊
+    isNew: false // 先預設為 false
   },
   mutations: {
     LOADING(state, status) {
@@ -20,6 +23,17 @@ export default new Vuex.Store({
     },
     PAGINATION(state, payload) {
       state.pagination = payload;
+    },
+    EDITPRODUCT(state, { isNew, item }) {
+      if (isNew) {
+        state.tempProduct = {};
+        state.isNew = true;
+      } else {
+        // 把點選到的商品資訊 assign 給 Modal 顯示
+        state.tempProduct = Object.assign({}, item);
+        state.isNew = false;
+      }
+      $("#productModal").modal("show");
     }
   },
   actions: {
@@ -41,6 +55,9 @@ export default new Vuex.Store({
 
         console.log(response.data);
       });
+    },
+    openModal(context, { isNew, item }) {
+      context.commit("EDITPRODUCT", { isNew, item });
     }
   },
   modules: {}

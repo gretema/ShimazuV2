@@ -279,8 +279,8 @@ export default {
   data() {
     return {
       //products: [],
-      tempProduct: {}, // 在 Modal 中的商品資訊
-      isNew: false, // 先預設為 false
+      // tempProduct: {}, // 在 Modal 中的商品資訊
+      // isNew: false, // 先預設為 false
       status: {
         fileUploading: false
       }
@@ -292,6 +292,12 @@ export default {
     },
     pagination() {
       return this.$store.state.pagination;
+    },
+    isNew() {
+      return this.$store.state.isNew;
+    },
+    tempProduct() {
+      return this.$store.state.tempProduct;
     }
   },
   methods: {
@@ -299,15 +305,7 @@ export default {
       this.$store.dispatch("getProducts", page);
     },
     openModal(isNew, item) {
-      if (isNew) {
-        this.tempProduct = {};
-        this.isNew = true;
-      } else {
-        // 把點選到的商品資訊 assign 給 Modal 顯示
-        this.tempProduct = Object.assign({}, item);
-        this.isNew = false;
-      }
-      $("#productModal").modal("show");
+      this.$store.dispatch("openModal", { isNew, item });
     },
     updateProduct() {
       // api 改用 let 宣告
