@@ -288,16 +288,16 @@ export default {
   },
   computed: {
     products() {
-      return this.$store.state.products;
+      return this.$store.state.dashProducts.products;
     },
     pagination() {
-      return this.$store.state.pagination;
+      return this.$store.state.dashProducts.pagination;
     },
     isNew() {
-      return this.$store.state.isNew;
+      return this.$store.state.dashProducts.isNew;
     },
     tempProduct() {
-      return this.$store.state.tempProduct;
+      return this.$store.state.dashProducts.tempProduct;
     }
   },
   methods: {
