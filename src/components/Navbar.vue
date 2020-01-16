@@ -44,7 +44,9 @@
             data-flip="false"
           >
             <i class="fas fa-shopping-cart"></i>
-            <span class="badge badge-pill badge-danger">2</span>
+            <span class="badge badge-pill badge-danger">{{
+              cart.carts.length
+            }}</span>
           </button>
           <div
             class="dropdown-menu dropdown-menu-right"
@@ -53,59 +55,55 @@
           >
             <div class="px-4 py-3">
               <h6>已選購商品</h6>
-              <table class="table table-sm">
+              <table class="table table-sm" v-if="cart.carts.length">
                 <tbody>
-                  <tr>
+                  <tr v-for="item in cart.carts" :key="item.id">
                     <td class="align-middle text-center">
                       <a
-                        href="#removeModal"
+                        href="#"
                         class="text-muted"
-                        data-toggle="modal"
-                        data-target="#removeModal"
-                        data-title="薩摩丁骨牛排 1 份"
-                        data-backdrop="static"
+                        @click.prevent="removeCart(item.id)"
                       >
                         <i class="fa fa-trash" aria-hidden="true"></i>
                       </a>
                     </td>
-                    <td class="align-middle">薩摩丁骨牛排</td>
-                    <td class="align-middle">1 份</td>
-                    <td class="align-middle text-center">$2,900</td>
-                  </tr>
-                  <tr>
-                    <td class="align-middle text-center">
-                      <a
-                        href="#removeModal"
-                        class="text-muted"
-                        data-toggle="modal"
-                        data-target="#removeModal"
-                        data-title="飛驒牛燒烤片 1 份"
-                        data-backdrop="static"
-                      >
-                        <i class="fa fa-trash" aria-hidden="true"></i>
-                      </a>
+                    <td class="align-middle">{{ item.product.title }}</td>
+                    <td class="align-middle">
+                      {{ item.qty }}{{ item.product.unit }}
                     </td>
-                    <td class="align-middle">飛驒牛燒烤片</td>
-                    <td class="align-middle">1 份</td>
-                    <td class="align-middle text-center">$1,800</td>
+                    <td class="align-middle text-center">{{ item.total }}</td>
                   </tr>
                 </tbody>
               </table>
-              <a href="./cart.html" class="btn btn-block bg-primary text-white"
-                >結帳去</a
+              <router-link to="" class="btn btn-block bg-primary text-white"
+                >結帳去</router-link
               >
             </div>
           </div>
         </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <router-link class="nav-link" to="/">首頁 </router-link>
+            <li
+              class="nav-item"
+              :class="{ active: activeStatus == 'home' }"
+              @click="activeStatus = 'home'"
+            >
+              <router-link class="nav-link" to="/">
+                首頁
+              </router-link>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="./product.html">肉品</a>
+            <li
+              class="nav-item"
+              :class="{ active: activeStatus == 'products' }"
+              @click="activeStatus = 'products'"
+            >
+              <router-link class="nav-link" to="/products">肉品</router-link>
             </li>
-            <li class="nav-item">
+            <li
+              class="nav-item"
+              :class="{ active: activeStatus == 'login' }"
+              @click="activeStatus = 'login'"
+            >
               <router-link
                 class="nav-link"
                 to="/signin"
@@ -120,3 +118,32 @@
     </nav>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      activeStatus: "home"
+    };
+  },
+  methods: {
+    getCart() {
+      this.$store.dispatch("getCart");
+    },
+    removeCart(id) {
+      this.$store.dispatch("removeCart", id);
+    }
+  },
+  computed: {
+    isLoading() {
+      return this.$store.state.isLoading;
+    },
+    cart() {
+      return this.$store.state.cart;
+    }
+  },
+  created() {
+    this.getCart();
+  }
+};
+</script>

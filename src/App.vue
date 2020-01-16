@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <loading :active.sync="isLoading"></loading>
     <Navbar />
     <router-view />
     <Subscribe />
@@ -24,8 +25,10 @@ export default {
     Footer,
     CartRemoveModal
   },
-  created() {
-    //console.log(process.env.VUE_APP_APIPATH);
+  computed: {
+    isLoading() {
+      return this.$store.state.isLoading;
+    }
   }
 };
 </script>

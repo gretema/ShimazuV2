@@ -272,6 +272,7 @@
 <script>
 import $ from "jquery";
 import Pagination from "../components/Pagination.vue";
+
 export default {
   components: {
     Pagination: Pagination // 前為標籤名，後為引入的元件名
