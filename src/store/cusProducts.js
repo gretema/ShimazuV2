@@ -14,10 +14,10 @@ export default {
       });
       state.categories = Array.from(categories);
     },
-    PRODUCTS(state, payload) {
+    ALLPRODUCTS(state, payload) {
       state.products = payload;
     },
-    PAGINATION(state, payload) {
+    ALLPROPAGINATION(state, payload) {
       state.pagination = payload;
     }
   },
@@ -27,8 +27,8 @@ export default {
       context.commit("LOADING", true);
       axios.get(api).then(response => {
         context.commit("LOADING", false);
-        context.commit("DASHPRODUCTS", response.data.products);
-        context.commit("PAGINATION", response.data.pagination);
+        context.commit("ALLPRODUCTS", response.data.products);
+        context.commit("ALLPROPAGINATION", response.data.pagination);
         console.log(response.data);
       });
     }

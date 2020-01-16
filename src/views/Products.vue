@@ -143,14 +143,36 @@ import Pagination from "../components/Pagination.vue";
 
 export default {
   components: {
-    Pagination: Pagination // 前為標籤名，後為引入的元件名
+    Pagination: Pagination, // 前為標籤名，後為引入的元件名
+    searchText: ""
   },
   data() {
     return {};
   },
   computed: {
+    filterData() {
+      const vm = this;
+      if (vm.searchText) {
+        return vm.products.filter(item => {
+          const data = item.category
+            .toLowerCase()
+            .includes(vm.searchText.toLowerCase());
+          return data;
+        });
+      }
+      return this.products;
+    },
     pagination() {
       return this.$store.state.CustomerProducts.pagination;
+    },
+    cart() {
+      return this.$store.state.cart;
+    },
+    products() {
+      return this.$store.state.CustomerProducts.products;
+    },
+    categories() {
+      return this.$store.state.CustomerProducts.categories;
     }
   },
   methods: {

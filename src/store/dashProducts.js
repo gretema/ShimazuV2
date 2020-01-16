@@ -12,7 +12,7 @@ export default {
     DASHPRODUCTS(state, payload) {
       state.products = payload;
     },
-    PAGINATION(state, payload) {
+    DASHPROPAGINATION(state, payload) {
       state.pagination = payload;
     },
     EDITPRODUCT(state, { isNew, item }) {
@@ -45,7 +45,7 @@ export default {
         context.commit("LOADING", false);
         // 存到陣列裡
         context.commit("DASHPRODUCTS", response.data.products);
-        context.commit("PAGINATION", response.data.pagination);
+        context.commit("DASHPROPAGINATION", response.data.pagination);
         console.log(response.data);
       });
     },
