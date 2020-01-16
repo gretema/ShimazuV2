@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Dashboard from "../views/Dashboard.vue";
 import DashProducts from "../views/DashProducts.vue";
+import Coupon from "../views/Coupon.vue";
 
 Vue.use(VueRouter);
 
@@ -27,6 +28,12 @@ const routes = [
         path: "products",
         name: "DashProducts",
         component: DashProducts,
+        meta: { requiresAuth: true }
+      },
+      {
+        path: "coupons",
+        name: "Coupon",
+        component: Coupon,
         meta: { requiresAuth: true }
       }
     ]

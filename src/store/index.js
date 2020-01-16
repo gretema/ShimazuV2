@@ -3,6 +3,7 @@ import Vuex from "vuex";
 import axios from "axios";
 
 import dashProducts from "./dashProducts";
+import Coupons from "./coupons";
 
 Vue.use(Vuex);
 
@@ -21,6 +22,7 @@ export default new Vuex.Store({
     }
   },
   modules: {
-    dashProducts
+    dashProducts,
+    Coupons
   }
 });

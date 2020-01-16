@@ -26,7 +26,7 @@ export default {
       }
       $("#productModal").modal("show");
     },
-    DELMODAL(state, item) {
+    DELPROMODAL(state, item) {
       // 將所點選的產品資料帶入
       state.tempProduct = item;
       // 開啟刪除產品 modal
@@ -46,11 +46,10 @@ export default {
         // 存到陣列裡
         context.commit("DASHPRODUCTS", response.data.products);
         context.commit("PAGINATION", response.data.pagination);
-
         console.log(response.data);
       });
     },
-    openModal(context, { isNew, item }) {
+    openProModal(context, { isNew, item }) {
       context.commit("EDITPRODUCT", { isNew, item });
     },
     updateProduct(context) {
@@ -78,8 +77,8 @@ export default {
         }
       );
     },
-    deleteModal(context, item) {
-      context.commit("DELMODAL", item);
+    deleteProModal(context, item) {
+      context.commit("DELPROMODAL", item);
     },
     delProduct(context) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${context.state.tempProduct.id}`;

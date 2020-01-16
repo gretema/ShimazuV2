@@ -20,6 +20,7 @@ import router from "./router";
 import store from "./store";
 import "./bus";
 import currencyFilter from "./filters/currencyFilter.js";
+import dateFilter from "./filters/date.js";
 
 Vue.config.productionTip = false;
 
@@ -31,6 +32,7 @@ Vue.component("ValidationObserver", ValidationObserver);
 localize("zh_TW", tw);
 
 Vue.filter("currency", currencyFilter); // 全域啟用 Filter
+Vue.filter("date", dateFilter);
 
 // 將所有驗證條件加入 extend
 Object.keys(rules).forEach(rule => {

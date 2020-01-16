@@ -305,13 +305,13 @@ export default {
       this.$store.dispatch("getProducts", page);
     },
     openModal(isNew, item) {
-      this.$store.dispatch("openModal", { isNew, item });
+      this.$store.dispatch("openProModal", { isNew, item });
     },
     updateProduct() {
       this.$store.dispatch("updateProduct");
     },
     deleteModal(item) {
-      this.$store.dispatch("deleteModal", item);
+      this.$store.dispatch("deleteProModal", item);
     },
     delProduct() {
       this.$store.dispatch("delProduct");
