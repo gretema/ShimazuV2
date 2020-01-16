@@ -325,7 +325,7 @@ export default {
       // append() 裡第一個放上傳欄位的 name，第二個放要傳送的檔案
       formData.append("file-to-upload", uploadedFile);
       // 對應的路徑
-      const url = `${process.env.APIPATH}/api/${process.env.CUSTOMPATH}/admin/upload`;
+      const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`;
       // 開啟 loading 效果
       vm.status.fileUploading = true;
       // 設定傳送的格式
@@ -342,7 +342,10 @@ export default {
           if (response.data.success) {
             vm.$set(vm.tempProduct, "imageUrl", response.data.imageUrl);
           } else {
-            this.$bus.$emit("message:push", response.data.message, "danger");
+            // this.$bus.$emit("message:push", response.data.message, "danger");
+            let message = response.data.message;
+            let errorStatus = "danger";
+            this.$store.dispatch("updateMessage", { message, errorStatus });
           }
         });
     }

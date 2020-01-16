@@ -104,13 +104,7 @@
               :class="{ active: activeStatus == 'login' }"
               @click="activeStatus = 'login'"
             >
-              <router-link
-                class="nav-link"
-                to="/signin"
-                tabindex="-1"
-                aria-disabled="true"
-                >登入</router-link
-              >
+              <router-link class="nav-link" to="/signin">登入</router-link>
             </li>
           </ul>
         </div>

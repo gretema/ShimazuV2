@@ -1,9 +1,9 @@
 <template>
   <div>
-    <loading :active.sync="isLoading"></loading>
     <DashNavbar />
-    <Alert />
-    <div class="container-fluid">
+
+    <div class="container-fluid mt-8">
+      <Alert />
       <div class="row">
         <DashSidebar />
 
@@ -33,3 +33,9 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+.mt-8 {
+  margin-top: 80px;
+}
+</style>

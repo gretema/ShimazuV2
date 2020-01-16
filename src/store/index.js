@@ -13,7 +13,8 @@ export default new Vuex.Store({
     isLoading: false,
     cart: {
       carts: []
-    }
+    },
+    messages: []
   },
   mutations: {
     LOADING(state, status) {
@@ -21,6 +22,17 @@ export default new Vuex.Store({
     },
     CART(state, payload) {
       state.cart = payload;
+    },
+    MESSAGE(state, { message, status }) {
+      const timestamp = Math.floor(new Date() / 1000);
+      state.messages.push({
+        message,
+        status,
+        timestamp
+      });
+    },
+    REMOVEMESSAGE(state, num) {
+      state.messages.splice(num, 1);
     }
   },
   actions: {
@@ -59,6 +71,22 @@ export default new Vuex.Store({
         context.dispatch("getCart");
         console.log("加入購物車:", response);
       });
+    },
+    updateMessage(context, { message, status }) {
+      context.commit("MESSAGE", { message, status });
+      context.dispatch("removeMessageWithTiming", context.state.timestamp);
+    },
+    removeMessageWithTiming(context, timestamp) {
+      setTimeout(() => {
+        context.state.messages.forEach((item, i) => {
+          if (item.timestamp === timestamp) {
+            context.state.messages.splice(i, 1);
+          }
+        });
+      }, 5000);
+    },
+    removeMessage(context, num) {
+      context.dispatch("REMOVEMESSAGE", num);
     }
   },
   modules: {
