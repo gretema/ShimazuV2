@@ -30,12 +30,14 @@
           </div>
         </div>
         <!-- item-cart -->
-        <button
-          class="btn btn-block btn-primary item-cart"
-          @click="addtoCart(item.id)"
-        >
-          加入購物車
-        </button>
+        <slot>
+          <button
+            class="btn btn-block btn-primary item-cart"
+            @click="addtoCart(item.id)"
+          >
+            加入購物車
+          </button>
+        </slot>
       </div>
     </div>
   </div>

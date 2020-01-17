@@ -58,7 +58,14 @@
           <div class="tab-content">
             <div class="tab-pane active" id="all-product" role="tabpanel">
               <!--卡片元件-->
-              <ProductCard />
+              <ProductCard
+                ><button
+                  class="btn btn-block btn-primary item-cart"
+                  @click="addtoCart(item.id)"
+                >
+                  查看更多
+                </button>
+              </ProductCard>
             </div>
           </div>
 
