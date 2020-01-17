@@ -234,8 +234,15 @@ export default {
     coupons() {
       return this.$store.state.Coupons.coupons;
     },
-    due_date() {
-      return this.$store.state.Coupons.due_date;
+    due_date: {
+      // 如果用 computed 會只有 getter 沒有 setter，就不能雙向綁定更改資料
+      // 所以要改用這種方式註冊 getter 跟 setter
+      get() {
+        return this.$store.state.Coupons.due_date;
+      },
+      set(value) {
+        this.$store.commit("DUEDATE", value);
+      }
     },
     isNew() {
       return this.$store.state.Coupons.isNew;

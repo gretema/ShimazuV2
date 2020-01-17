@@ -22,7 +22,8 @@ export default {
     COUPONS(state, payload) {
       state.coupons = payload;
     },
-    DUEDATE(state) {
+    DUEDATE(state, value) {
+      state.due_date = value;
       const timestamp = Math.floor(new Date(state.due_date) / 1000);
       state.tempCoupon.due_date = timestamp;
     },
