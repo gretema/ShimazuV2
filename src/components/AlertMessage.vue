@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="message-alert">
     <div
       class="alert alert-dismissible"
       :class="'alert-' + item.status"
@@ -54,3 +54,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.message-alert {
+  position: fixed;
+  max-width: 50%;
+  top: 56px;
+  right: 20px;
+  z-index: 1100;
+}
+</style>

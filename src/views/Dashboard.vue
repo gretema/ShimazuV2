@@ -1,9 +1,8 @@
 <template>
   <div>
     <DashNavbar />
-
+    <Alert />
     <div class="container-fluid mt-8">
-      <Alert />
       <div class="row">
         <DashSidebar />
 
@@ -33,9 +32,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss">
-.mt-8 {
-  margin-top: 80px;
-}
-</style>

@@ -344,8 +344,8 @@ export default {
           } else {
             // this.$bus.$emit("message:push", response.data.message, "danger");
             let message = response.data.message;
-            let errorStatus = "danger";
-            this.$store.dispatch("updateMessage", { message, errorStatus });
+            let status = "danger";
+            this.$store.dispatch("updateMessage", { message, status });
           }
         });
     }

@@ -74,7 +74,8 @@ export default new Vuex.Store({
     },
     updateMessage(context, { message, status }) {
       context.commit("MESSAGE", { message, status });
-      context.dispatch("removeMessageWithTiming", context.state.timestamp);
+      const timestamp = Math.floor(new Date() / 1000);
+      context.dispatch("removeMessageWithTiming", timestamp);
     },
     removeMessageWithTiming(context, timestamp) {
       setTimeout(() => {
