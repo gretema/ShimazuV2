@@ -28,6 +28,7 @@ export default {
       axios.get(api).then(response => {
         context.commit("LOADING", false);
         context.commit("ALLPRODUCTS", response.data.products);
+        context.commit("CATEGORIES", response.data.products);
         context.commit("ALLPROPAGINATION", response.data.pagination);
         console.log(response.data);
       });

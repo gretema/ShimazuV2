@@ -36,25 +36,20 @@
           >
             <li class="list-group-item bg-accent text-light">商品類別</li>
             <a
-              class="list-group-item list-group-item-action active"
-              data-toggle="list"
-              href="#all-product"
-              role="tab"
-              >所有肉品 (12)</a
+              class="list-group-item list-group-item-action"
+              href="#"
+              @click.prevent="searchText = ''"
+              :class="{ active: searchText === '' }"
+              >所有商品</a
             >
             <a
               class="list-group-item list-group-item-action"
-              data-toggle="list"
-              href="#selected"
-              role="tab"
-              >本日精選 (3)</a
-            >
-            <a
-              class="list-group-item list-group-item-action"
-              data-toggle="list"
-              href="#recommand"
-              role="tab"
-              >人氣推薦 (9)</a
+              href="#"
+              v-for="item in categories"
+              :key="item"
+              :class="{ active: item === searchText }"
+              @click.prevent="searchText = item"
+              >{{ item }}</a
             >
           </div>
         </div>
@@ -63,14 +58,14 @@
           <div class="tab-content">
             <div class="tab-pane active" id="all-product" role="tabpanel">
               <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6" v-for="item in filterData" :key="item.id">
                   <div class="item-card mb-4">
                     <!-- item-image -->
                     <div
                       class="item-image bg-cover"
-                      style="background-image: url(./images/meat1.jpg);"
+                      :style="{ backgroundImage: `url(${item.image})` }"
                     >
-                      <div class="item-tag">本日精選</div>
+                      <div class="item-tag">{{ item.category }}</div>
                       <div class="item-icon text-primary">
                         <i class="far fa-heart heart-border"></i>
                         <i class="fas fa-heart heart-full d-none"></i>
@@ -80,47 +75,18 @@
                     <div
                       class="row no-gutters item-info text-light d-flex justify-content-center"
                     >
-                      <div class="col item-name p-3">薩摩丁骨牛排</div>
+                      <div class="col item-name p-3">{{ item.title }}</div>
                       <div class="col item-price text-strong p-3">
-                        <strong>NT$ 2,900</strong>
+                        <strong>NT {{ item.price | currency }}</strong>
                       </div>
                     </div>
                     <!-- item-cart -->
-                    <a href="#" class="btn btn-block btn-primary item-cart"
-                      >加入購物車</a
+                    <button
+                      class="btn btn-block btn-primary item-cart"
+                      @click="addtoCart(item.id)"
                     >
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="tab-pane" id="selected" role="tabpanel">
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="item-card mb-4">
-                    <!-- item-image -->
-                    <div
-                      class="item-image bg-cover"
-                      style="background-image: url(./images/meat1.jpg);"
-                    >
-                      <div class="item-tag">本日精選</div>
-                      <div class="item-icon text-primary">
-                        <i class="far fa-heart heart-border"></i>
-                        <i class="fas fa-heart heart-full d-none"></i>
-                      </div>
-                    </div>
-                    <!-- item-info -->
-                    <div
-                      class="row no-gutters item-info text-light d-flex justify-content-center"
-                    >
-                      <div class="col item-name p-3">薩摩丁骨牛排</div>
-                      <div class="col item-price text-strong p-3">
-                        <strong>NT$ 2,900</strong>
-                      </div>
-                    </div>
-                    <!-- item-cart -->
-                    <a href="#" class="btn btn-block btn-primary item-cart"
-                      >加入購物車</a
-                    >
+                      加入購物車
+                    </button>
                   </div>
                 </div>
               </div>

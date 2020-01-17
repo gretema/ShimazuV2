@@ -86,7 +86,7 @@ export default new Vuex.Store({
       }, 5000);
     },
     removeMessage(context, num) {
-      context.dispatch("REMOVEMESSAGE", num);
+      context.commit("REMOVEMESSAGE", num);
     }
   },
   modules: {
