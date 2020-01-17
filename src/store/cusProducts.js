@@ -4,7 +4,8 @@ export default {
   state: {
     categories: [],
     products: [],
-    pagination: {}
+    pagination: {},
+    searchText: ""
   },
   mutations: {
     CATEGORIES(state, payload) {
@@ -19,6 +20,9 @@ export default {
     },
     ALLPROPAGINATION(state, payload) {
       state.pagination = payload;
+    },
+    SEARCHTEXT(state, payload) {
+      state.searchText = payload;
     }
   },
   actions: {
@@ -32,6 +36,9 @@ export default {
         context.commit("ALLPROPAGINATION", response.data.pagination);
         console.log(response.data);
       });
+    },
+    getText(context, text) {
+      context.commit("SEARCHTEXT", text);
     }
   }
 };
