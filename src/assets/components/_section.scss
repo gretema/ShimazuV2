@@ -18,9 +18,5 @@
   .vertical-content {
     max-height: 420px;
     line-height: 2;
-
-    @media (min-width: 768px) {
-      line-height: 2.5;
-    }
   }
 }
