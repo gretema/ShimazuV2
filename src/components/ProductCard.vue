@@ -5,7 +5,7 @@
         <!-- item-image -->
         <div
           class="item-image bg-cover"
-          :style="{ backgroundImage: `url(${item.image})` }"
+          :style="{ backgroundImage: `url(${item.imageUrl})` }"
         >
           <div class="item-tag">{{ item.category }}</div>
           <div class="item-icon text-primary">

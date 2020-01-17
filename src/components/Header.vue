@@ -27,7 +27,12 @@
         >
           <div class="col-md-10">
             <div class="row">
-              <a href="#" class="col frosted-wrap active">
+              <a
+                href="#"
+                class="col frosted-wrap"
+                @click.prevent="getText('本日精選')"
+                :class="{ active: searchText === '本日精選' }"
+              >
                 <span class="frosted-text text-dark">本日精選</span>
                 <div
                   class="frosted-image bg-cover"
@@ -41,6 +46,8 @@
                 href="#"
                 class="col frosted-wrap"
                 style="border-left: 1px solid #3a3226;"
+                @click.prevent="getText('人氣推薦')"
+                :class="{ active: searchText === '人氣推薦' }"
               >
                 <span class="frosted-text text-dark">人氣推薦</span>
                 <div
@@ -54,6 +61,8 @@
                 href="#"
                 class="col frosted-wrap"
                 style="border-left: 1px solid #3a3226;"
+                @click.prevent="getText('新品上市')"
+                :class="{ active: searchText === '新品上市' }"
               >
                 <span class="frosted-text text-dark">新品上市</span>
                 <div
@@ -70,3 +79,21 @@
     </header>
   </div>
 </template>
+
+<script>
+export default {
+  data() {
+    return {};
+  },
+  computed: {
+    searchText() {
+      return this.$store.state.CustomerProducts.searchText;
+    }
+  },
+  methods: {
+    getText(cateText) {
+      this.$store.dispatch("getText", cateText);
+    }
+  }
+};
+</script>
