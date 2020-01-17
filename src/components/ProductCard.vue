@@ -1,6 +1,13 @@
 <template>
   <div class="row">
-    <div class="col-md-6" v-for="item in filterData" :key="item.id">
+    <div
+      :class="[
+        { 'col-md-6': thisPage == 'productCard' },
+        { 'col-md-4': thisPage == 'homeCard' }
+      ]"
+      v-for="item in filterData"
+      :key="item.id"
+    >
       <div class="item-card mb-4">
         <!-- item-image -->
         <div
@@ -37,7 +44,9 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      thisPage: ""
+    };
   },
   computed: {
     filterData() {
@@ -62,6 +71,14 @@ export default {
   methods: {
     addtoCart(id, qty = 1) {
       this.$store.dispatch("addtoCart", { id, qty });
+    }
+  },
+  mounted() {
+    let path = this.$route.path;
+    if (path == "/") {
+      this.thisPage = "homeCard";
+    } else {
+      this.thisPage = "productCard";
     }
   }
 };

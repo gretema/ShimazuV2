@@ -98,98 +98,7 @@
 
     <!--Item Card-->
     <div class="container my-5 my-7">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="item-card mb-4">
-            <!-- item-image -->
-            <div
-              class="item-image bg-cover"
-              :style="{
-                backgroundImage: `url(${require('../assets/images/meat1.jpg')})`
-              }"
-            >
-              <div class="item-tag">本日精選</div>
-              <div class="item-icon text-primary">
-                <i class="far fa-heart heart-border"></i>
-                <i class="fas fa-heart heart-full d-none"></i>
-              </div>
-            </div>
-            <!-- item-info -->
-            <div
-              class="row no-gutters item-info text-light d-flex justify-content-center"
-            >
-              <div class="col item-name p-3">薩摩丁骨牛排</div>
-              <div class="col item-price text-strong p-3">
-                <strong>NT$ 2,900</strong>
-              </div>
-            </div>
-            <!-- item-cart -->
-            <a href="#" class="btn btn-block btn-primary item-cart"
-              >加入購物車</a
-            >
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="item-card mb-4">
-            <!-- item-image -->
-            <div
-              class="item-image bg-cover"
-              :style="{
-                backgroundImage: `url(${require('../assets/images/meat2.jpg')})`
-              }"
-            >
-              <div class="item-tag">本日精選</div>
-              <div class="item-icon text-primary">
-                <i class="far fa-heart heart-border"></i>
-                <i class="fas fa-heart heart-full d-none"></i>
-              </div>
-            </div>
-            <!-- item-info -->
-            <div
-              class="row no-gutters item-info text-light d-flex justify-content-center"
-            >
-              <div class="col item-name p-3">石垣沙朗牛排</div>
-              <div class="col item-price text-strong p-3">
-                <strong>NT$ 2,500</strong>
-              </div>
-            </div>
-            <!-- item-cart -->
-            <a href="#" class="btn btn-block btn-primary item-cart"
-              >加入購物車</a
-            >
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="item-card mb-4">
-            <!-- item-image -->
-            <div
-              class="item-image bg-cover"
-              :style="{
-                backgroundImage: `url(${require('../assets/images/meat4.jpg')})`
-              }"
-            >
-              <div class="item-tag">本日精選</div>
-              <div class="item-icon text-primary">
-                <i class="far fa-heart heart-border"></i>
-                <i class="fas fa-heart heart-full d-none"></i>
-              </div>
-            </div>
-            <!-- item-info -->
-            <div
-              class="row no-gutters item-info text-light d-flex justify-content-center"
-            >
-              <div class="col item-name p-3">飛驒牛燒烤片</div>
-              <div class="col item-price text-strong p-3">
-                <strong>NT$ 1,800</strong>
-              </div>
-            </div>
-            <!-- item-cart -->
-            <a href="#" class="btn btn-block btn-primary item-cart"
-              >加入購物車</a
-            >
-          </div>
-        </div>
-      </div>
+      <ProductCard />
     </div>
 
     <Subscribe />
@@ -202,6 +111,7 @@ import Navbar from "../components/Navbar.vue";
 import Header from "../components/Header.vue";
 import Subscribe from "../components/Subscribe.vue";
 import Footer from "../components/Footer.vue";
+import ProductCard from "../components/ProductCard.vue";
 
 export default {
   name: "home",
@@ -209,7 +119,8 @@ export default {
     Header,
     Navbar,
     Subscribe,
-    Footer
+    Footer,
+    ProductCard
   }
 };
 </script>
