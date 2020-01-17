@@ -94,6 +94,9 @@ export default {
     getText(cateText) {
       this.$store.dispatch("getText", cateText);
     }
+  },
+  mounted() {
+    this.getText("本日精選");
   }
 };
 </script>
