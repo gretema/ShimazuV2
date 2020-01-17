@@ -146,6 +146,7 @@ export default {
   created() {
     this.getProducts();
     this.getCart();
+    this.getText("");
   }
 };
 </script>
