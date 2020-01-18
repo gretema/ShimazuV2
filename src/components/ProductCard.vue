@@ -3,7 +3,7 @@
     <div
       :class="[
         { 'col-md-6': thisPage == 'productCard' },
-        { col: thisPage == 'homeCard' }
+        { 'col-md-4': thisPage == 'homeCard' }
       ]"
       v-for="item in filterData"
       :key="item.id"

@@ -26,7 +26,7 @@
               height="45"
               alt=""
             />
-            <div class="d-inline-block d-flex flex-column">
+            <div class="d-inline-block d-flex flex-column nav-title">
               <h1 class="text-title mb-0" style="letter-spacing: 5px;">
                 島津燒肉
               </h1>
@@ -141,3 +141,13 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.nav-title {
+  @media (max-width: 576px) {
+    h1 {
+      font-size: 32px;
+    }
+  }
+}
+</style>
