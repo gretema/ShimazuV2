@@ -1,9 +1,11 @@
 // variables
 $bg-color: #3a3226;
 $font-family: 
-/*1. 系統預設字體*/ -apple-system, BlinkMacSystemFont, /*2. 指定已知的系統 UI 字體*/ "YU Gothic",
-  "Microsoft JhengHei", "Segoe UI", "Roboto", "Helvetica Neue", Arial, /*3. 備援字體*/ sans-serif, "Apple Color Emoji",
-  "Segoe UI Emoji", "Segoe UI Symbol";
+/*1. 指定已知的系統 UI 字體*/ "YU Gothic", "Microsoft JhengHei",
+  "Segoe UI", "Roboto", "Helvetica Neue", Arial,
+  /*2. 系統預設字體*/ -apple-system, BlinkMacSystemFont,
+  /*3. 備援字體*/ sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+  "Segoe UI Symbol";
 // 修改 $primary 值, 新增 $primary-light
 
 // background
@@ -59,7 +61,7 @@ body {
 }
 
 // 訂閱 input
-.subscribe-size{
+.subscribe-size {
   @media (min-width: 768px) {
     width: 445px;
   }

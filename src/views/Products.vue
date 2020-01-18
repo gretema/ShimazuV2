@@ -58,14 +58,7 @@
           <div class="tab-content">
             <div class="tab-pane active" id="all-product" role="tabpanel">
               <!--卡片元件-->
-              <ProductCard
-                ><button
-                  class="btn btn-block btn-primary item-cart"
-                  @click="addtoCart(item.id)"
-                >
-                  查看更多
-                </button>
-              </ProductCard>
+              <ProductCard> </ProductCard>
             </div>
           </div>
 
@@ -104,27 +97,13 @@ export default {
     };
   },
   computed: {
-    // filterData() {
-    //   const vm = this;
-    //   if (vm.searchText) {
-    //     return vm.products.filter(item => {
-    //       const data = item.category
-    //         .toLowerCase()
-    //         .includes(vm.searchText.toLowerCase());
-    //       return data;
-    //     });
-    //   }
-    //   return this.products;
-    // },
     pagination() {
       return this.$store.state.CustomerProducts.pagination;
     },
     cart() {
       return this.$store.state.cart;
     },
-    // products() {
-    //   return this.$store.state.CustomerProducts.products;
-    // },
+
     categories() {
       return this.$store.state.CustomerProducts.categories;
     },
@@ -139,10 +118,6 @@ export default {
     getCart() {
       this.$store.dispatch("getCart");
     },
-    // 取得單一產品頁還沒寫
-    // addtoCart(id, qty = 1) {
-    //   this.$store.dispatch("addtoCart", { id, qty });
-    // },
     removeItem(id) {
       this.$store.dispatch("removeCart", id);
     },

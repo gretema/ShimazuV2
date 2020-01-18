@@ -30,14 +30,23 @@
           </div>
         </div>
         <!-- item-cart -->
-        <slot>
-          <button
-            class="btn btn-block btn-primary item-cart"
-            @click="addtoCart(item.id)"
-          >
-            加入購物車
-          </button>
-        </slot>
+
+        <button
+          v-if="thisPage == 'homeCard'"
+          class="btn btn-block btn-primary item-cart"
+          @click="addtoCart(item.id)"
+        >
+          加入購物車
+          <i class="fas fa-spinner fa-spin" v-if="loadingItem === item.id"></i>
+        </button>
+        <button
+          v-else
+          class="btn btn-block btn-primary item-cart"
+          @click="openSingleProduct(item.id)"
+        >
+          查看更多
+          <i class="fas fa-spinner fa-spin" v-if="loadingItem === item.id"></i>
+        </button>
       </div>
     </div>
   </div>
@@ -68,11 +77,18 @@ export default {
     },
     products() {
       return this.$store.state.CustomerProducts.products;
+    },
+    loadingItem() {
+      return this.$store.state.CustomerProducts.status.loadingItem;
     }
   },
   methods: {
     addtoCart(id, qty = 1) {
       this.$store.dispatch("addtoCart", { id, qty });
+    },
+    // 取得單一產品頁
+    openSingleProduct(id) {
+      this.$router.push(`/products/${id}`);
     }
   },
   mounted() {

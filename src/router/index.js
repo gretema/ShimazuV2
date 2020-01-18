@@ -4,6 +4,7 @@ import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Products from "../views/Products.vue";
+import SingleProduct from "../views/SingleProduct.vue";
 
 import Dashboard from "../views/Dashboard.vue";
 import DashProducts from "../views/DashProducts.vue";
@@ -26,6 +27,11 @@ const routes = [
     path: "/products",
     name: "Products",
     component: Products
+  },
+  {
+    path: "/products/:productId",
+    name: "SingleProduct",
+    component: SingleProduct
   },
   {
     path: "/admin",
