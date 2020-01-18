@@ -11,7 +11,7 @@
             class="bg-cover"
             :style="[
               { backgroundImage: `url(${singleProduct.imageUrl})` },
-              { height: '350px' }
+              { height: '380px' }
             ]"
           ></div>
           <h3 class="h4 py-3 text-white">產品特色</h3>
@@ -40,7 +40,12 @@
                 >{{ num }} {{ singleProduct.unit }}</option
               >
             </select>
-            <button type="submit" class="btn btn-primary" id="button-addCart">
+            <button
+              type="submit"
+              class="btn btn-primary"
+              id="button-addCart"
+              @click="addtoCart(singleProduct.id, singleProduct.num)"
+            >
               加入購物車
             </button>
           </div>
@@ -80,18 +85,28 @@ export default {
         vm.$store.commit("LOADING", false);
         vm.singleProduct = response.data.product;
       });
+    },
+    getCart() {
+      this.$store.dispatch("getCart");
+    },
+    removeItem(id) {
+      this.$store.dispatch("removeCart", id);
+    },
+    addtoCart(id, qty = 1) {
+      this.$store.dispatch("addtoCart", { id, qty });
     }
   },
   created() {
     this.id = this.$route.params.productId;
     this.getSingleProduct();
+    this.getCart();
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .buy-area {
-  height: 350px;
+  height: 380px;
   @media (max-width: 576px) {
     height: auto;
   }
