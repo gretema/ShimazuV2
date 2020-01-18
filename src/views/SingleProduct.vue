@@ -1,20 +1,28 @@
 <template>
   <div>
     <Navbar />
-    <div class="container mb-12 py-4">
-      <div class="row" style="height: 400px;">
+    <div class="container mb-10 py-4">
+      <div class="row">
         <div class="col-md-7 mb-5">
+          <h2 class="h3 text-center bg-accent text-white p-2 d-md-none">
+            {{ singleProduct.title }}
+          </h2>
           <div
-            class="bg-cover h-100"
-            :style="{ backgroundImage: `url(${singleProduct.imageUrl})` }"
+            class="bg-cover"
+            :style="[
+              { backgroundImage: `url(${singleProduct.imageUrl})` },
+              { height: '350px' }
+            ]"
           ></div>
           <h3 class="h4 py-3 text-white">產品特色</h3>
           <p class="text-white">{{ singleProduct.content }}</p>
         </div>
-        <div class="col-md-5 bg-white py-3">
-          <h2>{{ singleProduct.title }}</h2>
-          <p>{{ singleProduct.description }}</p>
-          <div class="d-flex align-items-end">
+        <div class="col-md-5 py-3 bg-white buy-area">
+          <h2 class="d-none d-md-block">{{ singleProduct.title }}</h2>
+          <p class="d-none d-md-block">{{ singleProduct.description }}</p>
+          <div
+            class="mb-2 mb-md-0 d-flex align-items-end justify-content-center justify-content-md-start"
+          >
             <del class="text-muted mr-3"
               >原價 {{ singleProduct.origin_price | currency }}</del
             >
@@ -25,21 +33,21 @@
               >
             </div>
           </div>
-          <hr />
+          <hr class="d-none d-md-block" />
           <div class="input-group mb-3">
             <select class="form-control mr-1" v-model="singleProduct.num">
               <option :value="num" v-for="num in 10" :key="num"
                 >{{ num }} {{ singleProduct.unit }}</option
               >
             </select>
-            <button type="submit" class="btn btn-secondary" id="button-addCart">
+            <button type="submit" class="btn btn-primary" id="button-addCart">
               加入購物車
             </button>
           </div>
         </div>
       </div>
     </div>
-
+    <Subscribe />
     <Footer />
   </div>
 </template>
@@ -80,3 +88,12 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+.buy-area {
+  height: 350px;
+  @media (max-width: 576px) {
+    height: auto;
+  }
+}
+</style>
