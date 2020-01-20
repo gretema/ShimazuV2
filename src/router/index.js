@@ -9,6 +9,7 @@ import Checkout from "../views/Checkout.vue";
 import Cart from "../views/Cart.vue";
 import CustomerInfo from "../views/CustomerInfo.vue";
 import Payment from "../views/Payment.vue";
+import PaySuccess from "../views/PaySuccess.vue";
 
 import Dashboard from "../views/Dashboard.vue";
 import DashProducts from "../views/DashProducts.vue";
@@ -57,6 +58,11 @@ const routes = [
         component: Payment
       }
     ]
+  },
+  {
+    path: "/paysuccess",
+    name: "PaySuccess",
+    component: PaySuccess
   },
   {
     path: "/admin",

@@ -1,8 +1,8 @@
 <template>
   <div>
     <div class="container mb-5">
-      <div class="row">
-        <div class="col-lg-8">
+      <div class="row justify-content-center">
+        <div class="col-lg-10">
           <ValidationObserver
             class="form bg-light p-5"
             v-slot="{ invalid }"
@@ -125,6 +125,7 @@
                     type="text"
                     id="expYear"
                     placeholder="01"
+                    :class="{ 'is-invalid': failed }"
                     class="form-control form-control-lg larger-form rounded-0"
                   />
                   <div class="text-danger">
@@ -144,6 +145,7 @@
                     type="text"
                     id="expMonth"
                     placeholder="22"
+                    :class="{ 'is-invalid': failed }"
                     class="form-control form-control-lg larger-form rounded-0"
                   />
                   <div class="text-danger">
@@ -162,6 +164,7 @@
                   <label for="expDate" class="h4">安全碼</label>
                   <input
                     type="text"
+                    :class="{ 'is-invalid': failed }"
                     class="form-control form-control-lg larger-form rounded-0"
                     id="expDate"
                     placeholder="123"
@@ -202,12 +205,29 @@
 
 <script>
 export default {
+  data() {
+    return {
+      orderId: ""
+    };
+  },
   methods: {
     getCart() {
       this.$store.dispatch("getCart");
+    },
+    payOrder() {
+      const vm = this;
+      const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/pay/${vm.orderId}`;
+      this.$store.commit("LOADING", true);
+      this.$http.post(api).then(response => {
+        if (response.data.success) {
+          vm.$router.push("/paysuccess");
+        }
+        this.$store.commit("LOADING", false);
+      });
     }
   },
   created() {
+    this.orderId = this.$route.params.orderId;
     this.getCart();
   }
 };

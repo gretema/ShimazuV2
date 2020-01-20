@@ -18,7 +18,9 @@
               <div class="col-6 d-flex align-items-center">
                 <!-- 步驟軸用 w-100 把 block 佔滿，並用 flex 排列 -->
                 <div class="process-steps d-flex justify-content-between w-100">
-                  <div class="process-circle completed"></div>
+                  <div class="process-circle completed">
+                    <i class="fas fa-check"></i>
+                  </div>
                   <div class="process-circle active"></div>
                   <div class="process-circle"></div>
                 </div>
@@ -217,7 +219,7 @@
                     <td class="align-middle pl-2">
                       <span class="h5">{{ item.product.title }}</span>
                       <br />
-                      <span>{{ item.qty }} {{ item.product.unit }}</span>
+                      <small>{{ item.qty }} {{ item.product.unit }}</small>
                       <br />
                       <span>{{ item.total | currency }}</span>
                     </td>

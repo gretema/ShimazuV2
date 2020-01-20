@@ -55,6 +55,7 @@
           >
             <div class="px-4 py-3">
               <h6>已選購商品</h6>
+              <small v-if="!cart.carts.length">快餵車車吃肉肉！</small>
               <table class="table table-sm" v-if="cart.carts.length">
                 <tbody>
                   <tr v-for="item in cart.carts" :key="item.id">
@@ -76,6 +77,7 @@
                 </tbody>
               </table>
               <router-link
+                v-if="cart.carts.length"
                 to="/cart"
                 class="btn btn-block bg-primary text-white"
                 >結帳去</router-link

@@ -36,6 +36,7 @@
           <hr class="d-none d-md-block" />
           <div class="input-group mb-3">
             <select class="form-control mr-1" v-model="singleProduct.num">
+              <option disabled>請選擇數量</option>
               <option :value="num" v-for="num in 10" :key="num"
                 >{{ num }} {{ singleProduct.unit }}</option
               >
