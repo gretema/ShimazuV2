@@ -1,0 +1,221 @@
+<template>
+  <div>
+    <Navbar />
+    <Alert />
+    <div class="container my-md-5">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="form-row py-4 mb-0 mx-0 bg-primary">
+            <div class="col-6">
+              <h2 class="h4 pl-3 text-left text-light">
+                您的購物車
+              </h2>
+            </div>
+            <div class="col-6 d-flex align-items-center pr-3">
+              <!-- 步驟軸用 w-100 把 block 佔滿，並用 flex 排列 -->
+              <div class="process-steps d-flex justify-content-between w-100">
+                <div class="process-circle active"></div>
+                <div class="process-circle"></div>
+                <div class="process-circle"></div>
+              </div>
+            </div>
+          </div>
+
+          <!--表格會在行動版破版，所以不用-->
+          <div class="bg-light p-3">
+            <div
+              class="py-3 d-flex flex-column flex-md-row"
+              v-for="item in cart.carts"
+              :key="item.id"
+            >
+              <!-- 圖與 form 水平排列 -->
+              <div class="d-flex flex-md-grow-1 mr-md-3">
+                <!-- to grow to fill available space -->
+                <div
+                  class="bg-cover my-4 mr-4 flex-grow-1 flex-md-grow-0"
+                  :style="[
+                    { backgroundImage: `url(${item.product.imageUrl})` },
+                    { height: '110px' },
+                    { minWidth: '110px' }
+                  ]"
+                ></div>
+                <div
+                  class="d-flex flex-column flex-md-row align-items-md-center 
+                         justify-content-center justify-content-md-between flex-md-grow-1"
+                >
+                  <!-- 品項 -->
+                  <div class="mr-md-4">
+                    <span class="h5">{{ item.product.title }}</span>
+                    <br />
+                    <span>{{ item.product.price | currency }}</span>
+                  </div>
+                  <!-- 數量 -->
+                  <div
+                    class="input-group ml-md-auto mt-3 mt-md-0"
+                    style="width: 120px;"
+                  >
+                    <span>{{ item.qty }} {{ item.product.unit }}</span>
+                  </div>
+                </div>
+              </div>
+              <!-- price -->
+              <div
+                class="d-flex align-items-center justify-content-end justify-content-md-start py-3 cart-border"
+              >
+                <span class="h5 mr-md-3 mb-0">{{ item.total | currency }}</span>
+                <a
+                  href="#"
+                  class="btn d-none d-md-block"
+                  @click.prevent="removeCart(item.id)"
+                >
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 mb-6 mb-md-0">
+          <div class="text-light bg-accent p-3">
+            <h1 class="h4 text-center py-3 bg-primary-lighter bg-md-primary">
+              訂單摘要
+            </h1>
+            <hr class="border-white mt-0" />
+            <div class="d-flex justify-content-between mb-2">
+              <span>小計</span>
+              <span>{{ cart.total | currency }}</span>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <span>運費</span>
+              <span>免運費</span>
+            </div>
+            <div class="input-group mb-3 input-group-sm">
+              <input
+                type="text"
+                class="form-control"
+                v-model="coupon_code"
+                placeholder="請輸入優惠碼"
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-primary"
+                  type="button"
+                  @click="addCoupon"
+                >
+                  套用
+                </button>
+              </div>
+            </div>
+            <div class="d-flex justify-content-between">
+              <span class="h5">總計</span>
+              <span class="h5">{{ cart.final_total | currency }}</span>
+            </div>
+          </div>
+          <!-- 結帳按鈕 -->
+          <a
+            href="./checkout-1.html"
+            class="btn btn-block btn-lg btn-primary rounded-0 text-white mx-md-0 py-3"
+            >結帳</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <Subscribe />
+    <Footer />
+  </div>
+</template>
+
+<script>
+import Navbar from "../components/Navbar.vue";
+import Subscribe from "../components/Subscribe.vue";
+import Footer from "../components/Footer.vue";
+import Alert from "../components/AlertMessage.vue";
+
+export default {
+  components: {
+    Navbar,
+    Subscribe,
+    Footer,
+    Alert
+  },
+  data() {
+    return {
+      coupon_code: ""
+    };
+  },
+  methods: {
+    getCart() {
+      this.$store.dispatch("getCart");
+    },
+    removeCart(id) {
+      this.$store.dispatch("removeCart", id);
+    },
+    addCoupon() {
+      const vm = this;
+      const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/coupon`;
+      const coupon = {
+        code: vm.coupon_code
+      };
+      this.$store.commit("LOADING", true);
+      this.$http.post(url, { data: coupon }).then(response => {
+        console.log(response);
+        vm.getCart();
+        vm.$store.commit("LOADING", false);
+        if (!response.data.success) {
+          let message = response.data.message;
+          let status = "danger";
+          vm.$store.dispatch("updateMessage", { message, status });
+        }
+      });
+    }
+  },
+  computed: {
+    isLoading() {
+      return this.$store.state.isLoading;
+    },
+    cart() {
+      return this.$store.state.cart;
+    }
+  },
+  created() {
+    this.getCart();
+  }
+};
+</script>
+
+<style lang="scss" scoped>
+.form-control {
+  border-radius: 0;
+}
+.input-group-append > .btn {
+  border-radius: 0;
+}
+.process-steps {
+  // 細細的橫線
+  &::after {
+    background-color: white;
+  }
+
+  // 三個空圈圈
+  .process-circle {
+    border: 2px solid white;
+  }
+
+  // 當前頁面 (實心圈圈)
+  .active {
+    border-color: white; // 改顏色 讓當前頁面多一圈 border
+
+    &::after {
+      content: " ";
+      background-color: #b54434;
+    }
+  }
+
+  // 已完成頁面 (塗滿白底加上綠色勾勾)
+  .completed {
+    font-size: 0.5rem;
+    background-color: white;
+    color: #f8f9fa;
+  }
+}
+</style>

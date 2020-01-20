@@ -148,10 +148,15 @@ export default {
     signin() {
       const api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
       const vm = this;
+      this.$store.commit("LOADING", true);
       this.$http.post(api, vm.user).then(response => {
-        console.log(response.data);
+        vm.$store.commit("LOADING", false);
         if (response.data.success) {
           vm.$router.push("/admin/products");
+        } else {
+          let message = response.data.message;
+          let status = "danger";
+          vm.$store.dispatch("updateMessage", { message, status });
         }
       });
     }

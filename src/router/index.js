@@ -5,6 +5,7 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Products from "../views/Products.vue";
 import SingleProduct from "../views/SingleProduct.vue";
+import Cart from "../views/Cart.vue";
 
 import Dashboard from "../views/Dashboard.vue";
 import DashProducts from "../views/DashProducts.vue";
@@ -32,6 +33,17 @@ const routes = [
     path: "/products/:productId",
     name: "SingleProduct",
     component: SingleProduct
+  },
+  {
+    path: "/cart",
+    component: Cart,
+    children: [
+      {
+        path: "",
+        name: "Cart",
+        component: Cart
+      }
+    ]
   },
   {
     path: "/admin",

@@ -12,7 +12,9 @@ export default new Vuex.Store({
   state: {
     isLoading: false,
     cart: {
-      carts: []
+      carts: [],
+      total: "",
+      final_total: ""
     },
     messages: []
   },
@@ -21,7 +23,9 @@ export default new Vuex.Store({
       state.isLoading = status;
     },
     CART(state, payload) {
-      state.cart = payload;
+      state.cart.carts = payload.carts;
+      state.cart.total = payload.total;
+      state.cart.final_total = payload.final_total;
     },
     MESSAGE(state, { message, status }) {
       const timestamp = Math.floor(new Date() / 1000);

@@ -75,7 +75,9 @@
                   </tr>
                 </tbody>
               </table>
-              <router-link to="" class="btn btn-block bg-primary text-white"
+              <router-link
+                to="/cart"
+                class="btn btn-block bg-primary text-white"
                 >結帳去</router-link
               >
             </div>
