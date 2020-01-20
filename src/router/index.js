@@ -5,7 +5,10 @@ import Home from "../views/Home.vue";
 import Login from "../views/Login.vue";
 import Products from "../views/Products.vue";
 import SingleProduct from "../views/SingleProduct.vue";
+import Checkout from "../views/Checkout.vue";
 import Cart from "../views/Cart.vue";
+import CustomerInfo from "../views/CustomerInfo.vue";
+import Payment from "../views/Payment.vue";
 
 import Dashboard from "../views/Dashboard.vue";
 import DashProducts from "../views/DashProducts.vue";
@@ -36,12 +39,22 @@ const routes = [
   },
   {
     path: "/cart",
-    component: Cart,
+    component: Checkout,
     children: [
       {
         path: "",
         name: "Cart",
         component: Cart
+      },
+      {
+        path: "customerinfo",
+        name: "CustomerInfo",
+        component: CustomerInfo
+      },
+      {
+        path: "payment/:orderId",
+        name: "Payment",
+        component: Payment
       }
     ]
   },

@@ -1,7 +1,5 @@
 <template>
   <div>
-    <Navbar />
-    <Alert />
     <div class="container my-md-5">
       <div class="row">
         <div class="col-md-8">
@@ -129,33 +127,19 @@
             </div>
           </div>
           <!-- 結帳按鈕 -->
-          <a
-            href="./checkout-1.html"
+          <router-link
+            to="cart/customerinfo"
             class="btn btn-block btn-lg btn-primary rounded-0 text-white mx-md-0 py-3"
-            >下一步</a
+            >下一步</router-link
           >
         </div>
       </div>
     </div>
-
-    <Subscribe />
-    <Footer />
   </div>
 </template>
 
 <script>
-import Navbar from "../components/Navbar.vue";
-import Subscribe from "../components/Subscribe.vue";
-import Footer from "../components/Footer.vue";
-import Alert from "../components/AlertMessage.vue";
-
 export default {
-  components: {
-    Navbar,
-    Subscribe,
-    Footer,
-    Alert
-  },
   data() {
     return {
       coupon_code: ""
@@ -188,9 +172,6 @@ export default {
     }
   },
   computed: {
-    isLoading() {
-      return this.$store.state.isLoading;
-    },
     cart() {
       return this.$store.state.cart;
     }
