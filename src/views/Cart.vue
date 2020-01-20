@@ -1,5 +1,6 @@
 <template>
   <div>
+    <Alert />
     <div class="container my-md-5">
       <div class="row">
         <div class="col-md-8">
@@ -139,7 +140,12 @@
 </template>
 
 <script>
+import Alert from "../components/AlertMessage.vue";
+
 export default {
+  components: {
+    Alert
+  },
   data() {
     return {
       coupon_code: ""
