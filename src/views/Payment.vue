@@ -192,7 +192,7 @@
                   :disabled="invalid"
                   class="btn btn-block btn-primary btn-lg rounded-0 text-white py-3"
                 >
-                  下一步
+                  確定付款
                 </button>
               </div>
             </div>
