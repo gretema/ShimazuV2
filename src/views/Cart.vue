@@ -6,14 +6,18 @@
       <div class="row">
         <div class="col-md-8">
           <div class="form-row py-4 mb-0 mx-0 bg-primary">
-            <div class="col-6">
-              <h2 class="h4 pl-3 text-left text-light">
+            <div class="col-md-6">
+              <h2 class="h4 pl-3 text-md-left text-center text-light">
                 您的購物車
               </h2>
             </div>
-            <div class="col-6 d-flex align-items-center pr-3">
+            <div
+              class="col-md-6 d-flex align-items-center justify-content-center justify-content-md-end pr-md-3 px-3 px-md-0"
+            >
               <!-- 步驟軸用 w-100 把 block 佔滿，並用 flex 排列 -->
-              <div class="process-steps d-flex justify-content-between w-100">
+              <div
+                class="process-steps d-flex justify-content-between w-md-100 w-75"
+              >
                 <div class="process-circle active"></div>
                 <div class="process-circle"></div>
                 <div class="process-circle"></div>
@@ -32,7 +36,7 @@
               <div class="d-flex flex-md-grow-1 mr-md-3">
                 <!-- to grow to fill available space -->
                 <div
-                  class="bg-cover my-4 mr-4 flex-grow-1 flex-md-grow-0"
+                  class="bg-cover my-4 mr-4 flex-grow-1 flex-md-grow-0 d-none d-md-block"
                   :style="[
                     { backgroundImage: `url(${item.product.imageUrl})` },
                     { height: '110px' },
@@ -41,33 +45,47 @@
                 ></div>
                 <div
                   class="d-flex flex-column flex-md-row align-items-md-center 
-                         justify-content-center justify-content-md-between flex-md-grow-1"
+                         justify-content-center justify-content-md-between flex-grow-1"
                 >
                   <!-- 品項 -->
                   <div class="mr-md-4">
-                    <span class="h5">{{ item.product.title }}</span>
+                    <span class="h5 cartitem-font-size">{{
+                      item.product.title
+                    }}</span>
                     <br />
-                    <span>{{ item.product.price | currency }}</span>
+                    <span class="cartitem-font-size">{{
+                      item.product.price | currency
+                    }}</span>
                   </div>
                   <!-- 數量 -->
-                  <div
-                    class="input-group ml-md-auto mt-3 mt-md-0"
-                    style="width: 120px;"
-                  >
-                    <span>{{ item.qty }} {{ item.product.unit }}</span>
+                  <div class="ml-md-auto" style="width: 120px;">
+                    <span class="cartitem-font-size"
+                      >{{ item.qty }} {{ item.product.unit }}</span
+                    >
                   </div>
+                </div>
+                <!--價格和刪除-->
+                <div
+                  class="d-md-none ml-auto align-items-center justify-content-end"
+                >
+                  <span class="h5 mr-md-3 mb-0 cartitem-font-size">{{
+                    item.total | currency
+                  }}</span>
+                  <a
+                    href="#"
+                    class="btn cartitem-font-size"
+                    @click.prevent="removeCart(item.id)"
+                  >
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                  </a>
                 </div>
               </div>
               <!-- price -->
               <div
-                class="d-flex align-items-center justify-content-end justify-content-md-start py-3 cart-border"
+                class="d-none d-md-flex align-items-center justify-content-end justify-content-md-start py-3 cart-border"
               >
                 <span class="h5 mr-md-3 mb-0">{{ item.total | currency }}</span>
-                <a
-                  href="#"
-                  class="btn d-none d-md-block"
-                  @click.prevent="removeCart(item.id)"
-                >
+                <a href="#" class="btn" @click.prevent="removeCart(item.id)">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>
               </div>
@@ -114,7 +132,7 @@
           <a
             href="./checkout-1.html"
             class="btn btn-block btn-lg btn-primary rounded-0 text-white mx-md-0 py-3"
-            >結帳</a
+            >下一步</a
           >
         </div>
       </div>
@@ -184,38 +202,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.form-control {
-  border-radius: 0;
-}
-.input-group-append > .btn {
-  border-radius: 0;
-}
-.process-steps {
-  // 細細的橫線
-  &::after {
-    background-color: white;
-  }
-
-  // 三個空圈圈
-  .process-circle {
-    border: 2px solid white;
-  }
-
-  // 當前頁面 (實心圈圈)
-  .active {
-    border-color: white; // 改顏色 讓當前頁面多一圈 border
-
-    &::after {
-      content: " ";
-      background-color: #b54434;
-    }
-  }
-
-  // 已完成頁面 (塗滿白底加上綠色勾勾)
-  .completed {
-    font-size: 0.5rem;
-    background-color: white;
-    color: #f8f9fa;
-  }
-}
+@import "../assets/components/_cart";
 </style>

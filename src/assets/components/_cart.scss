@@ -1,6 +1,43 @@
-.cart-border {
-  border-bottom: 1px solid $secondary;
-  @media (min-width: 768px) {
-    border: none;
+$secondary: #f8f9fa;
+$primary: #b54434;
+
+.cartitem-font-size {
+  @media (max-width: 576px) {
+    font-size: 18px;
+  }
+}
+
+.form-control {
+  border-radius: 0;
+}
+.input-group-append > .btn {
+  border-radius: 0;
+}
+.process-steps {
+  // 細細的橫線
+  &::after {
+    background-color: white;
+  }
+
+  // 三個空圈圈
+  .process-circle {
+    border: 2px solid white;
+  }
+
+  // 當前頁面 (實心圈圈)
+  .active {
+    border-color: white; // 改顏色 讓當前頁面多一圈 border
+
+    &::after {
+      content: " ";
+      background-color: #b54434;
+    }
+  }
+
+  // 已完成頁面 (塗滿白底加上綠色勾勾)
+  .completed {
+    font-size: 0.5rem;
+    background-color: white;
+    color: #f8f9fa;
   }
 }
