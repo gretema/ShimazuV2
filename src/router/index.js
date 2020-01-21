@@ -61,7 +61,7 @@ const routes = [
     ]
   },
   {
-    path: "/paysuccess",
+    path: "/paysuccess/:orderId",
     name: "PaySuccess",
     component: PaySuccess
   },

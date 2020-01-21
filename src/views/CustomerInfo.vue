@@ -158,19 +158,11 @@
             <div class="form-row mt-5">
               <div class="col">
                 <button
-                  class="btn btn-block btn-primary btn-lg rounded-0 text-white py-3"
-                  @click="$router.back()"
-                >
-                  上一步
-                </button>
-              </div>
-              <div class="col">
-                <button
                   id="submit-link"
                   :disabled="invalid"
                   class="btn btn-block btn-primary btn-lg rounded-0 text-white py-3"
                 >
-                  下一步
+                  送出訂單
                 </button>
               </div>
             </div>

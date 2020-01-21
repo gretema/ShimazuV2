@@ -47,6 +47,7 @@
                       placeholder="9012-3456-7890-1234"
                       id="creditNumber"
                       name="creditNumber"
+                      v-model="cardNum"
                     />
                     <div class="input-group-append">
                       <span
@@ -81,6 +82,7 @@
                     placeholder="陳"
                     id="cardLastName"
                     name="cardLastName"
+                    v-model="cardLastName"
                   />
                   <div class="text-danger">
                     {{ errors[0] }}
@@ -102,6 +104,7 @@
                     placeholder="金發"
                     id="cardFirstName"
                     name="cardFirstName"
+                    v-model="cardFirstName"
                   />
                   <div class="text-danger">
                     {{ errors[0] }}
@@ -123,10 +126,11 @@
                 >
                   <input
                     type="text"
-                    id="expYear"
+                    id="cardExpMon"
                     placeholder="01"
                     :class="{ 'is-invalid': failed }"
                     class="form-control form-control-lg larger-form rounded-0"
+                    v-model="cardExpMon"
                   />
                   <div class="text-danger">
                     {{ errors[0] }}
@@ -143,10 +147,11 @@
                 >
                   <input
                     type="text"
-                    id="expMonth"
+                    id="cardExpYear"
                     placeholder="22"
                     :class="{ 'is-invalid': failed }"
                     class="form-control form-control-lg larger-form rounded-0"
+                    v-model="cardExpYear"
                   />
                   <div class="text-danger">
                     {{ errors[0] }}
@@ -161,13 +166,14 @@
                   v-slot="{ failed, errors }"
                   tag="div"
                 >
-                  <label for="expDate" class="h4">安全碼</label>
+                  <label for="cardSafeCode" class="h4">安全碼</label>
                   <input
                     type="text"
                     :class="{ 'is-invalid': failed }"
                     class="form-control form-control-lg larger-form rounded-0"
-                    id="expDate"
+                    id="cardSafeCode"
                     placeholder="123"
+                    v-model="cardSafeCode"
                   />
                   <div class="text-danger">
                     {{ errors[0] }}
@@ -207,7 +213,13 @@
 export default {
   data() {
     return {
-      orderId: ""
+      orderId: "",
+      cardNum: "",
+      cardLastName: "",
+      cardFirstName: "",
+      cardExpMon: "",
+      cardExpYear: "",
+      cardSafeCode: ""
     };
   },
   methods: {
