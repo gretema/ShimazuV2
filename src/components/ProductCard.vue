@@ -15,9 +15,8 @@
           :style="{ backgroundImage: `url(${item.imageUrl})` }"
         >
           <div class="item-tag">{{ item.category }}</div>
-          <div class="item-icon text-primary">
-            <i class="far fa-heart heart-border"></i>
-            <i class="fas fa-heart heart-full d-none"></i>
+          <div class="item-icon text-primary" @click="loveIt(item)">
+            <i class="heart-border" :class="heartStyle"></i>
           </div>
         </div>
         <!-- item-info -->
@@ -37,7 +36,6 @@
           @click="addtoCart(item.id)"
         >
           加入購物車
-          <i class="fas fa-spinner fa-spin" v-if="loadingItem === item.id"></i>
         </button>
         <button
           v-else
@@ -45,7 +43,6 @@
           @click="openSingleProduct(item.id)"
         >
           查看更多
-          <i class="fas fa-spinner fa-spin" v-if="loadingItem === item.id"></i>
         </button>
       </div>
     </div>
@@ -56,7 +53,8 @@
 export default {
   data() {
     return {
-      thisPage: ""
+      thisPage: "",
+      loveItem: ""
     };
   },
   computed: {
@@ -78,8 +76,11 @@ export default {
     products() {
       return this.$store.state.CustomerProducts.products;
     },
-    loadingItem() {
-      return this.$store.state.CustomerProducts.status.loadingItem;
+    heartStyle() {
+      let collectedNames = this.$store.state.CustomerProducts.collectedNames;
+      return collectedNames.indexOf(this.loveItem) == -1
+        ? "far fa-heart"
+        : "fas fa-heart";
     }
   },
   methods: {
@@ -89,6 +90,10 @@ export default {
     // 取得單一產品頁
     openSingleProduct(id) {
       this.$router.push(`/products/${id}`);
+    },
+    loveIt(item) {
+      this.$store.commit("COLLECTED", item);
+      this.loveItem = item.title;
     }
   },
   mounted() {

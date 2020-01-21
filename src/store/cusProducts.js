@@ -6,9 +6,8 @@ export default {
     products: [],
     pagination: {},
     searchText: "",
-    status: {
-      loadingItem: ""
-    } // 迷你版讀取效果
+    collected: JSON.parse(localStorage.getItem("collectedItems")) || [],
+    collectedNames: []
   },
   mutations: {
     CATEGORIES(state, payload) {
@@ -27,15 +26,24 @@ export default {
     SEARCHTEXT(state, payload) {
       state.searchText = payload;
     },
-    LOADINGITEM(state, id) {
-      state.status.loadingItem = id;
+    COLLECTED(state, product) {
+      if (state.collectedNames.indexOf(product.title) == -1) {
+        // 商品不存在則加入陣列
+        state.collected.push(product);
+      } else {
+        // 存在則將商品移除
+        state.collected.splice(state.collected.indexOf(product.title), 1);
+      }
+      // 儲存至 localStorage
+      localStorage.setItem("collectedItems", JSON.stringify(state.collected));
+    },
+    COLLECTEDNAMES(state) {
+      state.collected.map(item => state.collectedNames.push(item.title));
+    },
+    DISCOLLECTED(state, product) {
+      state.collected.splice(state.collected.indexOf(product), 1);
+      localStorage.setItem("collectedItems", JSON.stringify(state.collected));
     }
-    // SINGLEPRODUCT(state, { product, num }) {
-    //   state.singleProduct = product;
-    // },
-    // BUYNUM(state, num) {
-    //   state.singleProduct.num = num; // 從單一商品頁傳入選購數量
-    // }
   },
   actions: {
     getCusProducts(context, page) {
@@ -52,15 +60,5 @@ export default {
     getText(context, text) {
       context.commit("SEARCHTEXT", text);
     }
-    // getSingleProduct(context, id) {
-    //   const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/product/${id}`;
-    //   // 開啟 loading
-    //   context.commit("LOADINGITEM", id);
-    //   axios.get(api).then(response => {
-    //     // 清空 loading 暫存的 id
-    //     context.commit("LOADINGITEM", "");
-    //     context.commit("SINGLEPRODUCT", response.data.product);
-    //   });
-    // }
   }
 };

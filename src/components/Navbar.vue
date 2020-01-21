@@ -36,6 +36,45 @@
             </div>
           </router-link>
         </nav>
+        <!--收藏清單按鈕-->
+        <div class="dropdown order-md-3">
+          <button
+            class="btn text-light btn-cart"
+            data-toggle="dropdown"
+            data-flip="false"
+          >
+            <i class="fas fa-heart"></i>
+          </button>
+          <div
+            class="dropdown-menu dropdown-menu-right"
+            aria-labelledby="dropdownMenuButton"
+            style="min-width: 300px;"
+          >
+            <div class="px-4 py-3">
+              <h6>收藏清單</h6>
+              <table class="table table-sm" v-if="collected.length">
+                <tbody>
+                  <tr v-for="item in collected" :key="item.id">
+                    <td class="align-middle text-center">
+                      <a
+                        href="#"
+                        class="text-muted"
+                        @click.prevent="disCollected(item)"
+                      >
+                        <i class="fa fa-trash" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                    <td class="align-middle">
+                      <router-link :to="`/products/${item.id}`">{{
+                        item.title
+                      }}</router-link>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
         <!--購物車按鈕-->
         <div class="dropdown order-md-3">
           <button
@@ -87,6 +126,7 @@
             </div>
           </div>
         </div>
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li
@@ -132,14 +172,17 @@ export default {
     },
     removeCart(id) {
       this.$store.dispatch("removeCart", id);
+    },
+    disCollected(item) {
+      this.$store.commit("DISCOLLECTED", item);
     }
   },
   computed: {
-    isLoading() {
-      return this.$store.state.isLoading;
-    },
     cart() {
       return this.$store.state.cart;
+    },
+    collected() {
+      return this.$store.state.CustomerProducts.collected;
     }
   },
   created() {
