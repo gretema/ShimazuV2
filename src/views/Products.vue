@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <!-- Banner -->
     <header
       class="bg-cover d-flex justify-content-center align-items-center"
@@ -70,25 +69,17 @@
         </div>
       </div>
     </div>
-    <Subscribe />
-    <Footer />
   </div>
 </template>
 
 <script>
 import $ from "jquery";
 import Pagination from "../components/Pagination.vue";
-import Navbar from "../components/Navbar.vue";
-import Subscribe from "../components/Subscribe.vue";
-import Footer from "../components/Footer.vue";
 import ProductCard from "../components/ProductCard.vue";
 
 export default {
   components: {
-    Pagination: Pagination, // 前為標籤名，後為引入的元件名
-    Navbar,
-    Subscribe,
-    Footer,
+    Pagination,
     ProductCard
   },
   data() {

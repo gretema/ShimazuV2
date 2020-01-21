@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Navbar />
     <Header />
     <section class="section my-md-10">
       <!-- (標語) 在 md 以上隱藏 -->
@@ -100,26 +99,17 @@
     <div class="container my-5 my-7">
       <ProductCard />
     </div>
-
-    <Subscribe />
-    <Footer />
   </div>
 </template>
 
 <script>
-import Navbar from "../components/Navbar.vue";
 import Header from "../components/Header.vue";
-import Subscribe from "../components/Subscribe.vue";
-import Footer from "../components/Footer.vue";
 import ProductCard from "../components/ProductCard.vue";
 
 export default {
   name: "home",
   components: {
     Header,
-    Navbar,
-    Subscribe,
-    Footer,
     ProductCard
   },
   methods: {

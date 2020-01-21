@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <!--Login-->
     <section class="container my-md-6 px-0 px-md-3">
       <div class="row justify-content-center no-gutters">
@@ -120,22 +119,11 @@
         </div>
       </div>
     </section>
-    <Subscribe />
-    <Footer />
   </div>
 </template>
 
 <script>
-import Navbar from "../components/Navbar.vue";
-import Subscribe from "../components/Subscribe.vue";
-import Footer from "../components/Footer.vue";
-
 export default {
-  components: {
-    Navbar,
-    Subscribe,
-    Footer
-  },
   data() {
     return {
       user: {

@@ -224,7 +224,7 @@ export default {
       this.$store.commit("LOADING", true);
       this.$http.post(api).then(response => {
         if (response.data.success) {
-          vm.$router.push(`/paysuccess/${vm.orderId}`);
+          vm.$router.push(`/cart/paysuccess/${vm.orderId}`);
         }
         vm.$store.commit("LOADING", false);
       });
