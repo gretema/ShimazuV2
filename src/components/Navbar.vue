@@ -72,7 +72,9 @@
                     <td class="align-middle">
                       {{ item.qty }}{{ item.product.unit }}
                     </td>
-                    <td class="align-middle text-center">{{ item.total }}</td>
+                    <td class="align-middle text-center">
+                      {{ item.total | currency }}
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -153,5 +155,8 @@ export default {
       font-size: 32px;
     }
   }
+}
+td {
+  font-size: 16px;
 }
 </style>
