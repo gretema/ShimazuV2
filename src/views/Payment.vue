@@ -33,12 +33,12 @@
               <div class="col">
                 <ValidationProvider
                   class="form-group"
-                  name="信用卡卡號"
+                  name="信用卡號"
                   rules="required"
                   v-slot="{ failed, errors }"
                   tag="div"
                 >
-                  <label for="creditNumber" class="h4">信用卡卡號</label>
+                  <label for="creditNumber" class="h4">信用卡號</label>
                   <div class="input-group">
                     <input
                       type="text"
@@ -56,9 +56,9 @@
                         ><i class="far fa-credit-card"></i
                       ></span>
                     </div>
-                    <div class="text-danger">
-                      {{ errors[0] }}
-                    </div>
+                  </div>
+                  <div class="text-danger">
+                    {{ errors[0] }}
                   </div>
                 </ValidationProvider>
               </div>
@@ -186,14 +186,6 @@
             <div class="form-row mt-5">
               <div class="col">
                 <button
-                  class="btn btn-block btn-primary btn-lg rounded-0 text-white py-3"
-                  @click="$router.back()"
-                >
-                  上一步
-                </button>
-              </div>
-              <div class="col">
-                <button
                   id="submit-link"
                   :disabled="invalid"
                   class="btn btn-block btn-primary btn-lg rounded-0 text-white py-3"
@@ -232,9 +224,9 @@ export default {
       this.$store.commit("LOADING", true);
       this.$http.post(api).then(response => {
         if (response.data.success) {
-          vm.$router.push("/paysuccess");
+          vm.$router.push(`/paysuccess/${vm.orderId}`);
         }
-        this.$store.commit("LOADING", false);
+        vm.$store.commit("LOADING", false);
       });
     }
   },
