@@ -2,6 +2,21 @@
   <div>
     <Navbar />
     <div class="container mb-10 py-4">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-transparent pl-1 mb-0">
+          <li class="breadcrumb-item">
+            <router-link to="/" class="text-primary-light">首頁</router-link>
+          </li>
+          <li class="breadcrumb-item">
+            <router-link to="/products" class="text-primary-light"
+              >肉品</router-link
+            >
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">
+            {{ singleProduct.title }}
+          </li>
+        </ol>
+      </nav>
       <div class="row">
         <div class="col-md-7 mb-5">
           <h2 class="h3 text-center bg-accent text-white p-2 d-md-none">
