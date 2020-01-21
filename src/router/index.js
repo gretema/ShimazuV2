@@ -14,6 +14,7 @@ import PaySuccess from "../views/PaySuccess.vue";
 import Dashboard from "../views/Dashboard.vue";
 import DashProducts from "../views/DashProducts.vue";
 import Coupon from "../views/Coupon.vue";
+import DashOrders from "../views/DashOrders.vue";
 
 Vue.use(VueRouter);
 
@@ -79,6 +80,12 @@ const routes = [
         path: "coupons",
         name: "Coupon",
         component: Coupon,
+        meta: { requiresAuth: true }
+      },
+      {
+        path: "orders",
+        name: "DashOrders",
+        component: DashOrders,
         meta: { requiresAuth: true }
       }
     ]

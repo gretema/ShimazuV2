@@ -8,15 +8,15 @@
     <table class="table mt-4 bg-white">
       <thead>
         <tr>
-          <th>名稱</th>
-          <th>折扣百分比</th>
-          <th>到期日</th>
-          <th>是否啟用</th>
-          <th>編輯</th>
+          <th>優惠券名稱</th>
+          <th width="120">折扣率</th>
+          <th width="150" class="text-center">到期日</th>
+          <th width="120">是否啟用</th>
+          <th width="160" class="text-center">編輯</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, key) in coupons" :key="item.id">
+        <tr v-for="item in coupons" :key="item.id">
           <td>{{ item.title }}</td>
           <td>{{ item.percent }}%</td>
           <td>{{ item.due_date | date }}</td>
@@ -26,7 +26,7 @@
           </td>
           <td>
             <button
-              class="btn btn-outline-primary btn-sm"
+              class="btn btn-outline-secondary btn-sm mr-1"
               @click="openModal(false, item)"
             >
               編輯
@@ -202,31 +202,11 @@ import Pagination from "../components/Pagination.vue";
 
 export default {
   components: {
-    Pagination: Pagination // 前為標籤名，後為引入的元件名
+    Pagination
   },
   data() {
-    return {
-      //coupons: [],
-      // tempCoupon: {
-      //   title: "",
-      //   is_enabled: 0,
-      //   percent: 100,
-      //   due_date: 0,
-      //   code: ""
-      // },
-      // due_date: new Date(),
-      // isNew: false // 先預設為 false
-      //isLoading: false,
-      //pagination: {}
-    };
+    return {};
   },
-  // watch: {
-  //   due_date() {
-  //     const vm = this;
-  //     const timestamp = Math.floor(new Date(vm.due_date) / 1000);
-  //     vm.tempCoupon.due_date = timestamp;
-  //   }
-  // },
   computed: {
     pagination() {
       return this.$store.state.Coupons.pagination;
@@ -264,7 +244,6 @@ export default {
     },
     deleteModal(item) {
       this.$store.dispatch("deleteCouModal", item);
-      // 開啟刪除產品 modal
       $("#delCouponModal").modal("show");
     },
     delCoupon() {

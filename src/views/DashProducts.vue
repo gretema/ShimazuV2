@@ -8,16 +8,16 @@
     <table class="table mt-4 bg-white">
       <thead>
         <tr>
-          <th width="120">分類</th>
-          <th>產品名稱</th>
+          <th width="120" class="text-center">分類</th>
+          <th class="text-center">產品名稱</th>
           <th width="100">原價</th>
           <th width="100">售價</th>
-          <th width="120">是否啟用</th>
-          <th width="100">編輯</th>
+          <th width="120" class="text-center">是否啟用</th>
+          <th width="160" class="text-center">編輯</th>
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item, key) in products" :key="item.id">
+        <tr v-for="item in products" :key="item.id">
           <td>{{ item.category }}</td>
           <td>{{ item.title }}</td>
           <td class="text-right">{{ item.origin_price | currency }}</td>
@@ -28,7 +28,7 @@
           </td>
           <td>
             <button
-              class="btn btn-outline-secondary btn-sm"
+              class="btn btn-outline-secondary btn-sm mr-1"
               @click="openModal(false, item)"
             >
               編輯
@@ -99,12 +99,7 @@
                     @change="uploadFile"
                   />
                 </div>
-                <img
-                  img="https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=828346ed697837ce808cae68d3ddc3cf&auto=format&fit=crop&w=1350&q=80"
-                  class="img-fluid"
-                  :src="tempProduct.imageUrl"
-                  alt
-                />
+                <img class="img-fluid" :src="tempProduct.imageUrl" alt />
               </div>
               <div class="col-sm-8">
                 <div class="form-group">

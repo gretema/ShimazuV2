@@ -2,7 +2,7 @@
   <div class="col-md-2">
     <nav class="d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
-        <h6
+        <h5
           class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
         >
           <span class="mt-3">管理員</span>
@@ -13,7 +13,7 @@
           >
             <span data-feather="plus-circle"></span>
           </a>
-        </h6>
+        </h5>
         <ul class="nav flex-column mb-2">
           <li class="nav-item">
             <router-link to="/admin/products" class="nav-link">
