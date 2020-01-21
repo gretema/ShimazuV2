@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 ## 電商網站 —— 島津燒肉 Shimazu
 
 ### 專案說明
@@ -35,24 +34,3 @@
 - router
 - store
 - views
-=======
-# vue-cli-3-hw
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
->>>>>>> feature/dashboard
