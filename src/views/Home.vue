@@ -99,10 +99,66 @@
     <div class="container my-5 my-7">
       <ProductCard />
     </div>
+
+    <!--優惠券 Modal-->
+    <div
+      class="modal fade"
+      id="myModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header border-0">
+            <h5 class="modal-title" id="exampleModalLabel">
+              最新優惠
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body p-0">
+            <div
+              class="bg-cover d-flex align-items-center justify-content-center"
+              :style="[
+                {
+                  backgroundImage:
+                    'url(' + require('../assets/images/fortune_rats.jpg') + ')'
+                },
+                { height: '250px' }
+              ]"
+            >
+              <p class="text-bg text-center p-3">
+                歡慶鼠年！<br />
+                即日起至
+                <span class="font-weight-bolder">2020.1.31</span>，<br />
+                結帳輸入優惠碼
+                <span class="text-danger h4 font-weight-bolder">yearofrat</span
+                >，<br />
+                即享所有品項半價優惠！
+              </p>
+            </div>
+          </div>
+          <div class="modal-footer border-0 p-2">
+            <button type="button" class="btn btn-primary" data-dismiss="modal">
+              朕知道了
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import $ from "jquery";
 import Header from "../components/Header.vue";
 import ProductCard from "../components/ProductCard.vue";
 
@@ -115,10 +171,16 @@ export default {
   methods: {
     getProducts(page = 1) {
       this.$store.dispatch("getCusProducts", page);
+    },
+    showModal() {
+      $("#myModal").modal("show");
     }
   },
   created() {
     this.getProducts();
+  },
+  mounted() {
+    this.showModal();
   }
 };
 </script>
