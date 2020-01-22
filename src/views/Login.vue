@@ -1,70 +1,81 @@
 <template>
   <div>
     <!--Login-->
-    <section class="container mb-8 px-0 px-md-3">
+    <section class="container mt-5 mb-8 px-0 px-md-3">
       <div class="row justify-content-center no-gutters">
         <div class="col-md-6">
-          <!-- 會員登入 (手機板) -->
-          <!-- <div class="col-md-6 text-center w-100 bg-primary p-5 d-md-none">
-              <h2 class="my-2 text-white">
-                會員登入
-              </h2>
-            </div> -->
-
-          <!-- 會員登入 (電腦版) + 表格 -->
-
           <div class="text-center w-100 bg-primary p-3">
             <h2 class="my-2 text-white">
               會員登入
             </h2>
           </div>
-          <form
+          <ValidationObserver
             class="p-3 p-md-5 pt-md-4 bg-light needs-validation"
-            novalidate
+            v-slot="{ invalid }"
+            tag="form"
             @submit.prevent="signin"
           >
-            <div class="input-group">
-              <div class="input-group-prepend">
-                <span
-                  class="input-group-text bg-light border-right-0 pl-4"
-                  id="basic-addon"
-                  style="font-size: 18px; width: 60px;"
-                >
-                  <i class="fas fa-user"></i>
-                </span>
+            <ValidationProvider
+              name="帳號"
+              rules="required"
+              v-slot="{ failed, errors }"
+              tag="div"
+            >
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span
+                    class="input-group-text bg-light border-right-0 pl-4"
+                    id="basic-addon"
+                    style="font-size: 18px; width: 60px;"
+                  >
+                    <i class="fas fa-user"></i>
+                  </span>
+                </div>
+                <input
+                  type="email"
+                  class="form-control custom-form-input p-5"
+                  :class="{ 'is-invalid': failed }"
+                  v-model="user.username"
+                  placeholder="帳號 / 電子郵件"
+                  name="account"
+                />
               </div>
-              <input
-                type="email"
-                class="form-control custom-form-input p-5"
-                v-model="user.username"
-                placeholder="帳號 / 電子郵件"
-                required
-              />
-              <div class="invalid-feedback">
-                帳號或電子郵件錯誤
+              <div class="text-danger">
+                {{ errors[0] }}
               </div>
-            </div>
-            <div class="input-group my-2">
-              <div class="input-group-prepend">
-                <span
-                  class="input-group-text bg-light border-right-0 pl-4"
-                  id="basic-addon"
-                  style="font-size: 18px; width: 60px;"
-                >
-                  <i class="fas fa-lock"></i>
-                </span>
+            </ValidationProvider>
+
+            <ValidationProvider
+              class="form-group"
+              name="密碼"
+              rules="required"
+              v-slot="{ failed, errors }"
+              tag="div"
+            >
+              <div class="input-group my-2">
+                <div class="input-group-prepend">
+                  <span
+                    class="input-group-text bg-light border-right-0 pl-4"
+                    id="basic-addon"
+                    style="font-size: 18px; width: 60px;"
+                  >
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </div>
+                <input
+                  type="password"
+                  class="form-control custom-form-input p-5"
+                  :class="{ 'is-invalid': failed }"
+                  v-model="user.password"
+                  placeholder="請輸入密碼"
+                  name="password"
+                />
               </div>
-              <input
-                type="password"
-                class="form-control custom-form-input p-5 "
-                v-model="user.password"
-                placeholder="請輸入密碼"
-                required
-              />
-              <div class="invalid-feedback">
-                密碼錯誤
+              <div class="text-danger">
+                {{ errors[0] }}
               </div>
-            </div>
+            </ValidationProvider>
+
             <div class="custom-control custom-checkbox">
               <input
                 type="checkbox"
@@ -79,9 +90,9 @@
               type="submit"
               class="btn btn-block btn-lg btn-primary text-white my-3 rounded-0"
             >
-              登入帳號
+              登入
             </button>
-          </form>
+          </ValidationObserver>
         </div>
       </div>
     </section>
