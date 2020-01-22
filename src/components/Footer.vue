@@ -30,14 +30,16 @@
         <!--下方-->
         <div class="row mt-2 d-flex justify-content-md-between">
           <div class="col-md-5">
-            <a href="#" style="font-size: 32px;"><i class="fas fa-at"></i></a>
+            <a href="#" style="font-size: 32px;" class="mr-1"
+              ><i class="fas fa-at"></i
+            ></a>
             <a href="#" style="font-size: 32px;"
               ><i class="fab fa-facebook"></i
             ></a>
           </div>
           <div class="col-md-5 p-md-0 d-flex justify-content-md-end">
-            <span class="text-primary align-self-center"
-              >© 2019 Shimazu All Rights Reserved</span
+            <small class="text-primary align-self-center"
+              >© 2019 Shimazu All Rights Reserved</small
             >
           </div>
         </div>

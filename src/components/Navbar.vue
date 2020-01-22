@@ -3,18 +3,6 @@
     <!--導覽列-->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <!-- menu toggle button -->
-        <button
-          class="navbar-toggler d-flex align-items-center border-0 d-md-none"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
         <nav class="navbar navbar-dark bg-dark p-0">
           <router-link
             class="navbar-brand d-flex justify-content-center align-items-center mr-0"
@@ -46,9 +34,8 @@
             <i class="fas fa-heart"></i>
           </button>
           <div
-            class="dropdown-menu dropdown-menu-right"
+            class="dropdown-menu dropdown-menu-right collected-menu"
             aria-labelledby="dropdownMenuButton"
-            style="min-width: 300px;"
           >
             <div class="px-4 py-3">
               <h6>收藏清單</h6>
@@ -76,7 +63,7 @@
           </div>
         </div>
         <!--購物車按鈕-->
-        <div class="dropdown order-md-3">
+        <div class="dropdown order-md-4">
           <button
             class="btn text-light btn-cart"
             data-toggle="dropdown"
@@ -90,7 +77,7 @@
           <div
             class="dropdown-menu dropdown-menu-right"
             aria-labelledby="dropdownMenuButton"
-            style="min-width: 300px;"
+            style="min-width: 270px;"
           >
             <div class="px-4 py-3">
               <h6>已選購商品</h6>
@@ -108,9 +95,7 @@
                       </a>
                     </td>
                     <td class="align-middle">{{ item.product.title }}</td>
-                    <td class="align-middle">
-                      {{ item.qty }}{{ item.product.unit }}
-                    </td>
+                    <td class="align-middle">x{{ item.qty }}</td>
                     <td class="align-middle text-center">
                       {{ item.total | currency }}
                     </td>
@@ -126,9 +111,21 @@
             </div>
           </div>
         </div>
+        <!-- menu toggle button -->
+        <button
+          class="navbar-toggler d-flex align-items-center border-0 d-md-none"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav text-center">
             <li
               class="nav-item"
               :class="{ active: activeStatus == 'home' }"
@@ -201,5 +198,13 @@ export default {
 }
 td {
   font-size: 16px;
+}
+</style>
+
+<style lang="scss" scoped>
+.collected-menu {
+  @media (max-width: 375px) {
+    min-width: 200px;
+  }
 }
 </style>

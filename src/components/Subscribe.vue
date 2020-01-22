@@ -12,7 +12,9 @@
               src="../assets/images/iconfinder_Food_C225_2427885.svg"
               height="40"
             />
-            <span class="h4 text-white mb-0 mx-3" style="letter-spacing: 2px;"
+            <span
+              class="h4 text-white mb-0 mx-3 subscribe-text"
+              style="letter-spacing: 2px;"
               >訂閱你我的鮮嫩郵件</span
             >
           </div>
@@ -51,3 +53,16 @@
     </section>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.subscribe-text {
+  font-size: 24px !important;
+}
+// 訂閱 input
+.subscribe-size {
+  width: 345px;
+  @media (min-width: 768px) {
+    width: 445px;
+  }
+}
+</style>
