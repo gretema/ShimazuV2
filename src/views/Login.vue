@@ -17,7 +17,7 @@
           >
             <ValidationProvider
               name="帳號"
-              rules="required"
+              rules="required | email"
               v-slot="{ failed, errors }"
               tag="div"
             >
@@ -36,7 +36,7 @@
                   class="form-control custom-form-input p-5"
                   :class="{ 'is-invalid': failed }"
                   v-model="user.username"
-                  placeholder="帳號 / 電子郵件"
+                  placeholder="電子郵件"
                   name="account"
                 />
               </div>
