@@ -1,5 +1,4 @@
 import axios from "axios";
-import $ from "jquery";
 
 export default {
   state: {
@@ -24,13 +23,10 @@ export default {
         state.tempProduct = Object.assign({}, item);
         state.isNew = false;
       }
-      $("#productModal").modal("show");
     },
     DELPROMODAL(state, item) {
       // 將所點選的產品資料帶入
       state.tempProduct = item;
-      // 開啟刪除產品 modal
-      $("#delProductModal").modal("show");
     }
   },
   actions: {
@@ -46,7 +42,6 @@ export default {
         // 存到陣列裡
         context.commit("DASHPRODUCTS", response.data.products);
         context.commit("DASHPROPAGINATION", response.data.pagination);
-        console.log(response.data);
       });
     },
     openProModal(context, { isNew, item }) {
@@ -67,12 +62,12 @@ export default {
         response => {
           console.log(response.data);
           if (response.data.success) {
-            $("#productModal").modal("hide");
             context.dispatch("getProducts");
           } else {
-            $("#productModal").modal("hide");
             context.dispatch("getProducts");
-            console.log("新增失敗");
+            let message = response.data.message;
+            let status = "danger";
+            vm.$store.dispatch("updateMessage", { message, status });
           }
         }
       );
@@ -84,13 +79,12 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/product/${context.state.tempProduct.id}`;
       axios.delete(api).then(response => {
         if (response.data.success) {
-          console.log(response.data.message);
           context.dispatch("getProducts");
-          $("#delProductModal").modal("hide");
         } else {
-          console.log(response.data.message);
+          let message = response.data.message;
+          let status = "danger";
+          vm.$store.dispatch("updateMessage", { message, status });
           context.dispatch("getProducts");
-          $("#delProductModal").modal("hide");
         }
       });
     }

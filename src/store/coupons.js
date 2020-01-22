@@ -1,5 +1,4 @@
 import axios from "axios";
-import $ from "jquery";
 
 export default {
   state: {
@@ -71,12 +70,12 @@ export default {
       axios[httpMethod](api, { data: context.state.tempCoupon }).then(
         response => {
           if (response.data.success) {
-            $("#couponModal").modal("hide");
             context.dispatch("getCoupons");
           } else {
-            $("#couponModal").modal("hide");
             context.dispatch("getCoupons");
-            console.log("新增失敗");
+            let message = response.data.message;
+            let status = "danger";
+            vm.$store.dispatch("updateMessage", { message, status });
           }
         }
       );
@@ -89,10 +88,8 @@ export default {
       axios.delete(api).then(response => {
         if (response.data.success) {
           context.dispatch("getCoupons");
-          $("#delCouponModal").modal("hide");
         } else {
           context.dispatch("getCoupons");
-          $("#delCouponModal").modal("hide");
         }
       });
     }

@@ -302,15 +302,20 @@ export default {
     },
     openModal(isNew, item) {
       this.$store.dispatch("openProModal", { isNew, item });
+      $("#productModal").modal("show");
     },
     updateProduct() {
       this.$store.dispatch("updateProduct");
+      $("#productModal").modal("hide");
     },
     deleteModal(item) {
       this.$store.dispatch("deleteProModal", item);
+      // 開啟刪除產品 modal
+      $("#delProductModal").modal("show");
     },
     delProduct() {
       this.$store.dispatch("delProduct");
+      $("#delProductModal").modal("hide");
     },
     uploadFile() {
       // console.log(this);

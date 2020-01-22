@@ -125,7 +125,7 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav text-center">
+          <ul class="navbar-nav text-center ml-auto">
             <li
               class="nav-item"
               :class="{ active: activeStatus == 'home' }"

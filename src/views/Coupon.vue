@@ -241,6 +241,7 @@ export default {
     },
     updateCoupon() {
       this.$store.dispatch("updateCoupon");
+      $("#couponModal").modal("hide");
     },
     deleteModal(item) {
       this.$store.dispatch("deleteCouModal", item);
@@ -248,6 +249,7 @@ export default {
     },
     delCoupon() {
       this.$store.dispatch("delCoupon");
+      $("#delCouponModal").modal("hide");
     }
   },
   created() {
