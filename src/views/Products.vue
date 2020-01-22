@@ -19,7 +19,7 @@
           class="h3 p-3 ml-auto d-none d-md-block writing-md-vertical text-title text-dark text-bg"
         >
           想吃肉——<br />
-          是不需要理由的。
+          <span class="mt-5">是不需要理由的。</span>
         </h2>
       </div>
     </header>

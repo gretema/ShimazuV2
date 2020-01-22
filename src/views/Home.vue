@@ -5,8 +5,9 @@
       <!-- (標語) 在 md 以上隱藏 -->
       <div class="row justify-content-center d-md-none no-gutters my-5">
         <div class="col-8">
-          <h2 class="h4 my-5 text-center text-title">
-            為什麼——<br />選擇日本和牛？
+          <h2 class="h5 my-5 text-center text-title">
+            為什麼——<br />
+            選擇日本和牛？
           </h2>
         </div>
       </div>
@@ -33,7 +34,7 @@
                 class="writing-md-vertical d-none d-md-block section-image-block text-title"
               >
                 為什麼——<br />
-                選擇日本和牛？
+                <span class="mt-5">選擇日本和牛？</span>
               </h2>
             </div>
           </div>
@@ -44,7 +45,7 @@
       <!-- (標語) 在 md 以上隱藏 -->
       <div class="row justify-content-center d-md-none no-gutters my-5">
         <div class="col-8">
-          <h2 class="h4 my-5 text-center text-title">
+          <h2 class="h5 my-5 text-center text-title">
             為什麼——<br />一定要吃肉？
           </h2>
         </div>
@@ -73,7 +74,7 @@
                 class="writing-md-vertical d-none d-md-block section-image-block text-title"
               >
                 為什麼——<br />
-                一定要吃肉？
+                <span class="mt-5">一定要吃肉？</span>
               </h2>
             </div>
           </div>
@@ -84,12 +85,13 @@
     <section class="my-5 my-md-9">
       <div class="container d-flex justify-content-center">
         <h2 class="h3 my-5 text-center text-title d-md-none">
-          想吃肉——<br />是不需要理由的。
+          想吃肉——<br />
+          是不需要理由的。
         </h2>
         <div class="d-flex flex-wrap flex-column justify-content-center">
           <h2 class="d-none d-md-block writing-md-vertical text-title">
             想吃肉——<br />
-            是不需要理由的。
+            <span class="mt-5">是不需要理由的。</span>
           </h2>
         </div>
       </div>

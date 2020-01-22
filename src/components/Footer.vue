@@ -23,7 +23,7 @@
             class="h5 writing-md-vertical text-title ml-auto mr-0 d-none d-md-block"
           >
             今天是個——<br />
-            吃肉的好日子。
+            <span class="mt-5">吃肉的好日子。</span>
           </h3>
         </div>
 
