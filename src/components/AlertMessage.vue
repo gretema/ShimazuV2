@@ -21,11 +21,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      // messages: []
-    };
-  },
   computed: {
     messages() {
       return this.$store.state.messages;
@@ -41,16 +36,6 @@ export default {
     removeMessageWithTiming(timestamp) {
       this.$store.dispatch("removeMessageWithTiming", timestamp);
     }
-  },
-  created() {
-    //const vm = this;
-    // 自定義名稱 'messsage:push'
-    // message: 傳入參數
-    // status: 樣式，預設值為 warning
-    // 外層用 on 註冊事件，內層要用時使用 $emit 呼叫
-    // vm.$bus.$on("message:push", (message, status = "warning") => {
-    //   vm.updateMessage(message, status);
-    // });
   }
 };
 </script>

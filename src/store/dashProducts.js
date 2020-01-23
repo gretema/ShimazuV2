@@ -60,7 +60,6 @@ export default {
       // http 方法用中括號變數選取
       axios[httpMethod](api, { data: context.state.tempProduct }).then(
         response => {
-          console.log(response.data);
           if (response.data.success) {
             context.dispatch("getProducts");
           } else {

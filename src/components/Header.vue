@@ -6,8 +6,7 @@
         class="jumbotron jumbotron-fluid bg-cover d-flex align-items-center"
         :style="[
           {
-            backgroundImage:
-              'url(' + require('../assets/images/restaurant.jpg') + ')'
+            backgroundImage: `url(${require('../assets/images/restaurant.jpg')})`
           },
           { height: '496px' }
         ]"
@@ -37,8 +36,7 @@
                 <div
                   class="frosted-image bg-cover"
                   :style="{
-                    backgroundImage:
-                      'url(' + require('../assets/images/meat1.jpg') + ')'
+                    backgroundImage: `url(${require('../assets/images/meat1.jpg')})`
                   }"
                 ></div>
               </a>

@@ -257,10 +257,15 @@ export default {
         // 關閉 loading
         this.$store.commit("LOADING", false);
         if (response.data.success) {
-          console.log("訂單已建立", response.data.message);
+          let message = response.data.message;
+          let status = "success";
+          vm.$store.dispatch("updateMessage", { message, status });
+
           vm.$router.push(`/cart/payment/${response.data.orderId}`);
         } else {
-          console.log("訂單建立失敗", response.data.message);
+          let message = response.data.message;
+          let status = "danger";
+          vm.$store.dispatch("updateMessage", { message, status });
         }
       });
     },

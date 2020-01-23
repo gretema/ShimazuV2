@@ -270,13 +270,10 @@ import Pagination from "../components/Pagination.vue";
 
 export default {
   components: {
-    Pagination: Pagination // 前為標籤名，後為引入的元件名
+    Pagination
   },
   data() {
     return {
-      //products: [],
-      // tempProduct: {}, // 在 Modal 中的商品資訊
-      // isNew: false, // 先預設為 false
       status: {
         fileUploading: false
       }
@@ -310,7 +307,6 @@ export default {
     },
     deleteModal(item) {
       this.$store.dispatch("deleteProModal", item);
-      // 開啟刪除產品 modal
       $("#delProductModal").modal("show");
     },
     delProduct() {
@@ -318,7 +314,6 @@ export default {
       $("#delProductModal").modal("hide");
     },
     uploadFile() {
-      // console.log(this);
       const uploadedFile = this.$refs.files.files[0];
       const vm = this;
       const formData = new FormData();
@@ -336,13 +331,11 @@ export default {
           }
         })
         .then(response => {
-          console.log(response.data);
           // 關閉 loading 效果
           vm.status.fileUploading = false;
           if (response.data.success) {
             vm.$set(vm.tempProduct, "imageUrl", response.data.imageUrl);
           } else {
-            // this.$bus.$emit("message:push", response.data.message, "danger");
             let message = response.data.message;
             let status = "danger";
             this.$store.dispatch("updateMessage", { message, status });

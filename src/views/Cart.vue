@@ -166,7 +166,6 @@ export default {
       };
       this.$store.commit("LOADING", true);
       this.$http.post(url, { data: coupon }).then(response => {
-        console.log(response);
         vm.getCart();
         vm.$store.commit("LOADING", false);
         if (!response.data.success) {

@@ -204,9 +204,6 @@ export default {
   components: {
     Pagination
   },
-  data() {
-    return {};
-  },
   computed: {
     pagination() {
       return this.$store.state.Coupons.pagination;
