@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Navbar />
     <div class="container mb-md-6">
       <div
         class="bg-cover row justify-content-center align-items-center"
@@ -105,23 +104,11 @@
         </form>
       </div>
     </div>
-
-    <Subscribe />
-    <Footer />
   </div>
 </template>
 
 <script>
-import Navbar from "../components/Navbar.vue";
-import Subscribe from "../components/Subscribe.vue";
-import Footer from "../components/Footer.vue";
-
 export default {
-  components: {
-    Navbar,
-    Subscribe,
-    Footer
-  },
   data() {
     return {
       orderId: "",
