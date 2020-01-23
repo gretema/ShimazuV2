@@ -6,7 +6,7 @@
       <div class="row">
         <DashSidebar />
 
-        <main role="main" class="col-md-9 ml-5 px-3">
+        <main role="main" class="col-md-9 px-3 ml-0 ml-md-5">
           <router-view></router-view>
           <!--Products/Orders/Coupon/CustomerOrder-->
         </main>
