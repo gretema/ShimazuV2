@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-responsive">
     <div class="text-left mt-4">
       <button class="btn btn-primary" @click="openModal(true)">
         建立新優惠券
@@ -11,7 +11,7 @@
           <th>優惠券名稱</th>
           <th width="120">折扣率</th>
           <th width="150" class="text-center">到期日</th>
-          <th width="120">是否啟用</th>
+          <th width="120">啟用</th>
           <th width="160" class="text-center">編輯</th>
         </tr>
       </thead>
@@ -26,7 +26,7 @@
           </td>
           <td>
             <button
-              class="btn btn-outline-secondary btn-sm mr-1"
+              class="btn btn-outline-secondary btn-sm mr-md-1"
               @click="openModal(false, item)"
             >
               編輯

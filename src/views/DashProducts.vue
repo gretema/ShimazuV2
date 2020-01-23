@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-responsive">
     <div class="text-left mt-4">
       <button class="btn btn-primary" @click="openModal(true)">
         建立新產品
@@ -9,10 +9,10 @@
       <thead>
         <tr>
           <th width="120" class="text-center">分類</th>
-          <th class="text-center">產品名稱</th>
+          <th class="text-center">品名</th>
           <th width="100">原價</th>
           <th width="100">售價</th>
-          <th width="120" class="text-center">是否啟用</th>
+          <th width="120" class="text-center">啟用</th>
           <th width="160" class="text-center">編輯</th>
         </tr>
       </thead>
@@ -28,7 +28,7 @@
           </td>
           <td>
             <button
-              class="btn btn-outline-secondary btn-sm mr-1"
+              class="btn btn-outline-secondary btn-sm mr-md-1"
               @click="openModal(false, item)"
             >
               編輯

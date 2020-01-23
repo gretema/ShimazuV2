@@ -1,18 +1,18 @@
 <template>
-  <div>
+  <div class="table-responsive">
     <table class="table mt-4 bg-light" v-if="orders.length">
       <thead>
         <tr>
-          <th>購買時間</th>
-          <th>Email</th>
-          <th>購買款項</th>
-          <th>應付金額</th>
-          <th>是否付款</th>
+          <th width="120">購買時間</th>
+          <th width="120">Email</th>
+          <th>購買項目</th>
+          <th width="100">應付金額</th>
+          <th width="100">付款</th>
         </tr>
       </thead>
       <tbody>
         <tr
-          v-for="(item, key) in orders"
+          v-for="item in orders"
           :key="item.id"
           :class="{ 'text-secondary': !item.is_paid }"
         >
@@ -29,7 +29,7 @@
           <td class="text-right">{{ item.total | currency }}</td>
           <td>
             <strong v-if="item.is_paid" class="text-success">已付款</strong>
-            <span v-else class="text-muted">尚未啟用</span>
+            <span v-else class="text-muted">未付款</span>
           </td>
         </tr>
       </tbody>
