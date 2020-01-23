@@ -1,50 +1,46 @@
 <template>
-  <div class="row">
-    <div
-      :class="[
-        { 'col-md-6': thisPage == 'productCard' },
-        { 'col-md-4': thisPage == 'homeCard' }
-      ]"
-      v-for="item in filterData"
-      :key="item.id"
-    >
-      <div class="item-card mb-4">
-        <!-- item-image -->
-        <div
-          class="item-image bg-cover"
-          :style="{ backgroundImage: `url(${item.imageUrl})` }"
-        >
-          <div class="item-tag">{{ item.category }}</div>
-          <div class="item-icon text-primary" @click="loveIt(item)">
-            <i class="heart-border" :class="heartStyle"></i>
-          </div>
+  <div
+    :class="[
+      { 'col-md-6': thisPage == 'productCard' },
+      { 'col-md-4': thisPage == 'homeCard' }
+    ]"
+  >
+    <div class="item-card mb-4">
+      <!-- item-image -->
+      <div
+        class="item-image bg-cover"
+        :style="{ backgroundImage: `url(${thisCard.imageUrl})` }"
+      >
+        <div class="item-tag">{{ thisCard.category }}</div>
+        <div class="item-icon text-primary" @click="clickHeart">
+          <i class="heart-border" :class="heartStyle"></i>
         </div>
-        <!-- item-info -->
-        <div
-          class="row no-gutters item-info text-light d-flex justify-content-center"
-        >
-          <div class="col item-name p-3">{{ item.title }}</div>
-          <div class="col item-price text-strong p-3">
-            <strong>NT {{ item.price | currency }}</strong>
-          </div>
-        </div>
-        <!-- item-cart -->
-
-        <button
-          v-if="thisPage == 'homeCard'"
-          class="btn btn-block btn-primary item-cart"
-          @click="addtoCart(item.id)"
-        >
-          加入購物車
-        </button>
-        <button
-          v-else
-          class="btn btn-block btn-primary item-cart"
-          @click="openSingleProduct(item.id)"
-        >
-          查看更多
-        </button>
       </div>
+      <!-- item-info -->
+      <div
+        class="row no-gutters item-info text-light d-flex justify-content-center"
+      >
+        <div class="col item-name p-3">{{ thisCard.title }}</div>
+        <div class="col item-price text-strong p-3">
+          <strong>NT {{ thisCard.price | currency }}</strong>
+        </div>
+      </div>
+      <!-- item-cart -->
+
+      <button
+        v-if="thisPage == 'homeCard'"
+        class="btn btn-block btn-primary item-cart"
+        @click="addtoCart(thisCard.id)"
+      >
+        加入購物車
+      </button>
+      <button
+        v-else
+        class="btn btn-block btn-primary item-cart"
+        @click="openSingleProduct(thisCard.id)"
+      >
+        查看更多
+      </button>
     </div>
   </div>
 </template>
@@ -53,32 +49,19 @@
 export default {
   data() {
     return {
-      thisPage: "",
-      loveItem: ""
+      thisPage: ""
     };
   },
+  props: ["thisCard"],
   computed: {
-    filterData() {
-      const vm = this;
-      if (vm.searchText) {
-        return vm.products.filter(item => {
-          const data = item.category
-            .toLowerCase()
-            .includes(vm.searchText.toLowerCase());
-          return data;
-        });
-      }
-      return this.products;
-    },
     searchText() {
       return this.$store.state.CustomerProducts.searchText;
     },
-    products() {
-      return this.$store.state.CustomerProducts.products;
+    collected() {
+      return this.$store.state.CustomerProducts.collected;
     },
-    heartStyle() {
-      let collectedNames = this.$store.state.CustomerProducts.collectedNames;
-      return collectedNames.indexOf(this.loveItem) == -1
+    heartStyle: function() {
+      return this.collected.indexOf(this.thisCard.title) == -1
         ? "far fa-heart"
         : "fas fa-heart";
     }
@@ -91,9 +74,9 @@ export default {
     openSingleProduct(id) {
       this.$router.push(`/products/${id}`);
     },
-    loveIt(item) {
-      this.$store.commit("COLLECTED", item);
-      this.loveItem = item.title;
+    clickHeart() {
+      // 被點擊愛心的商品名稱送到父元件的 method
+      this.$emit("change-heart", this.thisCard.title);
     }
   },
   mounted() {

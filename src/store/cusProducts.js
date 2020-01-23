@@ -6,8 +6,7 @@ export default {
     products: [],
     pagination: {},
     searchText: "",
-    collected: JSON.parse(localStorage.getItem("collectedItems")) || [],
-    collectedNames: []
+    collected: JSON.parse(localStorage.getItem("collectedItems")) || []
   },
   mutations: {
     CATEGORIES(state, payload) {
@@ -26,22 +25,19 @@ export default {
     SEARCHTEXT(state, payload) {
       state.searchText = payload;
     },
-    COLLECTED(state, product) {
-      if (state.collectedNames.indexOf(product.title) == -1) {
+    COLLECTED(state, lovedItemTitle) {
+      if (state.collected.indexOf(lovedItemTitle) == -1) {
         // 商品不存在則加入陣列
-        state.collected.push(product);
+        state.collected.push(lovedItemTitle);
       } else {
         // 存在則將商品移除
-        state.collected.splice(state.collected.indexOf(product.title), 1);
+        state.collected.splice(state.collected.indexOf(lovedItemTitle), 1);
       }
       // 儲存至 localStorage
       localStorage.setItem("collectedItems", JSON.stringify(state.collected));
     },
-    COLLECTEDNAMES(state) {
-      state.collected.map(item => state.collectedNames.push(item.title));
-    },
-    DISCOLLECTED(state, product) {
-      state.collected.splice(state.collected.indexOf(product), 1);
+    DISCOLLECTED(state, lovedItemTitle) {
+      state.collected.splice(state.collected.indexOf(lovedItemTitle), 1);
       localStorage.setItem("collectedItems", JSON.stringify(state.collected));
     }
   },
@@ -59,6 +55,9 @@ export default {
     },
     getText(context, text) {
       context.commit("SEARCHTEXT", text);
+    },
+    setHeart(context, lovedItemTitle) {
+      context.commit("COLLECTED", lovedItemTitle);
     }
   }
 };

@@ -39,9 +39,10 @@
           >
             <div class="px-4 py-3">
               <h6>收藏清單</h6>
+              <small v-if="!collected.length">還沒有想吃的肉肉。</small>
               <table class="table table-sm" v-if="collected.length">
                 <tbody>
-                  <tr v-for="item in collected" :key="item.id">
+                  <tr v-for="(item, key) in collected" :key="key">
                     <td class="align-middle text-center">
                       <a
                         href="#"
@@ -52,9 +53,7 @@
                       </a>
                     </td>
                     <td class="align-middle">
-                      <router-link :to="`/products/${item.id}`">{{
-                        item.title
-                      }}</router-link>
+                      {{ item }}
                     </td>
                   </tr>
                 </tbody>

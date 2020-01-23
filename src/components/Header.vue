@@ -82,9 +82,6 @@
 
 <script>
 export default {
-  data() {
-    return {};
-  },
   computed: {
     searchText() {
       return this.$store.state.CustomerProducts.searchText;

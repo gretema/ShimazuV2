@@ -56,8 +56,16 @@
         <div class="col-md-9 mt-5 mt-md-0">
           <div class="tab-content">
             <div class="tab-pane active" id="all-product" role="tabpanel">
-              <!--卡片元件-->
-              <ProductCard> </ProductCard>
+              <div class="row">
+                <!--卡片元件-->
+                <ProductCard
+                  v-for="item in filterData"
+                  :key="item.id"
+                  :this-card="item"
+                  @change-heart="setHeart"
+                >
+                </ProductCard>
+              </div>
             </div>
           </div>
 
@@ -73,7 +81,6 @@
 </template>
 
 <script>
-import $ from "jquery";
 import Pagination from "../components/Pagination.vue";
 import ProductCard from "../components/ProductCard.vue";
 
@@ -82,11 +89,6 @@ export default {
     Pagination,
     ProductCard
   },
-  data() {
-    return {
-      //searchText: ""
-    };
-  },
   computed: {
     pagination() {
       return this.$store.state.CustomerProducts.pagination;
@@ -94,7 +96,21 @@ export default {
     cart() {
       return this.$store.state.cart;
     },
-
+    filterData() {
+      const vm = this;
+      if (vm.searchText) {
+        return vm.products.filter(item => {
+          const data = item.category
+            .toLowerCase()
+            .includes(vm.searchText.toLowerCase());
+          return data;
+        });
+      }
+      return this.products;
+    },
+    products() {
+      return this.$store.state.CustomerProducts.products;
+    },
     categories() {
       return this.$store.state.CustomerProducts.categories;
     },
@@ -114,6 +130,9 @@ export default {
     },
     getText(cateText) {
       this.$store.dispatch("getText", cateText);
+    },
+    setHeart(lovedItemTitle) {
+      this.$store.dispatch("setHeart", lovedItemTitle);
     }
   },
   created() {

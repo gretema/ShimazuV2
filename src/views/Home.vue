@@ -84,7 +84,7 @@
 
     <section class="my-5 my-md-9">
       <div class="container d-flex justify-content-center">
-        <h2 class="h3 my-5 text-center text-title d-md-none">
+        <h2 class="h4 my-5 text-center text-title d-md-none">
           想吃肉——<br />
           是不需要理由的。
         </h2>
@@ -99,7 +99,16 @@
 
     <!--Item Card-->
     <div class="container my-5 my-7">
-      <ProductCard />
+      <div class="row">
+        <!--卡片元件-->
+        <ProductCard
+          v-for="item in filterData"
+          :key="item.id"
+          :this-card="item"
+          @change-heart="setHeart"
+        >
+        </ProductCard>
+      </div>
     </div>
 
     <!--優惠券 Modal-->
@@ -170,12 +179,35 @@ export default {
     Header,
     ProductCard
   },
+  computed: {
+    filterData() {
+      const vm = this;
+      if (vm.searchText) {
+        return vm.products.filter(item => {
+          const data = item.category
+            .toLowerCase()
+            .includes(vm.searchText.toLowerCase());
+          return data;
+        });
+      }
+      return this.products;
+    },
+    products() {
+      return this.$store.state.CustomerProducts.products;
+    },
+    searchText() {
+      return this.$store.state.CustomerProducts.searchText;
+    }
+  },
   methods: {
     getProducts(page = 1) {
       this.$store.dispatch("getCusProducts", page);
     },
     showModal() {
       $("#myModal").modal("show");
+    },
+    setHeart(lovedItemTitle) {
+      this.$store.dispatch("setHeart", lovedItemTitle);
     }
   },
   created() {
