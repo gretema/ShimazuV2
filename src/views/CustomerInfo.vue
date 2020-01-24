@@ -12,7 +12,7 @@
             <!--第一排: 標題 & 步驟-->
             <div class="form-row my-4">
               <div class="col-6">
-                <h2>收件資訊</h2>
+                <h2 class="checkout-title">收件資訊</h2>
               </div>
               <!-- process-steps -->
               <div class="col-6 d-flex align-items-center">
@@ -36,15 +36,15 @@
                   v-slot="{ failed, errors }"
                   tag="div"
                 >
-                  <label for="username" class="h4">姓名</label>
+                  <label for="username" class="checkout-label">姓名</label>
                   <input
                     type="text"
                     :class="{ 'is-invalid': failed }"
-                    class="form-control form-control-lg larger-form rounded-0"
+                    class="form-control rounded-0"
                     name="name"
                     id="username"
                     v-model="form.user.name"
-                    placeholder="請輸入姓名"
+                    placeholder="陳金發"
                   />
                   <div class="text-danger">
                     {{ errors[0] }}
@@ -62,12 +62,12 @@
                   v-slot="{ failed, errors }"
                   tag="div"
                 >
-                  <label for="useremail" class="h4">Email</label>
+                  <label for="useremail" class="checkout-label">Email</label>
                   <input
                     type="email"
                     :class="{ 'is-invalid': failed }"
-                    class="form-control form-control-lg larger-form rounded-0"
-                    placeholder="請輸入 Email"
+                    class="form-control rounded-0"
+                    placeholder="example@gmail.com"
                     id="useremail"
                     name="email"
                     v-model="form.user.email"
@@ -88,10 +88,10 @@
                   v-slot="{ failed, errors }"
                   tag="div"
                 >
-                  <label for="usertel" class="h4">電話</label>
+                  <label for="usertel" class="checkout-label">電話</label>
                   <input
                     type="tel"
-                    class="form-control form-control-lg larger-form rounded-0"
+                    class="form-control rounded-0"
                     placeholder="0912-345-678"
                     :class="{ 'is-invalid': failed }"
                     id="usertel"
@@ -113,10 +113,10 @@
                   v-slot="{ failed, errors }"
                   tag="div"
                 >
-                  <label for="useraddress" class="h4">地址</label>
+                  <label for="useraddress" class="checkout-label">地址</label>
                   <input
                     type="text"
-                    class="form-control form-control-lg larger-form rounded-0"
+                    class="form-control rounded-0"
                     placeholder="請輸入地址"
                     :class="{ 'is-invalid': failed }"
                     name="address"
@@ -140,12 +140,13 @@
                   v-slot="{ failed, errors }"
                   tag="div"
                 >
-                  <label for="comment" class="h4">留言</label>
+                  <label for="comment" class="checkout-label">留言</label>
                   <textarea
                     name="message"
                     id="comment"
                     class="form-control"
                     :class="{ 'is-invalid': failed }"
+                    placeholder="想說的話..."
                     cols="10"
                     rows="5"
                     v-model="form.message"
