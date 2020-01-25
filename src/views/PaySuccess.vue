@@ -23,8 +23,7 @@
             </div>
           </div>
           <h2
-            class="text-center text-primary text-bg p-3 my-5"
-            style="font-weight: bolder; letter-spacing: 10px;"
+            class="text-center text-primary text-bg p-3 my-5 paysuccess-title"
           >
             付款成功
           </h2>
@@ -46,7 +45,7 @@
         </div>
       </div>
       <div class="my-5 row justify-content-center bg-light">
-        <form class="col-md-10">
+        <div class="col-md-10 table-responsive">
           <table class="table">
             <thead>
               <th>品名</th>
@@ -98,10 +97,7 @@
               </tr>
             </tbody>
           </table>
-          <div class="text-right" v-if="order.is_paid === false">
-            <button class="btn btn-danger">確認付款去</button>
-          </div>
-        </form>
+        </div>
       </div>
     </div>
   </div>

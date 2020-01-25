@@ -12,7 +12,7 @@
             <!--第一排: 標題 & 步驟-->
             <div class="form-row my-4">
               <div class="col-6">
-                <h2>付款資訊</h2>
+                <h2 class="checkout-title">付款資訊</h2>
               </div>
               <!-- process-steps -->
               <div class="col-6 d-flex align-items-center">
@@ -38,12 +38,14 @@
                   v-slot="{ failed, errors }"
                   tag="div"
                 >
-                  <label for="creditNumber" class="h4">信用卡號</label>
+                  <label for="creditNumber" class="checkout-label"
+                    >信用卡號</label
+                  >
                   <div class="input-group">
                     <input
                       type="text"
                       :class="{ 'is-invalid': failed }"
-                      class="form-control form-control-lg larger-form rounded-0"
+                      class="form-control rounded-0"
                       placeholder="9012-3456-7890-1234"
                       id="creditNumber"
                       name="creditNumber"
@@ -64,7 +66,9 @@
               </div>
             </div>
 
-            <label for="cardLastName" class="h4 mt-2">持卡人姓名</label>
+            <label for="cardLastName" class="checkout-label mt-2"
+              >持卡人姓名</label
+            >
             <!--第三排: 持卡人姓名輸入-->
             <div class="form-row">
               <div class="col">
@@ -78,7 +82,7 @@
                   <input
                     type="text"
                     :class="{ 'is-invalid': failed }"
-                    class="form-control form-control-lg larger-form rounded-0"
+                    class="form-control rounded-0"
                     placeholder="陳"
                     id="cardLastName"
                     name="cardLastName"
@@ -100,7 +104,7 @@
                   <input
                     type="text"
                     :class="{ 'is-invalid': failed }"
-                    class="form-control form-control-lg larger-form rounded-0"
+                    class="form-control rounded-0"
                     placeholder="金發"
                     id="cardFirstName"
                     name="cardFirstName"
@@ -113,7 +117,7 @@
               </div>
             </div>
 
-            <label for="expYear" class="h4">有效期限</label>
+            <label for="expYear" class="checkout-label">有效期限</label>
             <!--第四排: 有效期限-->
             <div class="form-row">
               <div class="col-6">
@@ -129,7 +133,7 @@
                     id="cardExpMon"
                     placeholder="01"
                     :class="{ 'is-invalid': failed }"
-                    class="form-control form-control-lg larger-form rounded-0"
+                    class="form-control rounded-0"
                     v-model="cardExpMon"
                   />
                   <div class="text-danger">
@@ -150,7 +154,7 @@
                     id="cardExpYear"
                     placeholder="22"
                     :class="{ 'is-invalid': failed }"
-                    class="form-control form-control-lg larger-form rounded-0"
+                    class="form-control rounded-0"
                     v-model="cardExpYear"
                   />
                   <div class="text-danger">
@@ -166,11 +170,13 @@
                   v-slot="{ failed, errors }"
                   tag="div"
                 >
-                  <label for="cardSafeCode" class="h4">安全碼</label>
+                  <label for="cardSafeCode" class="checkout-label"
+                    >安全碼</label
+                  >
                   <input
                     type="text"
                     :class="{ 'is-invalid': failed }"
-                    class="form-control form-control-lg larger-form rounded-0"
+                    class="form-control rounded-0"
                     id="cardSafeCode"
                     placeholder="123"
                     v-model="cardSafeCode"
