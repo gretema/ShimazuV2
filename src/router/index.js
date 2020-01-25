@@ -1,21 +1,22 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 
-import Front from "../views/Front.vue";
-import Home from "../views/Home.vue";
-import Login from "../views/Login.vue";
-import Products from "../views/Products.vue";
-import SingleProduct from "../views/SingleProduct.vue";
-import Checkout from "../views/Checkout.vue";
-import Cart from "../views/Cart.vue";
-import CustomerInfo from "../views/CustomerInfo.vue";
-import Payment from "../views/Payment.vue";
-import PaySuccess from "../views/PaySuccess.vue";
+// 路由懶加載：減少打包後的檔案體積
+const Front = () => import("../views/Front.vue");
+const Home = () => import("../views/Home.vue");
+const Login = () => import("../views/Login.vue");
+const Products = () => import("../views/Products.vue");
+const SingleProduct = () => import("../views/SingleProduct.vue");
+const Checkout = () => import("../views/Checkout.vue");
+const Cart = () => import("../views/Cart.vue");
+const CustomerInfo = () => import("../views/CustomerInfo.vue");
+const Payment = () => import("../views/Payment.vue");
+const PaySuccess = () => import("../views/PaySuccess.vue");
 
-import Dashboard from "../views/Dashboard.vue";
-import DashProducts from "../views/DashProducts.vue";
-import Coupon from "../views/Coupon.vue";
-import DashOrders from "../views/DashOrders.vue";
+const Dashboard = () => import("../views/Dashboard.vue");
+const DashProducts = () => import("../views/DashProducts.vue");
+const Coupon = () => import("../views/Coupon.vue");
+const DashOrders = () => import("../views/DashOrders.vue");
 
 Vue.use(VueRouter);
 
