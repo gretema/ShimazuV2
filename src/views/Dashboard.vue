@@ -24,11 +24,6 @@ export default {
     DashNavbar,
     DashSidebar,
     Alert
-  },
-  computed: {
-    isLoading() {
-      return this.$store.state.isLoading;
-    }
   }
 };
 </script>
