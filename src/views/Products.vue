@@ -55,7 +55,11 @@
         <!--產品-->
         <div class="col-md-9 mt-5 mt-md-0">
           <div class="tab-content">
-            <div class="tab-pane active" id="all-product" role="tabpanel">
+            <div
+              class="tab-pane active bg-transparent"
+              id="all-product"
+              role="tabpanel"
+            >
               <div class="row">
                 <!--卡片元件-->
                 <ProductCard

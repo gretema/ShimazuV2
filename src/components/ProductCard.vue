@@ -25,18 +25,17 @@
           <strong>NT {{ thisCard.price | currency }}</strong>
         </div>
       </div>
-      <!-- item-cart -->
-
+      <!-- item-btn -->
       <button
         v-if="thisPage == 'homeCard'"
-        class="btn btn-block btn-primary item-cart"
+        class="btn btn-block btn-primary btn-item"
         @click="addtoCart(thisCard.id)"
       >
         加入購物車
       </button>
       <button
         v-else
-        class="btn btn-block btn-primary item-cart"
+        class="btn btn-block btn-primary btn-item"
         @click="openSingleProduct(thisCard.id)"
       >
         查看更多
