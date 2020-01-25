@@ -59,12 +59,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scope>
-.active {
-  background-color: #b54434;
-  a {
-    color: white;
-  }
-}
-</style>
