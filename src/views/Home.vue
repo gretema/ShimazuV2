@@ -204,7 +204,9 @@ export default {
       this.$store.dispatch("getCusProducts", page);
     },
     showModal() {
-      $("#myModal").modal("show");
+      window.setTimeout(function() {
+        $("#myModal").modal("show");
+      }, 1500);
     },
     setHeart(lovedItemTitle) {
       this.$store.dispatch("setHeart", lovedItemTitle);
