@@ -12,7 +12,7 @@
 
 二版建立於 2020.01，以初版為基礎，運用 Vue.js / Vue CLI 3 / Vue Router / Vuex 製作 SPA 網站，使本專案趨於完整。
 
-初版程式碼放置在 master 分支，二版程式碼放置在 develop 分支，GitHub Page 是以 release 分支建立而成。
+初版程式碼放置在 master 分支，二版程式碼放置在 develop 分支，GitHub Page 是以 gh-pages 分支建立而成。
 
 ### 初版資料夾結構
 
