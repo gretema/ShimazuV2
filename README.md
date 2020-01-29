@@ -48,16 +48,25 @@ git clone https://github.com/gretema/Shimazu.git
 ## Install Vue CLI
 
 若本身已經安裝過 Vue CLI 3 以上版本則可以忽略該行指令。
-`npm install -g @vue/cli`
+```
+npm install -g @vue/cli
+```
 
 ## Install package
 
-`npm install`
+```
+npm install
+```
 
 ## Develop mode
 
-`npm run serve`
+```
+npm run serve
+```
 
 ## Build mode
+此模式會重新產生 dist 資料夾。
 
-`npm run build // 此模式會重新產生 dist 資料夾`
+```
+npm run build
+```
