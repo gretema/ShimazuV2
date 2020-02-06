@@ -11,7 +11,6 @@
           </div>
           <ValidationObserver
             class="p-3 p-md-5 pt-md-4 bg-light needs-validation"
-            v-slot="{ invalid }"
             tag="form"
             @submit.prevent="signin"
           >
