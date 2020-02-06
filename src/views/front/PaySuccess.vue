@@ -5,7 +5,7 @@
         class="bg-cover row justify-content-center align-items-center"
         :style="[
           {
-            backgroundImage: `url(${require('../assets/images/fortune_cats.jpg')})`
+            backgroundImage: `url(${require('../../assets/images/fortune_cats.jpg')})`
           },
           { height: '496px' }
         ]"

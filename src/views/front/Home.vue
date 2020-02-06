@@ -19,7 +19,7 @@
               <div
                 class="bg-cover h-100 section-image"
                 :style="{
-                  backgroundImage: `url(${require('../assets/images/meat6.jpg')})`
+                  backgroundImage: `url(${require('../../assets/images/meat6.jpg')})`
                 }"
               ></div>
             </div>
@@ -58,7 +58,7 @@
               <div
                 class="bg-cover h-100 section-image"
                 :style="{
-                  backgroundImage: `url(${require('../assets/images/meat8.jpg')})`
+                  backgroundImage: `url(${require('../../assets/images/meat8.jpg')})`
                 }"
               ></div>
             </div>
@@ -141,7 +141,7 @@
               :style="[
                 {
                   backgroundImage:
-                    'url(' + require('../assets/images/fortune_rats.jpg') + ')'
+                    'url(' + require('../../assets/images/fortune_rats.jpg') + ')'
                 },
                 { height: '250px' }
               ]"
@@ -170,8 +170,8 @@
 
 <script>
 import $ from 'jquery';
-import Header from '../components/Header.vue';
-import ProductCard from '../components/ProductCard.vue';
+import Header from '../../components/Header.vue';
+import ProductCard from '../../components/ProductCard.vue';
 
 export default {
   name: 'home',

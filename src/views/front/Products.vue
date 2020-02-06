@@ -6,7 +6,7 @@
       :style="[
         {
           backgroundImage:
-            'url(' + require('../assets/images/product-banner.jpg') + ')'
+            'url(' + require('../../assets/images/product-banner.jpg') + ')'
         },
         { height: '496px' }
       ]"
@@ -85,8 +85,8 @@
 </template>
 
 <script>
-import Pagination from '../components/Pagination.vue';
-import ProductCard from '../components/ProductCard.vue';
+import Pagination from '../../components/Pagination.vue';
+import ProductCard from '../../components/ProductCard.vue';
 
 export default {
   components: {

@@ -142,7 +142,7 @@
 </template>
 
 <script>
-import Alert from '../components/AlertMessage.vue';
+import Alert from '../../components/AlertMessage.vue';
 
 export default {
   components: {
@@ -190,5 +190,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/components/_cart";
+@import "../../assets/scss/components/_cart";
 </style>

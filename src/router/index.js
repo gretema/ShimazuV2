@@ -53,7 +53,7 @@ const routes = [
       {
         path: 'paysuccess/:orderId',
         name: 'PaySuccess',
-        component: () => import('../views/PaySuccess.vue'),
+        component: () => import('../views/front/PaySuccess.vue'),
       },
     ],
   },

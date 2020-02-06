@@ -266,7 +266,7 @@
 
 <script>
 import $ from 'jquery';
-import Pagination from '../components/Pagination.vue';
+import Pagination from '../../components/Pagination.vue';
 
 export default {
   components: {
