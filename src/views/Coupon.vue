@@ -197,12 +197,12 @@
 </template>
 
 <script>
-import $ from "jquery";
-import Pagination from "../components/Pagination.vue";
+import $ from 'jquery';
+import Pagination from '../components/Pagination.vue';
 
 export default {
   components: {
-    Pagination
+    Pagination,
   },
   computed: {
     pagination() {
@@ -218,39 +218,39 @@ export default {
         return this.$store.state.Coupons.due_date;
       },
       set(value) {
-        this.$store.commit("DUEDATE", value);
-      }
+        this.$store.commit('DUEDATE', value);
+      },
     },
     isNew() {
       return this.$store.state.Coupons.isNew;
     },
     tempCoupon() {
       return this.$store.state.Coupons.tempCoupon;
-    }
+    },
   },
   methods: {
     getCoupons(page = 1) {
-      this.$store.dispatch("getCoupons", page);
+      this.$store.dispatch('getCoupons', page);
     },
     openModal(isNew, item) {
-      this.$store.dispatch("openCouModal", { isNew, item });
-      $("#couponModal").modal("show");
+      this.$store.dispatch('openCouModal', { isNew, item });
+      $('#couponModal').modal('show');
     },
     updateCoupon() {
-      this.$store.dispatch("updateCoupon");
-      $("#couponModal").modal("hide");
+      this.$store.dispatch('updateCoupon');
+      $('#couponModal').modal('hide');
     },
     deleteModal(item) {
-      this.$store.dispatch("deleteCouModal", item);
-      $("#delCouponModal").modal("show");
+      this.$store.dispatch('deleteCouModal', item);
+      $('#delCouponModal').modal('show');
     },
     delCoupon() {
-      this.$store.dispatch("delCoupon");
-      $("#delCouponModal").modal("hide");
-    }
+      this.$store.dispatch('delCoupon');
+      $('#delCouponModal').modal('hide');
+    },
   },
   created() {
     this.getCoupons();
-  }
+  },
 };
 </script>

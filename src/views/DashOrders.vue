@@ -40,32 +40,32 @@
 </template>
 
 <script>
-import Pagination from "../components/Pagination";
+import Pagination from '../components/Pagination';
 
 export default {
   components: {
-    Pagination
+    Pagination,
   },
   data() {
     return {
       orders: [],
-      pagination: {}
+      pagination: {},
     };
   },
   methods: {
     getOrders(page = 1) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/orders?page=${page}`;
       const vm = this;
-      this.$store.commit("LOADING", true);
-      this.$http.get(api).then(response => {
-        vm.$store.commit("LOADING", false);
+      this.$store.commit('LOADING', true);
+      this.$http.get(api).then((response) => {
+        vm.$store.commit('LOADING', false);
         vm.orders = response.data.orders;
         vm.pagination = response.data.pagination;
       });
-    }
+    },
   },
   created() {
     this.getOrders();
-  }
+  },
 };
 </script>

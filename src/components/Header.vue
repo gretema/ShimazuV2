@@ -83,15 +83,15 @@ export default {
   computed: {
     searchText() {
       return this.$store.state.CustomerProducts.searchText;
-    }
+    },
   },
   methods: {
     getText(cateText) {
-      this.$store.dispatch("getText", cateText);
-    }
+      this.$store.dispatch('getText', cateText);
+    },
   },
   mounted() {
-    this.getText("本日精選");
-  }
+    this.getText('本日精選');
+  },
 };
 </script>

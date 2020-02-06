@@ -48,10 +48,10 @@
 export default {
   data() {
     return {
-      thisPage: ""
+      thisPage: '',
     };
   },
-  props: ["thisCard"],
+  props: ['thisCard'],
   computed: {
     searchText() {
       return this.$store.state.CustomerProducts.searchText;
@@ -59,15 +59,15 @@ export default {
     collected() {
       return this.$store.state.CustomerProducts.collected;
     },
-    heartStyle: function() {
+    heartStyle() {
       return this.collected.indexOf(this.thisCard.title) == -1
-        ? "far fa-heart"
-        : "fas fa-heart";
-    }
+        ? 'far fa-heart'
+        : 'fas fa-heart';
+    },
   },
   methods: {
     addtoCart(id, qty = 1) {
-      this.$store.dispatch("addtoCart", { id, qty });
+      this.$store.dispatch('addtoCart', { id, qty });
     },
     // 取得單一產品頁
     openSingleProduct(id) {
@@ -75,16 +75,16 @@ export default {
     },
     clickHeart() {
       // 被點擊愛心的商品名稱送到父元件的 method
-      this.$emit("change-heart", this.thisCard.title);
-    }
+      this.$emit('change-heart', this.thisCard.title);
+    },
   },
   mounted() {
-    let path = this.$route.path;
-    if (path == "/") {
-      this.thisPage = "homeCard";
+    const { path } = this.$route;
+    if (path == '/') {
+      this.thisPage = 'homeCard';
     } else {
-      this.thisPage = "productCard";
+      this.thisPage = 'productCard';
     }
-  }
+  },
 };
 </script>

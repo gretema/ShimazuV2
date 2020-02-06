@@ -169,21 +169,21 @@
 </template>
 
 <script>
-import $ from "jquery";
-import Header from "../components/Header.vue";
-import ProductCard from "../components/ProductCard.vue";
+import $ from 'jquery';
+import Header from '../components/Header.vue';
+import ProductCard from '../components/ProductCard.vue';
 
 export default {
-  name: "home",
+  name: 'home',
   components: {
     Header,
-    ProductCard
+    ProductCard,
   },
   computed: {
     filterData() {
       const vm = this;
       if (vm.searchText) {
-        return vm.products.filter(item => {
+        return vm.products.filter((item) => {
           const data = item.category
             .toLowerCase()
             .includes(vm.searchText.toLowerCase());
@@ -197,26 +197,26 @@ export default {
     },
     searchText() {
       return this.$store.state.CustomerProducts.searchText;
-    }
+    },
   },
   methods: {
     getProducts(page = 1) {
-      this.$store.dispatch("getCusProducts", page);
+      this.$store.dispatch('getCusProducts', page);
     },
     showModal() {
-      window.setTimeout(function() {
-        $("#myModal").modal("show");
+      window.setTimeout(() => {
+        $('#myModal').modal('show');
       }, 1500);
     },
     setHeart(lovedItemTitle) {
-      this.$store.dispatch("setHeart", lovedItemTitle);
-    }
+      this.$store.dispatch('setHeart', lovedItemTitle);
+    },
   },
   created() {
     this.getProducts();
   },
   mounted() {
     this.showModal();
-  }
+  },
 };
 </script>

@@ -104,27 +104,27 @@ export default {
   data() {
     return {
       user: {
-        username: "",
-        password: ""
-      }
+        username: '',
+        password: '',
+      },
     };
   },
   methods: {
     signin() {
       const api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
       const vm = this;
-      this.$store.commit("LOADING", true);
-      this.$http.post(api, vm.user).then(response => {
-        vm.$store.commit("LOADING", false);
+      this.$store.commit('LOADING', true);
+      this.$http.post(api, vm.user).then((response) => {
+        vm.$store.commit('LOADING', false);
         if (response.data.success) {
-          vm.$router.push("/admin/products");
+          vm.$router.push('/admin/products');
         } else {
-          let message = response.data.message;
-          let status = "danger";
-          vm.$store.dispatch("updateMessage", { message, status });
+          const { message } = response.data;
+          const status = 'danger';
+          vm.$store.dispatch('updateMessage', { message, status });
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>

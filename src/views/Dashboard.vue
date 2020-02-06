@@ -16,14 +16,15 @@
 </template>
 
 <script>
-import DashNavbar from "../components/DashNavbar.vue";
-import DashSidebar from "../components/DashSidebar.vue";
-import Alert from "../components/AlertMessage.vue";
+import DashNavbar from '../components/DashNavbar.vue';
+import DashSidebar from '../components/DashSidebar.vue';
+import Alert from '../components/AlertMessage.vue';
+
 export default {
   components: {
     DashNavbar,
     DashSidebar,
-    Alert
-  }
+    Alert,
+  },
 };
 </script>

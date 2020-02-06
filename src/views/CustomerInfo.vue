@@ -233,49 +233,49 @@ export default {
     return {
       form: {
         user: {
-          name: "",
-          email: "",
-          tel: "",
-          address: ""
+          name: '',
+          email: '',
+          tel: '',
+          address: '',
         },
-        message: ""
-      }
+        message: '',
+      },
     };
   },
   computed: {
     cart() {
       return this.$store.state.cart;
-    }
+    },
   },
   methods: {
     createOrder() {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`;
       const vm = this;
       // 開啟 loading
-      this.$store.commit("LOADING", true);
+      this.$store.commit('LOADING', true);
       const order = vm.form;
-      this.$http.post(api, { data: order }).then(response => {
+      this.$http.post(api, { data: order }).then((response) => {
         // 關閉 loading
-        this.$store.commit("LOADING", false);
+        this.$store.commit('LOADING', false);
         if (response.data.success) {
-          let message = response.data.message;
-          let status = "success";
-          vm.$store.dispatch("updateMessage", { message, status });
+          const { message } = response.data;
+          const status = 'success';
+          vm.$store.dispatch('updateMessage', { message, status });
 
           vm.$router.push(`/cart/payment/${response.data.orderId}`);
         } else {
-          let message = response.data.message;
-          let status = "danger";
-          vm.$store.dispatch("updateMessage", { message, status });
+          const { message } = response.data;
+          const status = 'danger';
+          vm.$store.dispatch('updateMessage', { message, status });
         }
       });
     },
     getCart() {
-      this.$store.dispatch("getCart");
-    }
+      this.$store.dispatch('getCart');
+    },
   },
   created() {
     this.getCart();
-  }
+  },
 };
 </script>

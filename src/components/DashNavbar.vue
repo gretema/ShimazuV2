@@ -14,17 +14,17 @@
 
 <script>
 export default {
-  name: "Navbar",
+  name: 'Navbar',
   methods: {
     signout() {
       const api = `${process.env.VUE_APP_APIPATH}/logout`;
       const vm = this;
-      this.$http.post(api).then(response => {
+      this.$http.post(api).then((response) => {
         if (response.data.success) {
-          vm.$router.push("/");
+          vm.$router.push('/');
         }
       });
-    }
-  }
+    },
+  },
 };
 </script>

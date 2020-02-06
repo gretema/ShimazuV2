@@ -1,10 +1,10 @@
-import Vue from "vue";
-import Vuex from "vuex";
-import axios from "axios";
+import Vue from 'vue';
+import Vuex from 'vuex';
+import axios from 'axios';
 
-import dashProducts from "./dashProducts";
-import Coupons from "./coupons";
-import CustomerProducts from "./cusProducts";
+import dashProducts from './dashProducts';
+import Coupons from './coupons';
+import CustomerProducts from './cusProducts';
 
 Vue.use(Vuex);
 
@@ -13,10 +13,10 @@ export default new Vuex.Store({
     isLoading: false,
     cart: {
       carts: [],
-      total: "",
-      final_total: ""
+      total: '',
+      final_total: '',
     },
-    messages: []
+    messages: [],
   },
   mutations: {
     LOADING(state, status) {
@@ -32,51 +32,51 @@ export default new Vuex.Store({
       state.messages.push({
         message,
         status,
-        timestamp
+        timestamp,
       });
     },
     REMOVEMESSAGE(state, num) {
       state.messages.splice(num, 1);
-    }
+    },
   },
   actions: {
     updateLoading(context, status) {
-      context.commit("LOADING", status);
+      context.commit('LOADING', status);
     },
     getCart(context) {
-      context.commit("LOADING", true);
+      context.commit('LOADING', true);
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
-      axios.get(url).then(response => {
+      axios.get(url).then((response) => {
         if (response.data.data.carts) {
-          context.commit("CART", response.data.data);
+          context.commit('CART', response.data.data);
         }
-        context.commit("LOADING", false);
+        context.commit('LOADING', false);
       });
     },
     removeCart(context, id) {
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
-      context.commit("LOADING", true);
-      axios.delete(url).then(response => {
-        context.commit("LOADING", false);
-        context.dispatch("getCart");
+      context.commit('LOADING', true);
+      axios.delete(url).then((response) => {
+        context.commit('LOADING', false);
+        context.dispatch('getCart');
       });
     },
     addtoCart(context, { id, qty }) {
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
-      context.commit("LOADING", true);
+      context.commit('LOADING', true);
       const item = {
         product_id: id,
-        qty
+        qty,
       };
-      axios.post(url, { data: item }).then(response => {
-        context.commit("LOADING", false);
-        context.dispatch("getCart");
+      axios.post(url, { data: item }).then((response) => {
+        context.commit('LOADING', false);
+        context.dispatch('getCart');
       });
     },
     updateMessage(context, { message, status }) {
-      context.commit("MESSAGE", { message, status });
+      context.commit('MESSAGE', { message, status });
       const timestamp = Math.floor(new Date() / 1000);
-      context.dispatch("removeMessageWithTiming", timestamp);
+      context.dispatch('removeMessageWithTiming', timestamp);
     },
     removeMessageWithTiming(context, timestamp) {
       setTimeout(() => {
@@ -88,12 +88,12 @@ export default new Vuex.Store({
       }, 5000);
     },
     removeMessage(context, num) {
-      context.commit("REMOVEMESSAGE", num);
-    }
+      context.commit('REMOVEMESSAGE', num);
+    },
   },
   modules: {
     dashProducts,
     Coupons,
-    CustomerProducts
-  }
+    CustomerProducts,
+  },
 });

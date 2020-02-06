@@ -211,34 +211,34 @@
 export default {
   data() {
     return {
-      orderId: "",
-      cardNum: "",
-      cardLastName: "",
-      cardFirstName: "",
-      cardExpMon: "",
-      cardExpYear: "",
-      cardSafeCode: ""
+      orderId: '',
+      cardNum: '',
+      cardLastName: '',
+      cardFirstName: '',
+      cardExpMon: '',
+      cardExpYear: '',
+      cardSafeCode: '',
     };
   },
   methods: {
     getCart() {
-      this.$store.dispatch("getCart");
+      this.$store.dispatch('getCart');
     },
     payOrder() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/pay/${vm.orderId}`;
-      this.$store.commit("LOADING", true);
-      this.$http.post(api).then(response => {
+      this.$store.commit('LOADING', true);
+      this.$http.post(api).then((response) => {
         if (response.data.success) {
           vm.$router.push(`/cart/paysuccess/${vm.orderId}`);
         }
-        vm.$store.commit("LOADING", false);
+        vm.$store.commit('LOADING', false);
       });
-    }
+    },
   },
   created() {
     this.orderId = this.$route.params.orderId;
     this.getCart();
-  }
+  },
 };
 </script>

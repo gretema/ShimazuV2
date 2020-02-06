@@ -159,19 +159,19 @@
 export default {
   data() {
     return {
-      activeStatus: "home"
+      activeStatus: 'home',
     };
   },
   methods: {
     getCart() {
-      this.$store.dispatch("getCart");
+      this.$store.dispatch('getCart');
     },
     removeCart(id) {
-      this.$store.dispatch("removeCart", id);
+      this.$store.dispatch('removeCart', id);
     },
     disCollected(item) {
-      this.$store.commit("DISCOLLECTED", item);
-    }
+      this.$store.commit('DISCOLLECTED', item);
+    },
   },
   computed: {
     cart() {
@@ -179,11 +179,11 @@ export default {
     },
     collected() {
       return this.$store.state.CustomerProducts.collected;
-    }
+    },
   },
   created() {
     this.getCart();
-  }
+  },
 };
 </script>
 

@@ -85,13 +85,13 @@
 </template>
 
 <script>
-import Pagination from "../components/Pagination.vue";
-import ProductCard from "../components/ProductCard.vue";
+import Pagination from '../components/Pagination.vue';
+import ProductCard from '../components/ProductCard.vue';
 
 export default {
   components: {
     Pagination,
-    ProductCard
+    ProductCard,
   },
   computed: {
     pagination() {
@@ -103,7 +103,7 @@ export default {
     filterData() {
       const vm = this;
       if (vm.searchText) {
-        return vm.products.filter(item => {
+        return vm.products.filter((item) => {
           const data = item.category
             .toLowerCase()
             .includes(vm.searchText.toLowerCase());
@@ -120,29 +120,29 @@ export default {
     },
     searchText() {
       return this.$store.state.CustomerProducts.searchText;
-    }
+    },
   },
   methods: {
     getProducts(page = 1) {
-      this.$store.dispatch("getCusProducts", page);
+      this.$store.dispatch('getCusProducts', page);
     },
     getCart() {
-      this.$store.dispatch("getCart");
+      this.$store.dispatch('getCart');
     },
     removeItem(id) {
-      this.$store.dispatch("removeCart", id);
+      this.$store.dispatch('removeCart', id);
     },
     getText(cateText) {
-      this.$store.dispatch("getText", cateText);
+      this.$store.dispatch('getText', cateText);
     },
     setHeart(lovedItemTitle) {
-      this.$store.dispatch("setHeart", lovedItemTitle);
-    }
+      this.$store.dispatch('setHeart', lovedItemTitle);
+    },
   },
   created() {
     this.getProducts();
     this.getCart();
-    this.getText("");
-  }
+    this.getText('');
+  },
 };
 </script>

@@ -43,7 +43,7 @@
                   ]"
                 ></div>
                 <div
-                  class="d-flex flex-column flex-md-row align-items-md-center 
+                  class="d-flex flex-column flex-md-row align-items-md-center
                          justify-content-center justify-content-md-between flex-grow-1"
                 >
                   <!-- 品項 -->
@@ -140,50 +140,50 @@
 </template>
 
 <script>
-import Alert from "../components/AlertMessage.vue";
+import Alert from '../components/AlertMessage.vue';
 
 export default {
   components: {
-    Alert
+    Alert,
   },
   data() {
     return {
-      coupon_code: ""
+      coupon_code: '',
     };
   },
   methods: {
     getCart() {
-      this.$store.dispatch("getCart");
+      this.$store.dispatch('getCart');
     },
     removeCart(id) {
-      this.$store.dispatch("removeCart", id);
+      this.$store.dispatch('removeCart', id);
     },
     addCoupon() {
       const vm = this;
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/coupon`;
       const coupon = {
-        code: vm.coupon_code
+        code: vm.coupon_code,
       };
-      this.$store.commit("LOADING", true);
-      this.$http.post(url, { data: coupon }).then(response => {
+      this.$store.commit('LOADING', true);
+      this.$http.post(url, { data: coupon }).then((response) => {
         vm.getCart();
-        vm.$store.commit("LOADING", false);
+        vm.$store.commit('LOADING', false);
         if (!response.data.success) {
-          let message = response.data.message;
-          let status = "danger";
-          vm.$store.dispatch("updateMessage", { message, status });
+          const { message } = response.data;
+          const status = 'danger';
+          vm.$store.dispatch('updateMessage', { message, status });
         }
       });
-    }
+    },
   },
   computed: {
     cart() {
       return this.$store.state.cart;
-    }
+    },
   },
   created() {
     this.getCart();
-  }
+  },
 };
 </script>
 

@@ -44,13 +44,13 @@
 export default {
   props: {
     childPaginations: {
-      type: Object
-    }
+      type: Object,
+    },
   },
   methods: {
     pageComponent(page) {
-      this.$emit("changeCurrPage", page);
-    }
-  }
+      this.$emit('changeCurrPage', page);
+    },
+  },
 };
 </script>

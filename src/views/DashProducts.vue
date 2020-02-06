@@ -265,18 +265,18 @@
 </template>
 
 <script>
-import $ from "jquery";
-import Pagination from "../components/Pagination.vue";
+import $ from 'jquery';
+import Pagination from '../components/Pagination.vue';
 
 export default {
   components: {
-    Pagination
+    Pagination,
   },
   data() {
     return {
       status: {
-        fileUploading: false
-      }
+        fileUploading: false,
+      },
     };
   },
   computed: {
@@ -291,34 +291,34 @@ export default {
     },
     tempProduct() {
       return this.$store.state.dashProducts.tempProduct;
-    }
+    },
   },
   methods: {
     getProducts(page = 1) {
-      this.$store.dispatch("getProducts", page);
+      this.$store.dispatch('getProducts', page);
     },
     openModal(isNew, item) {
-      this.$store.dispatch("openProModal", { isNew, item });
-      $("#productModal").modal("show");
+      this.$store.dispatch('openProModal', { isNew, item });
+      $('#productModal').modal('show');
     },
     updateProduct() {
-      this.$store.dispatch("updateProduct");
-      $("#productModal").modal("hide");
+      this.$store.dispatch('updateProduct');
+      $('#productModal').modal('hide');
     },
     deleteModal(item) {
-      this.$store.dispatch("deleteProModal", item);
-      $("#delProductModal").modal("show");
+      this.$store.dispatch('deleteProModal', item);
+      $('#delProductModal').modal('show');
     },
     delProduct() {
-      this.$store.dispatch("delProduct");
-      $("#delProductModal").modal("hide");
+      this.$store.dispatch('delProduct');
+      $('#delProductModal').modal('hide');
     },
     uploadFile() {
       const uploadedFile = this.$refs.files.files[0];
       const vm = this;
       const formData = new FormData();
       // append() 裡第一個放上傳欄位的 name，第二個放要傳送的檔案
-      formData.append("file-to-upload", uploadedFile);
+      formData.append('file-to-upload', uploadedFile);
       // 對應的路徑
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/upload`;
       // 開啟 loading 效果
@@ -327,24 +327,24 @@ export default {
       this.$http
         .post(url, formData, {
           headers: {
-            "Content-Type": "multipart/form-data"
-          }
+            'Content-Type': 'multipart/form-data',
+          },
         })
-        .then(response => {
+        .then((response) => {
           // 關閉 loading 效果
           vm.status.fileUploading = false;
           if (response.data.success) {
-            vm.$set(vm.tempProduct, "imageUrl", response.data.imageUrl);
+            vm.$set(vm.tempProduct, 'imageUrl', response.data.imageUrl);
           } else {
-            let message = response.data.message;
-            let status = "danger";
-            this.$store.dispatch("updateMessage", { message, status });
+            const { message } = response.data;
+            const status = 'danger';
+            this.$store.dispatch('updateMessage', { message, status });
           }
         });
-    }
+    },
   },
   created() {
     this.getProducts();
-  }
+  },
 };
 </script>

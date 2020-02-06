@@ -24,19 +24,19 @@ export default {
   computed: {
     messages() {
       return this.$store.state.messages;
-    }
+    },
   },
   methods: {
     updateMessage(message, status) {
-      this.$store.dispatch("updateMessage", { message, status });
+      this.$store.dispatch('updateMessage', { message, status });
     },
     removeMessage(num) {
-      this.$store.dispatch("removeMessage", num);
+      this.$store.dispatch('removeMessage', num);
     },
     removeMessageWithTiming(timestamp) {
-      this.$store.dispatch("removeMessageWithTiming", timestamp);
-    }
-  }
+      this.$store.dispatch('removeMessageWithTiming', timestamp);
+    },
+  },
 };
 </script>
 

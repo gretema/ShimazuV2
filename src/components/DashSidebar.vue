@@ -54,8 +54,8 @@
 export default {
   data() {
     return {
-      activeStatus: "dashProducts"
+      activeStatus: 'dashProducts',
     };
-  }
+  },
 };
 </script>

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 export default {
   state: {
@@ -6,13 +6,13 @@ export default {
     coupons: [],
     isNew: false,
     tempCoupon: {
-      title: "",
+      title: '',
       is_enabled: 0,
       percent: 100,
       due_date: 0,
-      code: ""
+      code: '',
     },
-    due_date: new Date()
+    due_date: new Date(),
   },
   mutations: {
     PAGINATION(state, payload) {
@@ -36,62 +36,62 @@ export default {
         state.isNew = false;
         const dateAndTime = new Date(state.tempCoupon.due_date * 1000)
           .toISOString()
-          .split("T");
+          .split('T');
         state.due_date = dateAndTime[0];
       }
     },
     DELCOUMODAL(state, item) {
       state.tempProduct = item;
-    }
+    },
   },
   actions: {
     getCoupons(context, page) {
       // 該 API 透過分頁切換而取得優惠券列表
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupons?page=${page}`;
-      context.commit("LOADING", true);
-      axios.get(api).then(response => {
-        context.commit("LOADING", false);
-        context.commit("COUPONS", response.data.coupons);
-        context.commit("PAGINATION", response.data.pagination);
+      context.commit('LOADING', true);
+      axios.get(api).then((response) => {
+        context.commit('LOADING', false);
+        context.commit('COUPONS', response.data.coupons);
+        context.commit('PAGINATION', response.data.pagination);
       });
     },
     openCouModal(context, { isNew, item }) {
-      context.commit("EDITCOUPON", { isNew, item });
+      context.commit('EDITCOUPON', { isNew, item });
     },
     updateCoupon(context) {
       let api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon`;
-      let httpMethod = "post";
+      let httpMethod = 'post';
       // 如果是修改優惠券，就改用另一個 API 路徑跟方法
       if (!context.state.isNew) {
         api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${context.state.tempCoupon.id}`;
-        httpMethod = "put";
+        httpMethod = 'put';
       }
       // http 方法用中括號變數選取
       axios[httpMethod](api, { data: context.state.tempCoupon }).then(
-        response => {
+        (response) => {
           if (response.data.success) {
-            context.dispatch("getCoupons");
+            context.dispatch('getCoupons');
           } else {
-            context.dispatch("getCoupons");
-            let message = response.data.message;
-            let status = "danger";
-            vm.$store.dispatch("updateMessage", { message, status });
+            context.dispatch('getCoupons');
+            const { message } = response.data;
+            const status = 'danger';
+            vm.$store.dispatch('updateMessage', { message, status });
           }
-        }
+        },
       );
     },
     deleteCouModal(context, item) {
-      context.commit("DELCOUMODAL", item);
+      context.commit('DELCOUMODAL', item);
     },
     delCoupon(context) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/coupon/${context.state.tempCoupon.id}`;
-      axios.delete(api).then(response => {
+      axios.delete(api).then((response) => {
         if (response.data.success) {
-          context.dispatch("getCoupons");
+          context.dispatch('getCoupons');
         } else {
-          context.dispatch("getCoupons");
+          context.dispatch('getCoupons');
         }
       });
-    }
-  }
+    },
+  },
 };

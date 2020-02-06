@@ -10,15 +10,15 @@
 </template>
 
 <script>
-import Navbar from "../components/Navbar.vue";
-import Subscribe from "../components/Subscribe.vue";
-import Footer from "../components/Footer.vue";
+import Navbar from '../components/Navbar.vue';
+import Subscribe from '../components/Subscribe.vue';
+import Footer from '../components/Footer.vue';
 
 export default {
   components: {
     Navbar,
     Subscribe,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
