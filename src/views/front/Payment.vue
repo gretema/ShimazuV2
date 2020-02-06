@@ -227,8 +227,8 @@ export default {
     payOrder() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/pay/${vm.orderId}`;
-      this.$store.commit('LOADING', true);
-      this.$http.post(api).then((response) => {
+      vm.$store.commit('LOADING', true);
+      vm.$http.post(api).then((response) => {
         if (response.data.success) {
           vm.$router.push(`/cart/paysuccess/${vm.orderId}`);
         }

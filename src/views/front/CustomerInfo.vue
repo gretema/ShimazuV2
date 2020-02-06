@@ -252,11 +252,11 @@ export default {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order`;
       const vm = this;
       // 開啟 loading
-      this.$store.commit('LOADING', true);
+      vm.$store.commit('LOADING', true);
       const order = vm.form;
-      this.$http.post(api, { data: order }).then((response) => {
+      vm.$http.post(api, { data: order }).then((response) => {
         // 關閉 loading
-        this.$store.commit('LOADING', false);
+        vm.$store.commit('LOADING', false);
         if (response.data.success) {
           const { message } = response.data;
           const status = 'success';

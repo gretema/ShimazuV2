@@ -112,8 +112,8 @@ export default {
     signin() {
       const api = `${process.env.VUE_APP_APIPATH}/admin/signin`;
       const vm = this;
-      this.$store.commit('LOADING', true);
-      this.$http.post(api, vm.user).then((response) => {
+      vm.$store.commit('LOADING', true);
+      vm.$http.post(api, vm.user).then((response) => {
         vm.$store.commit('LOADING', false);
         if (response.data.success) {
           vm.$router.push('/admin/products');

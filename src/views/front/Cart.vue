@@ -166,8 +166,8 @@ export default {
       const coupon = {
         code: vm.coupon_code,
       };
-      this.$store.commit('LOADING', true);
-      this.$http.post(url, { data: coupon }).then((response) => {
+      vm.$store.commit('LOADING', true);
+      vm.$http.post(url, { data: coupon }).then((response) => {
         vm.getCart();
         vm.$store.commit('LOADING', false);
         if (!response.data.success) {

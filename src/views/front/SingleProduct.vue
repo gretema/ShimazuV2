@@ -85,8 +85,8 @@ export default {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/product/${vm.id}`;
 
-      this.$store.commit('LOADING', true);
-      this.$http.get(api).then((response) => {
+      vm.$store.commit('LOADING', true);
+      vm.$http.get(api).then((response) => {
         vm.$store.commit('LOADING', false);
         vm.singleProduct = response.data.product;
       });

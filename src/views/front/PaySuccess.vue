@@ -118,8 +118,8 @@ export default {
     getThisOrder() {
       const vm = this;
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/order/${vm.orderId}`;
-      this.$store.commit('LOADING', true);
-      this.$http.get(api).then((response) => {
+      vm.$store.commit('LOADING', true);
+      vm.$http.get(api).then((response) => {
         vm.$store.commit('LOADING', false);
         vm.order = response.data.order;
       });

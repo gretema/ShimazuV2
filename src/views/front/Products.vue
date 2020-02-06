@@ -110,7 +110,7 @@ export default {
           return data;
         });
       }
-      return this.products;
+      return vm.products;
     },
     products() {
       return this.$store.state.CustomerProducts.products;

@@ -324,7 +324,7 @@ export default {
       // 開啟 loading 效果
       vm.status.fileUploading = true;
       // 設定傳送的格式
-      this.$http
+      vm.$http
         .post(url, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
@@ -338,7 +338,7 @@ export default {
           } else {
             const { message } = response.data;
             const status = 'danger';
-            this.$store.dispatch('updateMessage', { message, status });
+            vm.$store.dispatch('updateMessage', { message, status });
           }
         });
     },
