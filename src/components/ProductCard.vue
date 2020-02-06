@@ -60,7 +60,7 @@ export default {
       return this.$store.state.CustomerProducts.collected;
     },
     heartStyle() {
-      return this.collected.indexOf(this.thisCard.title) == -1
+      return this.collected.indexOf(this.thisCard.title) === -1
         ? 'far fa-heart'
         : 'fas fa-heart';
     },
@@ -80,7 +80,7 @@ export default {
   },
   mounted() {
     const { path } = this.$route;
-    if (path == '/') {
+    if (path === '/') {
       this.thisPage = 'homeCard';
     } else {
       this.thisPage = 'productCard';

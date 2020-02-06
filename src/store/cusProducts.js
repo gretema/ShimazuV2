@@ -26,7 +26,7 @@ export default {
       state.searchText = payload;
     },
     COLLECTED(state, lovedItemTitle) {
-      if (state.collected.indexOf(lovedItemTitle) == -1) {
+      if (state.collected.indexOf(lovedItemTitle) === -1) {
         // 商品不存在則加入陣列
         state.collected.push(lovedItemTitle);
       } else {

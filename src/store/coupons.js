@@ -37,7 +37,7 @@ export default {
         const dateAndTime = new Date(state.tempCoupon.due_date * 1000)
           .toISOString()
           .split('T');
-        state.due_date = dateAndTime[0];
+        [state.due_date] = [dateAndTime[0]];
       }
     },
     DELCOUMODAL(state, item) {
@@ -75,7 +75,7 @@ export default {
             context.dispatch('getCoupons');
             const { message } = response.data;
             const status = 'danger';
-            vm.$store.dispatch('updateMessage', { message, status });
+            context.dispatch('updateMessage', { message, status });
           }
         },
       );

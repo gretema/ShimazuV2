@@ -66,7 +66,7 @@ export default {
             context.dispatch('getProducts');
             const { message } = response.data;
             const status = 'danger';
-            vm.$store.dispatch('updateMessage', { message, status });
+            context.dispatch('updateMessage', { message, status });
           }
         },
       );
@@ -82,7 +82,7 @@ export default {
         } else {
           const { message } = response.data;
           const status = 'danger';
-          vm.$store.dispatch('updateMessage', { message, status });
+          context.dispatch('updateMessage', { message, status });
           context.dispatch('getProducts');
         }
       });

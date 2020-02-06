@@ -6,7 +6,8 @@
         <div class="row d-flex justify-content-between">
           <!-- 左側 -->
           <div
-            class="col-md-6 d-flex align-items-center justify-content-center justify-content-md-start mb-4 mb-md-0"
+            class="col-md-6 d-flex align-items-center justify-content-center
+            justify-content-md-start mb-4 mb-md-0"
           >
             <img
               src="../assets/images/iconfinder_Food_C225_2427885.svg"

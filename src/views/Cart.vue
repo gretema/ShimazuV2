@@ -11,7 +11,8 @@
               </h2>
             </div>
             <div
-              class="col-md-6 d-flex align-items-center justify-content-center justify-content-md-end pr-md-3 px-3 px-md-0"
+              class="col-md-6 d-flex align-items-center justify-content-center
+              justify-content-md-end pr-md-3 px-3 px-md-0"
             >
               <!-- 步驟軸用 w-100 把 block 佔滿，並用 flex 排列 -->
               <div
@@ -81,7 +82,8 @@
               </div>
               <!-- price -->
               <div
-                class="d-none d-md-flex align-items-center justify-content-end justify-content-md-start py-3 cart-border"
+                class="d-none d-md-flex align-items-center justify-content-end
+                justify-content-md-start py-3 cart-border"
               >
                 <span class="h5 mr-md-3 mb-0">{{ item.total | currency }}</span>
                 <a href="#" class="btn" @click.prevent="removeCart(item.id)">

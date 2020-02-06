@@ -56,7 +56,7 @@ export default new Vuex.Store({
     removeCart(context, id) {
       const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
       context.commit('LOADING', true);
-      axios.delete(url).then((response) => {
+      axios.delete(url).then(() => {
         context.commit('LOADING', false);
         context.dispatch('getCart');
       });
@@ -68,7 +68,7 @@ export default new Vuex.Store({
         product_id: id,
         qty,
       };
-      axios.post(url, { data: item }).then((response) => {
+      axios.post(url, { data: item }).then(() => {
         context.commit('LOADING', false);
         context.dispatch('getCart');
       });

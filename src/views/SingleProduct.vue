@@ -35,7 +35,8 @@
           <h2 class="d-none d-md-block">{{ singleProduct.title }}</h2>
           <p class="d-none d-md-block">{{ singleProduct.description }}</p>
           <div
-            class="mb-2 mb-md-0 d-flex align-items-end justify-content-center justify-content-md-start"
+            class="mb-2 mb-md-0 d-flex align-items-end justify-content-center
+            justify-content-md-start"
           >
             <del class="text-muted mr-3"
               >原價 {{ singleProduct.origin_price | currency }}</del
