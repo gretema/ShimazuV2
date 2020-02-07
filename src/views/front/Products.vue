@@ -72,12 +72,6 @@
               </div>
             </div>
           </div>
-
-          <!-- 分頁 -->
-          <Pagination
-            :childPaginations="pagination"
-            @changeCurrPage="getProducts"
-          />
         </div>
       </div>
     </div>
@@ -85,12 +79,10 @@
 </template>
 
 <script>
-import Pagination from '../../components/Pagination.vue';
 import ProductCard from '../../components/ProductCard.vue';
 
 export default {
   components: {
-    Pagination,
     ProductCard,
   },
   computed: {
