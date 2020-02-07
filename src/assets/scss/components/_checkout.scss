@@ -9,10 +9,28 @@
   }
 }
 
+.paysuccess-box {
+  background-color: rgb(50, 40, 31);
+}
 .paysuccess-title {
   font-weight: bolder;
   letter-spacing: 10px;
   @media (max-width: 576px) {
     letter-spacing: 8px;
   }
+}
+
+.paysuccess-table {
+  @media (min-width: 768px) {
+    width: 650px;
+    margin: 0 auto;
+  }
+}
+
+.paysuccess-bg {
+  background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+  url($images+'/fortune_cats.jpg');
+  height: 496px;
+  background-size: cover;
+  background-position: center center;
 }

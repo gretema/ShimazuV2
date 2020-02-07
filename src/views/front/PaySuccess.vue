@@ -2,13 +2,7 @@
   <div>
     <div class="container mb-md-6">
       <div
-        class="bg-cover row justify-content-center align-items-center"
-        :style="[
-          {
-            backgroundImage: `url(${require('../../assets/images/fortune_cats.jpg')})`
-          },
-          { height: '496px' }
-        ]"
+        class="paysuccess-bg row justify-content-center align-items-center"
       >
         <div class="col-md-4 p-8 p-md-0">
           <div class="process-steps d-flex justify-content-between ">
@@ -22,16 +16,16 @@
               <i class="fas fa-check"></i>
             </div>
           </div>
-          <h2
-            class="text-center text-primary text-bg p-3 my-5 paysuccess-title"
+          <div
+            class="my-5 paysuccess-box"
           >
-            付款成功
-          </h2>
-          <router-link
+            <h2 class="text-center text-light py-4 paysuccess-title">付款成功</h2>
+            <router-link
             to="/products"
             class="btn btn-block btn-lg btn-primary text-white rounded-0 d-none d-md-block py-3"
             >繼續逛逛</router-link
           >
+          </div>
         </div>
       </div>
       <!--行動版繼續逛逛-->
@@ -46,7 +40,7 @@
       </div>
       <div class="my-5 row justify-content-center bg-light">
         <div class="col-md-10 table-responsive">
-          <table class="table">
+          <table class="table paysuccess-table">
             <thead>
               <th>品名</th>
               <th width="150">數量</th>
@@ -70,7 +64,7 @@
               </tr>
             </tfoot>
           </table>
-          <table class="table">
+          <table class="table paysuccess-table">
             <tbody>
               <tr>
                 <th width="100">Email</th>
@@ -131,3 +125,11 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.table-responsive {
+  @media (min-width: 768px) {
+    width: 700px;
+  }
+}
+</style>
