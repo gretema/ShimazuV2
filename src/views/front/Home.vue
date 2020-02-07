@@ -131,7 +131,7 @@
             <div
               class="bg-activity bg-cover d-flex align-items-center justify-content-center"
             >
-              <p class="activity-text text-bg text-center p-3">
+              <p class="activity-text-box text-bg text-center p-3">
                 歡慶鼠年！
                 <br />即日起至
                 <span class="font-weight-bolder">2020.1.31</span>，
