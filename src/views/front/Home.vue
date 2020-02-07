@@ -129,16 +129,9 @@
           </div>
           <div class="modal-body p-0">
             <div
-              class="bg-cover d-flex align-items-center justify-content-center"
-              :style="[
-                {
-                  backgroundImage:
-                    'url(' + require('../../assets/images/fortune_rats.jpg') + ')'
-                },
-                { height: '250px' }
-              ]"
+              class="bg-activity bg-cover d-flex align-items-center justify-content-center"
             >
-              <p class="text-bg text-center p-3">
+              <p class="activity-text text-bg text-center p-3">
                 歡慶鼠年！
                 <br />即日起至
                 <span class="font-weight-bolder">2020.1.31</span>，

@@ -1,0 +1,11 @@
+$images: '~@/assets/images/';
+
+.bg-activity{
+  background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.9)),
+  url($images+'/fortune_rats.jpg');
+  height: 250px;
+}
+
+.activity-text {
+  border-radius: 10px;
+}
