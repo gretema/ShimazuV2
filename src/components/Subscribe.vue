@@ -14,7 +14,7 @@
               height="40"
             />
             <span
-              class="h4 text-white mb-0 mx-3 subscribe-text"
+              class="h4 mb-0 mx-3 subscribe-text"
               style="letter-spacing: 2px;"
               >訂閱你我的鮮嫩郵件</span
             >
@@ -58,6 +58,7 @@
 <style lang="scss" scoped>
 .subscribe-text {
   font-size: 24px !important;
+  color: #191818;
 }
 // 訂閱 input
 .subscribe-size {

@@ -11,7 +11,7 @@
           </h2>
         </div>
       </div>
-      <div class="bg-accent pt-5 pt-md-0">
+      <div class="bg-intro pt-5 pt-md-0">
         <div class="container">
           <div class="row">
             <!--圖片-->
@@ -50,7 +50,7 @@
           </h2>
         </div>
       </div>
-      <div class="bg-accent pt-5 pt-md-0">
+      <div class="bg-intro pt-5 pt-md-0">
         <div class="container">
           <div class="row flex-row-reverse">
             <!--圖片-->
