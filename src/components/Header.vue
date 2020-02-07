@@ -14,7 +14,7 @@
         <div class="container d-flex justify-content-center">
           <h1 class="text-hide">島津家，最頂級的和牛燒肉</h1>
           <h2 class="text-dark text-bg p-3 bannerSlogan">
-            一番上品な肉を差し上げます。
+            一番上品な肉を捧げる。
           </h2>
         </div>
       </div>
@@ -29,7 +29,7 @@
               <a
                 href="#"
                 class="col frosted-wrap"
-                @click.prevent="getText('本日精選')"
+                @click.prevent="getText('本日精選'),readytoSlide()"
                 :class="{ active: searchText === '本日精選' }"
               >
                 <span class="frosted-text text-dark">本日精選</span>
@@ -44,7 +44,7 @@
                 href="#"
                 class="col frosted-wrap"
                 style="border-left: 1px solid #3a3226;"
-                @click.prevent="getText('人氣推薦')"
+                @click.prevent="getText('人氣推薦'),readytoSlide()"
                 :class="{ active: searchText === '人氣推薦' }"
               >
                 <span class="frosted-text text-dark">人氣推薦</span>
@@ -59,7 +59,7 @@
                 href="#"
                 class="col frosted-wrap"
                 style="border-left: 1px solid #3a3226;"
-                @click.prevent="getText('新品上市')"
+                @click.prevent="getText('新品上市'),readytoSlide()"
                 :class="{ active: searchText === '新品上市' }"
               >
                 <span class="frosted-text text-dark">新品上市</span>
@@ -88,6 +88,9 @@ export default {
   methods: {
     getText(cateText) {
       this.$store.dispatch('getText', cateText);
+    },
+    readytoSlide() {
+      this.$emit('clickCate');
     },
   },
   mounted() {

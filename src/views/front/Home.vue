@@ -1,13 +1,13 @@
 <template>
   <div class="home">
-    <Header />
+    <Header :clickCate="slidetoCard" />
     <section class="section my-md-10">
       <!-- (標語) 在 md 以上隱藏 -->
       <div class="row justify-content-center d-md-none no-gutters my-5">
         <div class="col-8">
           <h2 class="h5 my-5 text-center text-title">
-            為什麼——<br />
-            選擇日本和牛？
+            為什麼——
+            <br />選擇日本和牛？
           </h2>
         </div>
       </div>
@@ -30,10 +30,9 @@
                 每隻和牛在出生時便有證明書以證明其血統。自出生後，和牛便以牛奶、草及含蛋白質的飼料飼養；一些牧場更會聘請專人為牛隻按摩及灌飲啤酒，令肉質更鮮嫩。
               </p>
               <!-- (標語) 在 md 以上會顯示 -->
-              <h2
-                class="writing-md-vertical d-none d-md-block section-image-block text-title"
-              >
-                為什麼——<br />
+              <h2 class="writing-md-vertical d-none d-md-block section-image-block text-title">
+                為什麼——
+                <br />
                 <span class="mt-5">選擇日本和牛？</span>
               </h2>
             </div>
@@ -46,7 +45,8 @@
       <div class="row justify-content-center d-md-none no-gutters my-5">
         <div class="col-8">
           <h2 class="h5 my-5 text-center text-title">
-            為什麼——<br />一定要吃肉？
+            為什麼——
+            <br />一定要吃肉？
           </h2>
         </div>
       </div>
@@ -70,10 +70,9 @@
                 更不要提當生活壓力過大時，一口咬下鮮嫩多汁的上等牛肉，那是多麼地舒壓啊！
               </p>
               <!-- (標語) 在 md 以上會顯示 -->
-              <h2
-                class="writing-md-vertical d-none d-md-block section-image-block text-title"
-              >
-                為什麼——<br />
+              <h2 class="writing-md-vertical d-none d-md-block section-image-block text-title">
+                為什麼——
+                <br />
                 <span class="mt-5">一定要吃肉？</span>
               </h2>
             </div>
@@ -85,12 +84,13 @@
     <section class="my-5 my-md-9">
       <div class="container d-flex justify-content-center">
         <h2 class="h4 my-5 text-center text-title d-md-none">
-          想吃肉——<br />
-          是不需要理由的。
+          想吃肉——
+          <br />是不需要理由的。
         </h2>
         <div class="d-flex flex-wrap flex-column justify-content-center">
           <h2 class="d-none d-md-block writing-md-vertical text-title">
-            想吃肉——<br />
+            想吃肉——
+            <br />
             <span class="mt-5">是不需要理由的。</span>
           </h2>
         </div>
@@ -99,15 +99,14 @@
 
     <!--Item Card-->
     <div class="container my-5 my-7">
-      <div class="row">
+      <div class="row" id="productCardSection">
         <!--卡片元件-->
         <ProductCard
           v-for="item in filterData"
           :key="item.id"
           :this-card="item"
           @change-heart="setHeart"
-        >
-        </ProductCard>
+        ></ProductCard>
       </div>
     </div>
 
@@ -123,15 +122,8 @@
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
           <div class="modal-header border-0">
-            <h5 class="modal-title" id="exampleModalLabel">
-              最新優惠
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
+            <h5 class="modal-title" id="exampleModalLabel">最新優惠</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
@@ -147,20 +139,17 @@
               ]"
             >
               <p class="text-bg text-center p-3">
-                歡慶鼠年！<br />
-                即日起至
-                <span class="font-weight-bolder">2020.1.31</span>，<br />
-                結帳輸入優惠碼
-                <span class="text-danger h4 font-weight-bolder">yearofrat</span
-                >，<br />
-                即享所有品項半價優惠！
+                歡慶鼠年！
+                <br />即日起至
+                <span class="font-weight-bolder">2020.1.31</span>，
+                <br />結帳輸入優惠碼
+                <span class="text-danger h4 font-weight-bolder">yearofrat</span>，
+                <br />即享所有品項半價優惠！
               </p>
             </div>
           </div>
           <div class="modal-footer border-0 p-2">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">
-              朕知道了
-            </button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal">朕知道了</button>
           </div>
         </div>
       </div>
@@ -210,6 +199,14 @@ export default {
     },
     setHeart(lovedItemTitle) {
       this.$store.dispatch('setHeart', lovedItemTitle);
+    },
+    slidetoCard() {
+      $('html, body').animate(
+        {
+          scrollTop: $('#productCardSection').offset().top,
+        },
+        2000,
+      );
     },
   },
   created() {
