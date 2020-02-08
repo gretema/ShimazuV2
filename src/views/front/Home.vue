@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Header :clickCate="slidetoCard" />
+    <Header @clickCate="slidetoCard" />
     <section class="section my-md-10">
       <!-- (標語) 在 md 以上隱藏 -->
       <div class="row justify-content-center d-md-none no-gutters my-5">
@@ -198,7 +198,7 @@ export default {
         {
           scrollTop: $('#productCardSection').offset().top,
         },
-        2000,
+        1500,
       );
     },
   },

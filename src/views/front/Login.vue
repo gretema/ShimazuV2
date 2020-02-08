@@ -16,7 +16,7 @@
           >
             <ValidationProvider
               name="帳號"
-              rules="required | email"
+              rules="required|email"
               v-slot="{ failed, errors }"
               tag="div"
             >

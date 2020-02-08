@@ -59,11 +59,11 @@ export default {
     collected() {
       return this.$store.state.CustomerProducts.collected;
     },
-    loveItemTitleList() {
-      return this.$store.state.CustomerProducts.loveItemTitleList;
+    loveItemIdList() {
+      return this.$store.state.CustomerProducts.loveItemIdList;
     },
     heartStyle() {
-      return this.loveItemTitleList.indexOf(this.thisCard.title) === -1
+      return this.loveItemIdList.indexOf(this.thisCard.id) === -1
         ? 'far fa-heart'
         : 'fas fa-heart';
     },
