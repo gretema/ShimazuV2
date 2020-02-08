@@ -47,13 +47,22 @@
                       <a
                         href="#"
                         class="text-muted"
-                        @click.prevent="disCollected(item)"
+                        @click.prevent="disCollected(item.id)"
                       >
                         <i class="fa fa-trash" aria-hidden="true"></i>
                       </a>
                     </td>
                     <td class="align-middle">
-                      {{ item }}
+                      {{ item.title }}
+                    </td>
+                    <td class="align-middle text-center">
+                      <a
+                        href="#"
+                        class="text-muted"
+                        @click.prevent="addtoCart(item.id), disCollected(item.id)"
+                      >
+                        <i class="fas fa-cart-plus"></i>
+                      </a>
                     </td>
                   </tr>
                 </tbody>
@@ -169,8 +178,11 @@ export default {
     removeCart(id) {
       this.$store.dispatch('removeCart', id);
     },
-    disCollected(item) {
-      this.$store.commit('DISCOLLECTED', item);
+    disCollected(itemId) {
+      this.$store.commit('DISCOLLECTED', itemId);
+    },
+    addtoCart(id, qty = 1) {
+      this.$store.dispatch('addtoCart', { id, qty });
     },
   },
   computed: {

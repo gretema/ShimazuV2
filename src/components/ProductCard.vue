@@ -51,7 +51,7 @@ export default {
       thisPage: '',
     };
   },
-  props: ['thisCard'],
+  props: ['thisCard'], // thisCard 是商品物件
   computed: {
     searchText() {
       return this.$store.state.CustomerProducts.searchText;
@@ -59,8 +59,11 @@ export default {
     collected() {
       return this.$store.state.CustomerProducts.collected;
     },
+    loveItemTitleList() {
+      return this.$store.state.CustomerProducts.loveItemTitleList;
+    },
     heartStyle() {
-      return this.collected.indexOf(this.thisCard.title) === -1
+      return this.loveItemTitleList.indexOf(this.thisCard.title) === -1
         ? 'far fa-heart'
         : 'fas fa-heart';
     },
@@ -74,8 +77,8 @@ export default {
       this.$router.push(`/products/${id}`);
     },
     clickHeart() {
-      // 被點擊愛心的商品名稱送到父元件的 method
-      this.$emit('change-heart', this.thisCard.title);
+      // 被點擊愛心的商品送到父元件的 method
+      this.$emit('change-heart', this.thisCard);
     },
   },
   mounted() {

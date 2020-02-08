@@ -127,8 +127,8 @@ export default {
     getText(cateText) {
       this.$store.dispatch('getText', cateText);
     },
-    setHeart(lovedItemTitle) {
-      this.$store.dispatch('setHeart', lovedItemTitle);
+    setHeart(lovedItem) {
+      this.$store.dispatch('setHeart', lovedItem);
     },
   },
   created() {

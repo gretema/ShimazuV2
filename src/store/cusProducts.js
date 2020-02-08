@@ -7,6 +7,7 @@ export default {
     pagination: {},
     searchText: '',
     collected: JSON.parse(localStorage.getItem('collectedItems')) || [],
+    loveItemIdList: [],
   },
   mutations: {
     CATEGORIES(state, payload) {
@@ -25,19 +26,24 @@ export default {
     SEARCHTEXT(state, payload) {
       state.searchText = payload;
     },
-    COLLECTED(state, lovedItemTitle) {
-      if (state.collected.indexOf(lovedItemTitle) === -1) {
+    COLLECTED(state, lovedItem) {
+      if (state.loveItemIdList.indexOf(lovedItem.title) === -1) {
         // 商品不存在則加入陣列
-        state.collected.push(lovedItemTitle);
+        state.loveItemIdList.push(lovedItem.id);
+        state.collected.push(lovedItem);
       } else {
         // 存在則將商品移除
-        state.collected.splice(state.collected.indexOf(lovedItemTitle), 1);
+        const index = state.loveItemIdList.indexOf(lovedItem.id);
+        state.loveItemIdList.splice(index, 1);
+        state.collected.splice(index, 1);
       }
       // 儲存至 localStorage
       localStorage.setItem('collectedItems', JSON.stringify(state.collected));
     },
-    DISCOLLECTED(state, lovedItemTitle) {
-      state.collected.splice(state.collected.indexOf(lovedItemTitle), 1);
+    DISCOLLECTED(state, lovedItemId) {
+      const index = state.loveItemIdList.indexOf(lovedItemId);
+      state.loveItemIdList.splice(index, 1);
+      state.collected.splice(index, 1);
       localStorage.setItem('collectedItems', JSON.stringify(state.collected));
     },
   },
@@ -55,8 +61,8 @@ export default {
     getText(context, text) {
       context.commit('SEARCHTEXT', text);
     },
-    setHeart(context, lovedItemTitle) {
-      context.commit('COLLECTED', lovedItemTitle);
+    setHeart(context, lovedItem) {
+      context.commit('COLLECTED', lovedItem);
     },
   },
 };
