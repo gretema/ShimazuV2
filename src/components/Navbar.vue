@@ -97,7 +97,7 @@
                       <a
                         href="#"
                         class="text-muted"
-                        @click.prevent="removeCart(item.id)"
+                        @click.prevent="deleteModal(item.product)"
                       >
                         <i class="fa fa-trash" aria-hidden="true"></i>
                       </a>
@@ -175,8 +175,8 @@ export default {
     getCart() {
       this.$store.dispatch('getCart');
     },
-    removeCart(id) {
-      this.$store.dispatch('removeCart', id);
+    deleteModal(item) {
+      this.$emit('openModal', item);
     },
     disCollected(itemId) {
       this.$store.commit('DISCOLLECTED', itemId);
