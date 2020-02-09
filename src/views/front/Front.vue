@@ -68,6 +68,12 @@ export default {
       this.$store.dispatch('removeCart', this.tempProduct.id);
       $('#delProductModal').modal('hide');
     },
+    getCart() {
+      this.$store.dispatch('getCart');
+    },
+  },
+  created() {
+    this.getCart();
   },
 };
 </script>

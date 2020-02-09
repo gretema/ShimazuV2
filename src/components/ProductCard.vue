@@ -29,7 +29,7 @@
       <button
         v-if="thisPage == 'homeCard'"
         class="btn btn-block btn-primary btn-item"
-        @click="addtoCart(thisCard.id)"
+        @click="addtoCart(thisCard.id), openAddModal()"
       >
         加入購物車
       </button>
@@ -71,6 +71,9 @@ export default {
   methods: {
     addtoCart(id, qty = 1) {
       this.$store.dispatch('addtoCart', { id, qty });
+    },
+    openAddModal() {
+      this.$emit('openModal');
     },
     // 取得單一產品頁
     openSingleProduct(id) {

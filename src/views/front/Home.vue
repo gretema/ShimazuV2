@@ -106,6 +106,7 @@
           :key="item.id"
           :this-card="item"
           @change-heart="setHeart"
+          @openModal="addtoCartModal"
         ></ProductCard>
       </div>
     </div>
@@ -113,7 +114,7 @@
     <!--優惠券 Modal-->
     <div
       class="modal fade"
-      id="myModal"
+      id="couponModal"
       tabindex="-1"
       role="dialog"
       aria-labelledby="exampleModalLabel"
@@ -143,6 +144,21 @@
           </div>
           <div class="modal-footer border-0 p-2">
             <button type="button" class="btn btn-primary" data-dismiss="modal">朕知道了</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 成功加入購物車 Modal -->
+    <div class="modal fade" id="addtoCartModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            成功加入購物車！
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
         </div>
       </div>
@@ -186,9 +202,9 @@ export default {
     getProducts(page = 1) {
       this.$store.dispatch('getCusProducts', page);
     },
-    showModal() {
+    showCouponModal() {
       window.setTimeout(() => {
-        $('#myModal').modal('show');
+        $('#couponModal').modal('show');
       }, 1500);
     },
     setHeart(lovedItemTitle) {
@@ -202,12 +218,18 @@ export default {
         1500,
       );
     },
+    addtoCartModal() {
+      $('#addtoCartModal').modal('show');
+      window.setTimeout(() => {
+        $('#addtoCartModal').modal('hide');
+      }, 2500);
+    },
   },
   created() {
     this.getProducts();
   },
   mounted() {
-    this.showModal();
+    this.showCouponModal();
   },
 };
 </script>
