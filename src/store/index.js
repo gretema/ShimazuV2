@@ -38,6 +38,12 @@ export default new Vuex.Store({
     REMOVEMESSAGE(state, num) {
       state.messages.splice(num, 1);
     },
+    REDUCEQTY(state, index) {
+      state.cart.carts[index].qty -= 1;
+    },
+    ADDQTY(state, index) {
+      state.cart.carts[index].qty += 1;
+    },
   },
   actions: {
     updateLoading(context, status) {
