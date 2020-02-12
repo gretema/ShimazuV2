@@ -91,7 +91,7 @@
                   <a
                     href="#"
                     class="btn cartitem-font-size"
-                    @click.prevent="openDelModal(item.product)"
+                    @click.prevent="openDelModal(item)"
                   >
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </a>
@@ -103,7 +103,7 @@
                 justify-content-md-start py-3 cart-border"
               >
                 <span class="h5 mr-md-3 mb-0">{{ item.total | currency }}</span>
-                <a href="#" class="btn" @click.prevent="openDelModal(item.product)">
+                <a href="#" class="btn" @click.prevent="openDelModal(item)">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>
               </div>

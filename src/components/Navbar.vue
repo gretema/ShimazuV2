@@ -97,7 +97,7 @@
                       <a
                         href="#"
                         class="text-muted"
-                        @click.prevent="deleteModal(item.product)"
+                        @click.prevent="deleteModal(item)"
                       >
                         <i class="fa fa-trash" aria-hidden="true"></i>
                       </a>

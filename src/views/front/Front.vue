@@ -27,7 +27,7 @@
           </div>
           <div class="modal-body">
             是否自購物車刪除
-            <strong class="text-danger">{{ tempProduct.title }}</strong>
+            <strong class="text-danger">{{ tempProduct.product.title }}</strong>
             商品 (刪除後將無法恢復)。
           </div>
           <div class="modal-footer">
