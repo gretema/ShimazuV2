@@ -86,7 +86,7 @@
                 <!--手機版價格和刪除-->
                 <div class="d-md-none ml-auto align-items-center justify-content-end">
                   <span class="h5 mr-md-3 mb-0 cartitem-font-size">
-                    {{ item.total | currency }}
+                    {{ item.product.price*item.qty | currency }}
                   </span>
                   <a
                     href="#"
@@ -102,7 +102,7 @@
                 class="d-none d-md-flex align-items-center justify-content-end
                 justify-content-md-start py-3 cart-border"
               >
-                <span class="h5 mr-md-3 mb-0">{{ item.total | currency }}</span>
+                <span class="h5 mr-md-3 mb-0">{{ item.product.price*item.qty | currency }}</span>
                 <a href="#" class="btn" @click.prevent="openDelModal(item)">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>
