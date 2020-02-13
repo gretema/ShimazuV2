@@ -12,14 +12,14 @@
       ]"
     >
       <div class="container">
-        <h2 class="h5 p-3 text-center text-title text-dark text-bg d-md-none">
+        <h2 class="h5 p-2 text-center text-title text-dark text-bg d-md-none">
           想吃肉——<br />是不需要理由的。
         </h2>
         <h2
-          class="h3 p-3 ml-auto d-none d-md-block writing-md-vertical text-title text-dark text-bg"
-        >
+          class="h3 p-2 ml-auto d-none d-md-block writing-md-vertical text-title
+          text-dark text-bg">
           想吃肉——<br />
-          <span class="mt-5">是不需要理由的。</span>
+          <span class="mt-4">是</span>不需要理由的。
         </h2>
       </div>
     </header>

@@ -122,6 +122,23 @@
           </div>
 
         </div>
+        <div class="col-md-5" style="padding: 0 0;">
+          <div class="list-group">
+            <li class="list-group-item h4 text-center bg-primary text-white"
+            style="margin-bottom: 0;">
+              猜你喜歡
+            </li>
+            <router-link :to="`/products/${item.id}`"
+            class="list-group-item list-group-item-action d-flex justify-content-between"
+            v-for="(item, key) in recommendProducts" :key="key">
+              <span class="align-self-center">
+                {{ item.title }} {{ item.price | currency }}
+              </span>
+              <img :src="`${item.imageUrl}`" alt=""
+              class="rec-item-pic bg-cover d-inline-block">
+            </router-link>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -135,7 +152,31 @@ export default {
       singleProduct: {},
     };
   },
-
+  computed: {
+    allProducts() {
+      return this.$store.state.CustomerProducts.products;
+    },
+    recommendProducts() {
+      function getRandom(x) {
+        return Math.floor(Math.random() * x);
+      }
+      let recommendObjList = [];
+      const recommendNumList = [];
+      let n = 0;
+      for (let i = 0; i < 3; i += 1) {
+        n = getRandom(this.allProducts.length);
+        if (recommendNumList.indexOf(n) > 0) {
+          i -= 1;
+        } else {
+          recommendNumList.push(n);
+        }
+      }
+      recommendObjList = [this.allProducts[recommendNumList[0]],
+        this.allProducts[recommendNumList[1]],
+        this.allProducts[recommendNumList[2]]];
+      return recommendObjList;
+    },
+  },
   methods: {
     getSingleProduct() {
       const vm = this;
@@ -161,6 +202,7 @@ export default {
     this.id = this.$route.params.productId;
     this.getSingleProduct();
     this.getCart();
+    // console.log(this.recommendProducts);
   },
 };
 </script>
@@ -213,5 +255,9 @@ $images: '~@/assets/images/';
 }
 .notice p{
   font-size: 18px;
+}
+.rec-item-pic {
+  width: 80px;
+  height: 80px;
 }
 </style>
