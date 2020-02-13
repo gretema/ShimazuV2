@@ -110,6 +110,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.breadcrumb-item.active {
+  color: #f7f3f3;
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  color: #f7f3f3;
+}
 .buy-area {
   height: 380px;
   @media (max-width: 576px) {
