@@ -219,10 +219,12 @@ export default {
       );
     },
     addtoCartModal() {
-      $('#addtoCartModal').modal('show');
+      window.setTimeout(() => {
+        $('#addtoCartModal').modal('show');
+      }, 2500);
       window.setTimeout(() => {
         $('#addtoCartModal').modal('hide');
-      }, 2500);
+      }, 4000);
     },
   },
   created() {

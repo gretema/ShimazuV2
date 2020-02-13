@@ -80,9 +80,8 @@
             data-flip="false"
           >
             <i class="fas fa-shopping-cart"></i>
-            <span class="badge badge-pill badge-danger">{{
-              cart.carts.length
-            }}</span>
+            <span class="badge badge-pill badge-danger" v-if="cart.carts.length">
+              {{ cart.carts.length }}</span>
           </button>
           <div
             class="dropdown-menu dropdown-menu-right dropdown-menu-width"

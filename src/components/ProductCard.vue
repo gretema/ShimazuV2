@@ -5,8 +5,8 @@
       { 'col-md-4': thisPage == 'homeCard' }
     ]"
   >
-    <router-link :to="`/products/${thisCard.id}`">
-      <div class="item-card mb-4">
+    <div class="item-card mb-4">
+      <router-link :to="`/products/${thisCard.id}`">
         <!-- item-image -->
         <div
           class="item-image bg-cover"
@@ -26,23 +26,23 @@
             <strong>NT {{ thisCard.price | currency }}</strong>
           </div>
         </div>
-        <!-- item-btn -->
-        <button
-          v-if="thisPage == 'homeCard'"
-          class="btn btn-block btn-primary btn-item"
-          @click="addtoCart(thisCard.id), openAddModal()"
-        >
-          加入購物車
-        </button>
-        <button
-          v-else
-          class="btn btn-block btn-primary btn-item"
-          @click="openSingleProduct(thisCard.id)"
-        >
-          查看更多
-        </button>
-      </div>
-    </router-link>
+      </router-link>
+      <!-- item-btn -->
+      <button
+        v-if="thisPage == 'homeCard'"
+        class="btn btn-block btn-primary btn-item"
+        @click="addtoCart(thisCard.id), openAddModal()"
+      >
+        加入購物車
+      </button>
+      <button
+        v-else
+        class="btn btn-block btn-primary btn-item"
+        @click="openSingleProduct(thisCard.id)"
+      >
+        查看更多
+      </button>
+    </div>
   </div>
 </template>
 
