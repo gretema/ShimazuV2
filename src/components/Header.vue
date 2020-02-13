@@ -93,8 +93,5 @@ export default {
       this.$emit('clickCate');
     },
   },
-  mounted() {
-    this.getText('本日精選');
-  },
 };
 </script>
