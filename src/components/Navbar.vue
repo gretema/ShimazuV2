@@ -34,12 +34,14 @@
             <i class="fas fa-heart"></i>
           </button>
           <div
-            class="dropdown-menu dropdown-menu-right collected-menu"
+            class="dropdown-menu dropdown-menu-right dropdown-menu-width"
             aria-labelledby="dropdownMenuButton"
           >
             <div class="px-4 py-3">
               <h6>收藏清單</h6>
-              <small v-if="!collected.length">還沒有想吃的肉肉。</small>
+              <small v-if="!collected.length">
+                <router-link to="/products">還沒有想吃的肉肉。</router-link>
+              </small>
               <table class="table table-sm" v-if="collected.length">
                 <tbody>
                   <tr v-for="(item, key) in collected" :key="key">
@@ -83,13 +85,14 @@
             }}</span>
           </button>
           <div
-            class="dropdown-menu dropdown-menu-right"
+            class="dropdown-menu dropdown-menu-right dropdown-menu-width"
             aria-labelledby="dropdownMenuButton"
-            style="min-width: 270px;"
           >
             <div class="px-4 py-3">
               <h6>已選購商品</h6>
-              <small v-if="!cart.carts.length">快餵車車吃肉肉！</small>
+              <small v-if="!cart.carts.length">
+                <router-link to="/products">快餵車車吃肉肉！</router-link>
+              </small>
               <table class="table table-sm" v-if="cart.carts.length">
                 <tbody>
                   <tr v-for="item in cart.carts" :key="item.id">
@@ -213,9 +216,10 @@ td {
 </style>
 
 <style lang="scss" scoped>
-.collected-menu {
-  @media (max-width: 375px) {
-    min-width: 200px;
+.dropdown-menu-width {
+  width: 350px;
+  @media (max-width: 768px) {
+    width: 225px;
   }
 }
 </style>
