@@ -5,42 +5,44 @@
       { 'col-md-4': thisPage == 'homeCard' }
     ]"
   >
-    <div class="item-card mb-4">
-      <!-- item-image -->
-      <div
-        class="item-image bg-cover"
-        :style="{ backgroundImage: `url(${thisCard.imageUrl})` }"
-      >
-        <div class="item-tag">{{ thisCard.category }}</div>
-        <div class="item-icon text-primary" @click="clickHeart">
-          <i class="heart-border" :class="heartStyle"></i>
+    <router-link :to="`/products/${thisCard.id}`">
+      <div class="item-card mb-4">
+        <!-- item-image -->
+        <div
+          class="item-image bg-cover"
+          :style="{ backgroundImage: `url(${thisCard.imageUrl})` }"
+        >
+          <div class="item-tag">{{ thisCard.category }}</div>
+          <div class="item-icon text-primary" @click="clickHeart">
+            <i class="heart-border" :class="heartStyle"></i>
+          </div>
         </div>
-      </div>
-      <!-- item-info -->
-      <div
-        class="row no-gutters item-info text-light d-flex justify-content-center"
-      >
-        <div class="col item-name p-3">{{ thisCard.title }}</div>
-        <div class="col item-price text-strong p-3">
-          <strong>NT {{ thisCard.price | currency }}</strong>
+        <!-- item-info -->
+        <div
+          class="row no-gutters item-info text-light d-flex justify-content-center"
+        >
+          <div class="col item-name p-3">{{ thisCard.title }}</div>
+          <div class="col item-price text-strong p-3">
+            <strong>NT {{ thisCard.price | currency }}</strong>
+          </div>
         </div>
+        <!-- item-btn -->
+        <button
+          v-if="thisPage == 'homeCard'"
+          class="btn btn-block btn-primary btn-item"
+          @click="addtoCart(thisCard.id), openAddModal()"
+        >
+          加入購物車
+        </button>
+        <button
+          v-else
+          class="btn btn-block btn-primary btn-item"
+          @click="openSingleProduct(thisCard.id)"
+        >
+          查看更多
+        </button>
       </div>
-      <!-- item-btn -->
-      <button
-        v-if="thisPage == 'homeCard'"
-        class="btn btn-block btn-primary btn-item"
-        @click="addtoCart(thisCard.id), openAddModal()"
-      >
-        加入購物車
-      </button>
-      <button
-        v-else
-        class="btn btn-block btn-primary btn-item"
-        @click="openSingleProduct(thisCard.id)"
-      >
-        查看更多
-      </button>
-    </div>
+    </router-link>
   </div>
 </template>
 
@@ -94,3 +96,8 @@ export default {
   },
 };
 </script>
+<style lang="scss" scoped>
+a {
+  text-decoration: none;
+}
+</style>
