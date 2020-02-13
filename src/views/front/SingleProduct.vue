@@ -68,46 +68,57 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-7">
-          <h3 class="h4 text-white">產品特色</h3>
-          <p class="text-white">{{ singleProduct.content }}</p>
-          <h3 class="h4 text-white">大自然天然放牧</h3>
+        <div class="col-md-7 text-white">
+          <h3 class="h4 feature-title">產品特色</h3>
+          <p>{{ singleProduct.content }}</p>
+          <h3 class="h4 feature-title">天然放牧</h3>
           <div class="cattles-picbox my-2"></div>
-          <p class="text-white">
+          <p>
             不同於人工室內餵養，讓牛隻有充足的空間活動與成長，
             擁有全天然的生長環境。
           </p>
-          <h3 class="h4 text-white">日本食肉格付協會認證</h3>
+          <h3 class="h4 feature-title">和牛認證</h3>
           <div class="wagyu-admit-picbox my-2"></div>
-          <small class="text-white">(圖：日本食肉格付協會)</small>
-          <p class="text-white">只有純正的日本產和牛，才能使用和牛統一標誌。
+          <p class="text-center"><small>(圖：日本食肉格付協會)</small></p>
+          <p>只有純正的日本產和牛，才能獲得日本食肉格付協會認證，使用和牛統一標誌。
             本店所販售之和牛均擁有該標章，從出生證明、血統紀錄到屠宰販售的相關資料，都能追溯確認。
           </p>
-          <div class="notice text-white">
-            <h3 class="h4">購買須知</h3>
-            <h4 class="h5">▼商品成分</h4>
-            牛肉
-            ＊商品皆以原物料直接切割，圖片僅供參考，每批商品油花可能會有所差異，如可接受再請下單訂購。
-            （如有任何疑慮請先與我們連繫確認）
-            <h4 class="h5">▼保存期限</h4>
-            冷凍-18℃可保存300天，詳情請見商品標示
-            <h4 class="h5">▼保存方式</h4>
-            請置於冷凍-18℃保存
-            <h4 class="h5">▼解凍方式</h4>
-            請先將預備要料理之牛肉在未拆封前，置於冰箱冷藏室自然解凍
-            ＊如未食用完畢之解凍牛肉，請使用保鮮袋或保鮮盒放置於冷藏室，最長可保存不超過24小時
-            ＊勿將產品反覆回溫、冷凍以免影響品質，產品開封後請一次食用完畢，以免因儲存不當而影響品質
-            <h4 class="h5">▼注意事項</h4>
-            1. 圖片僅供參考，商品內容物以實際收到商品為主。
-            2. 商品若於送達時即有損壞，請拍照存證並立即與我們聯繫。
-            <h4 class="h5">▼退換貨須知</h4>
-            基於食品安全衛生考量，生鮮易腐敗商品依法已排除適用七天鑑賞期，恕無法退換貨。
-            當您收到商品後，請立即確認商品品項及數量是否正確，若收到商品與訂單內容不符，或商品本身有瑕疵
-            （舉凡：運送途中損壞、商品解凍），請您立即拍照存證，並請於收到商品後一天內，
-            備妥您的訂單編號或訂購人相關資料，與我們聯繫，我們會立即為您處理退換貨事宜。
-            ※退換貨處理期間，請留存發票並保持商品整體完整，需要冷凍保存之商品務必置於冷凍庫保存，
-            若商品已拆封，或是因消費者對商品的不當處理及保存方式錯誤而造成商品損壞變質，
-            則本公司將有保留退換貨的權利。
+          <div class="notice">
+            <h3 class="h4 feature-title">購買須知</h3>
+            <h4 class="h5"><i class="far fa-hand-point-down"></i> 商品成分</h4>
+            <p>
+              牛肉<br>
+              <small>
+                ＊商品皆以原物料直接切割，圖片僅供參考，每批商品油花可能會有所差異，如可接受再請下單訂購。
+              </small>
+            </p>
+            <h4 class="h5"><i class="far fa-hand-point-down"></i> 保存期限</h4>
+            <p>冷凍 -18℃ 可保存 300 天，詳情請見商品標示。</p>
+            <h4 class="h5"><i class="far fa-hand-point-down"></i> 保存方式</h4>
+            <p>請置於冷凍 -18℃ 保存。</p>
+            <h4 class="h5"><i class="far fa-hand-point-down"></i> 解凍方式</h4>
+            <p>
+              請先將預備要料理之牛肉在未拆封前，置於冰箱冷藏室自然解凍。<br>
+              ＊如未食用完畢之解凍牛肉，請使用保鮮袋或保鮮盒放置於冷藏室，最長可保存不超過 24 小時。<br>
+              ＊勿將產品反覆回溫、冷凍以免影響品質，產品開封後請一次食用完畢，以免因儲存不當而影響品質。<br>
+            </p>
+            <h4 class="h5"><i class="far fa-hand-point-down"></i> 注意事項</h4>
+            <p>
+              1. 圖片僅供參考，商品內容物以實際收到商品為主。<br>
+              2. 商品若於送達時即有損壞，請拍照存證並立即與我們聯繫。
+            </p>
+            <h4 class="h5"><i class="far fa-hand-point-down"></i> 退換貨須知</h4>
+            <p>
+              基於食品安全衛生考量，生鮮易腐敗商品依法已排除適用七天鑑賞期，恕無法退換貨。<br>
+              當您收到商品後，請立即確認商品品項及數量是否正確，若收到商品與訂單內容不符，或商品本身有瑕疵
+              （舉凡：運送途中損壞、商品解凍），請您立即拍照存證，並請於收到商品後一天內，
+              備妥您的訂單編號或訂購人相關資料，與我們聯繫，我們會立即為您處理退換貨事宜。<br>
+              <small>
+                ※退換貨處理期間，請留存發票並保持商品整體完整，需要冷凍保存之商品務必置於冷凍庫保存，
+                若商品已拆封，或是因消費者對商品的不當處理及保存方式錯誤而造成商品損壞變質，
+                則本公司將有保留退換貨的權利。
+              </small>
+            </p>
           </div>
 
         </div>
@@ -181,5 +192,26 @@ $images: '~@/assets/images/';
   background-repeat: no-repeat;
   background-position: center center;
   height: 600px;
+}
+.feature-title {
+  text-align: center;
+  position: relative;   /* 定位橫線（當橫線的父元素）*/
+}
+.feature-title:before, .feature-title:after{
+  content: '';  /* 偽元素用法 */
+  position: absolute;  /* 定位横線的位置 */
+  top: 52%;
+  background: #ffffff;
+  width: 9%;
+  height: 2px;
+}
+.feature-title:before {
+  left: 25%;
+}
+.feature-title:after {
+  right: 25%;
+}
+.notice p{
+  font-size: 18px;
 }
 </style>
