@@ -184,12 +184,9 @@ export default {
     filterData() {
       const vm = this;
       if (vm.searchText) {
-        return vm.products.filter((item) => {
-          const data = item.category
-            .toLowerCase()
-            .includes(vm.searchText.toLowerCase());
-          return data;
-        });
+        return vm.products.filter(item => item.category
+          .toLowerCase()
+          .includes(vm.searchText.toLowerCase()));
       }
       return vm.products;
     },
