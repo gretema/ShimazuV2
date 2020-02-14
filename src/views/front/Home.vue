@@ -98,8 +98,10 @@
     </section>
 
     <!--Item Card-->
-    <div class="container my-5 my-7">
-      <div class="row" id="productCardSection">
+    <div class="container my-5 my-7"
+    :class="{'d-none': this.searchText === ''}"
+    id="productCardSection">
+      <div class="row">
         <!--卡片元件-->
         <ProductCard
           v-for="item in filterData"

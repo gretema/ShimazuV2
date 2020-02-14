@@ -1,11 +1,12 @@
 <template>
   <div
+    class="mb-3"
     :class="[
       { 'col-md-6': thisPage == 'productCard' },
-      { 'col-md-4': thisPage == 'homeCard' }
+      { 'col-md-4': thisPage == 'homeCard' },
     ]"
   >
-    <div class="item-card mb-4">
+    <div class="item-card h-100 border-0">
       <router-link :to="`/products/${thisCard.id}`">
         <!-- item-image -->
         <div
@@ -19,12 +20,13 @@
         </div>
         <!-- item-info -->
         <div
-          class="row no-gutters item-info text-light d-flex justify-content-center"
+          class="row no-gutters item-info text-light d-flex
+          justify-content-center align-items-center"
         >
-          <div class="col item-name p-3">{{ thisCard.title }}</div>
-          <div class="col item-price text-strong p-3">
+          <h5 class="col p-3">{{ thisCard.title }}</h5>
+          <h5 class="col p-3">
             <strong>NT {{ thisCard.price | currency }}</strong>
-          </div>
+          </h5>
         </div>
       </router-link>
       <!-- item-btn -->
@@ -32,7 +34,7 @@
         v-if="thisPage == 'homeCard'"
         class="btn btn-block btn-primary btn-item"
         @click="addtoCart(thisCard.id), openAddModal()"
-      >
+        >
         加入購物車
       </button>
       <button
