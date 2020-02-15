@@ -22,13 +22,13 @@
             >
               <div class="input-group">
                 <div class="input-group-prepend">
-                  <span
+                  <label
                     class="input-group-text bg-light border-right-0 pl-4"
-                    id="basic-addon"
+                    for="account"
                     style="font-size: 18px; width: 60px;"
                   >
                     <i class="fas fa-user"></i>
-                  </span>
+                  </label>
                 </div>
                 <input
                   type="email"
@@ -37,6 +37,7 @@
                   v-model="user.username"
                   placeholder="電子郵件"
                   name="account"
+                  id="account"
                 />
               </div>
               <div class="text-danger">
@@ -53,13 +54,13 @@
             >
               <div class="input-group my-2">
                 <div class="input-group-prepend">
-                  <span
+                  <label
                     class="input-group-text bg-light border-right-0 pl-4"
-                    id="basic-addon"
+                    for="password"
                     style="font-size: 18px; width: 60px;"
                   >
                     <i class="fas fa-lock"></i>
-                  </span>
+                  </label>
                 </div>
                 <input
                   type="password"
@@ -68,6 +69,7 @@
                   v-model="user.password"
                   placeholder="請輸入密碼"
                   name="password"
+                  id="password"
                 />
               </div>
               <div class="text-danger">
