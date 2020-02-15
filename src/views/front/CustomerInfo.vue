@@ -37,6 +37,7 @@
                   tag="div"
                 >
                   <label for="username" class="checkout-label">姓名</label>
+                  <abbr title="必填" class="text-danger abbr-style">*</abbr>
                   <input
                     type="text"
                     :class="{ 'is-invalid': failed }"
@@ -63,6 +64,7 @@
                   tag="div"
                 >
                   <label for="useremail" class="checkout-label">Email</label>
+                  <abbr title="必填" class="text-danger abbr-style">*</abbr>
                   <input
                     type="email"
                     :class="{ 'is-invalid': failed }"
@@ -89,6 +91,7 @@
                   tag="div"
                 >
                   <label for="usertel" class="checkout-label">電話</label>
+                  <abbr title="必填" class="text-danger abbr-style">*</abbr>
                   <input
                     type="tel"
                     class="form-control rounded-0"
@@ -114,6 +117,7 @@
                   tag="div"
                 >
                   <label for="useraddress" class="checkout-label">地址</label>
+                  <abbr title="必填" class="text-danger abbr-style">*</abbr>
                   <input
                     type="text"
                     class="form-control rounded-0"
@@ -141,6 +145,7 @@
                   tag="div"
                 >
                   <label for="comment" class="checkout-label">留言</label>
+                  <abbr title="必填" class="text-danger abbr-style">*</abbr>
                   <textarea
                     name="message"
                     id="comment"
@@ -279,3 +284,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.abbr-style {
+  text-decoration: none;
+}
+</style>
