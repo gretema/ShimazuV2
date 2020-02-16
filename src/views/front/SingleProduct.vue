@@ -126,7 +126,7 @@
           <div class="list-group">
             <li class="list-group-item h4 text-center bg-primary text-white"
             style="margin-bottom: 0;">
-              猜你喜歡
+              熱銷商品
             </li>
             <router-link :to="`/products/${item.id}`"
             class="list-group-item list-group-item-action d-flex justify-content-between"
@@ -134,8 +134,8 @@
               <span class="align-self-center">
                 {{ item.title }} {{ item.price | currency }}
               </span>
-              <img :src="`${item.imageUrl}`" alt=""
-              class="rec-item-pic bg-cover d-inline-block">
+              <div :style="{backgroundImage: `url(${item.imageUrl})`}"
+              class="rec-item-pic bg-cover d-inline-block"></div>
             </router-link>
           </div>
         </div>
@@ -158,17 +158,17 @@ export default {
     },
     recommendProducts() {
       function getRandom(x) {
-        return Math.floor(Math.random() * x);
+        return Math.round(Math.random() * x);
       }
       let recommendObjList = [];
       const recommendNumList = [];
-      let n = 0;
+      let randomNum = 0;
       for (let i = 0; i < 3; i += 1) {
-        n = getRandom(this.allProducts.length);
-        if (recommendNumList.indexOf(n) > 0) {
-          i -= 1;
+        randomNum = getRandom(this.allProducts.length);
+        if (recommendNumList.indexOf(randomNum) === -1) {
+          recommendNumList.push(randomNum);
         } else {
-          recommendNumList.push(n);
+          i -= 1;
         }
       }
       recommendObjList = [this.allProducts[recommendNumList[0]],
@@ -197,12 +197,15 @@ export default {
     addtoCart(id, qty = 1) {
       this.$store.dispatch('addtoCart', { id, qty });
     },
+    getProducts(page = 1) {
+      this.$store.dispatch('getCusProducts', page);
+    },
   },
   created() {
     this.id = this.$route.params.productId;
     this.getSingleProduct();
     this.getCart();
-    // console.log(this.recommendProducts);
+    this.getProducts();
   },
 };
 </script>
