@@ -58,7 +58,7 @@
                     <div class="input-group input-group-sm mb-3" style="width: 100px;">
                       <div class="input-group-prepend">
                         <button
-                          class="btn btn-outline-secondary"
+                          class="btn btn-primary rounded-0"
                           type="button"
                           id="button-addon1"
                           @click.prevent="changeQty(item.id, item.product.id, item.qty, false)"
@@ -67,14 +67,13 @@
                       <input
                         type="text"
                         class="form-control"
-                        placeholder
                         aria-label="Example text with button addon"
                         aria-describedby="button-addon1"
                         v-model="item.qty"
                       />
                       <div class="input-group-append">
                         <button
-                          class="btn btn-outline-secondary"
+                          class="btn btn-primary"
                           type="button"
                           id="button-addon2"
                           @click.prevent="changeQty(item.id, item.product.id, item.qty, true)"

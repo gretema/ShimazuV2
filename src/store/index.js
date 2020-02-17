@@ -41,7 +41,6 @@ export default new Vuex.Store({
     },
     CARTORDER(state, payload) {
       state.cartOrder = payload.sort((a, b) => b.qty - a.qty);
-      console.log(state.cartOrder);
     },
   },
   actions: {
