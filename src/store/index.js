@@ -17,6 +17,7 @@ export default new Vuex.Store({
       final_total: '',
     },
     messages: [],
+    cartOrder: [],
   },
   mutations: {
     LOADING(state, status) {
@@ -38,11 +39,9 @@ export default new Vuex.Store({
     REMOVEMESSAGE(state, num) {
       state.messages.splice(num, 1);
     },
-    REDUCEQTY(state, index) {
-      state.cart.carts[index].qty -= 1;
-    },
-    ADDQTY(state, index) {
-      state.cart.carts[index].qty += 1;
+    CARTORDER(state, payload) {
+      state.cartOrder = payload.sort((a, b) => b.qty - a.qty);
+      console.log(state.cartOrder);
     },
   },
   actions: {
@@ -55,6 +54,7 @@ export default new Vuex.Store({
       axios.get(url).then((response) => {
         if (response.data.data.carts) {
           context.commit('CART', response.data.data);
+          context.commit('CARTORDER', response.data.data.carts);
         }
         context.commit('LOADING', false);
       });

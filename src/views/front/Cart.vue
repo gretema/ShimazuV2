@@ -25,7 +25,7 @@
           <div class="bg-light p-3">
             <div
               class="py-3 d-flex flex-column flex-md-row"
-              v-for="(item, index) in cart.carts"
+              v-for="item in cart.carts"
               :key="item.id"
             >
               <!-- 圖與 form 水平排列 -->
@@ -61,7 +61,7 @@
                           class="btn btn-outline-secondary"
                           type="button"
                           id="button-addon1"
-                          @click="reduceQty(index)"
+                          @click.prevent="changeQty(item.id, item.product.id, item.qty, false)"
                         >-</button>
                       </div>
                       <input
@@ -77,7 +77,7 @@
                           class="btn btn-outline-secondary"
                           type="button"
                           id="button-addon2"
-                          @click="addQty(index)"
+                          @click.prevent="changeQty(item.id, item.product.id, item.qty, true)"
                         >+</button>
                       </div>
                     </div>
@@ -210,11 +210,27 @@ export default {
         }
       });
     },
-    reduceQty(index) {
-      this.$store.commit('REDUCEQTY', index);
-    },
-    addQty(index) {
-      this.$store.commit('ADDQTY', index);
+    changeQty(id, productId, qty, calc) {
+      const vm = this;
+      vm.$store.commit('LOADING', true);
+      const delAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
+      const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
+      let num;
+      if (calc === true) {
+        num = qty + 1;
+      } else {
+        num = qty - 1;
+      }
+      const changeCart = {
+        product_id: productId,
+        qty: num,
+      };
+      vm.$http
+        .all([vm.$http.delete(delAPI), vm.$http.post(addAPI, { data: changeCart })])
+        .then(vm.$http.spread(() => {
+          vm.$store.dispatch('getCart');
+          vm.$store.commit('LOADING', false);
+        }));
     },
   },
   computed: {
