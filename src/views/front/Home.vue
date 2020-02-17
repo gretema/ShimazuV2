@@ -98,9 +98,9 @@
     </section>
 
     <!--Item Card-->
+    <div id="productCardSection"></div>
     <div class="container my-5 my-7"
-    :class="{'d-none': this.searchText === ''}"
-    id="productCardSection">
+     v-show="this.searchText">
       <div class="row">
         <!--卡片元件-->
         <ProductCard
