@@ -137,27 +137,16 @@
             <!--第六台: 留言-->
             <div class="form-row">
               <div class="col">
-                <ValidationProvider
-                  class="form-group"
-                  name="留言"
-                  rules="required"
-                  v-slot="{ failed, errors }"
-                  tag="div"
-                >
-                  <label for="comment" class="checkout-label">留言</label>
-                  <abbr title="必填" class="text-danger abbr-style">*</abbr>
-                  <textarea
-                    name="message"
-                    id="comment"
-                    class="form-control"
-                    :class="{ 'is-invalid': failed }"
-                    placeholder="想說的話..."
-                    cols="10"
-                    rows="5"
-                    v-model="form.message"
-                  ></textarea>
-                  <span class="text-danger">{{ errors[0] }}</span>
-                </ValidationProvider>
+                <label for="comment" class="checkout-label">留言</label>
+                <textarea
+                  name="message"
+                  id="comment"
+                  class="form-control"
+                  placeholder="想說的話..."
+                  cols="10"
+                  rows="5"
+                  v-model="form.message">
+                </textarea>
               </div>
             </div>
             <!--第七排: 上一步 & 下一步-->

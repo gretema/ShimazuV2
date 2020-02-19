@@ -38,7 +38,7 @@
           >
         </div>
       </div>
-      <div class="my-5 row justify-content-center bg-light">
+      <div class="row justify-content-center bg-light pb-3">
         <div class="col-md-10 table-responsive">
           <table class="table paysuccess-table">
             <thead>
