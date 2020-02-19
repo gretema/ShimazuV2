@@ -158,22 +158,28 @@ export default {
     },
     recommendProducts() {
       function getRandom(x) {
-        return Math.round(Math.random() * x);
+        return Math.floor(Math.random() * x);
       }
       let recommendObjList = [];
-      const recommendNumList = [];
-      let randomNum = 0;
+      let n = 0;
+      const tempary = [];
       for (let i = 0; i < 3; i += 1) {
-        randomNum = getRandom(this.allProducts.length);
-        if (recommendNumList.indexOf(randomNum) === -1) {
-          recommendNumList.push(randomNum);
-        } else {
-          i -= 1;
+        n = getRandom(this.allProducts.length);
+        tempary.push(n);
+      }
+      // 用 filter 把臨時的亂數陣列中不重複的數字抓出來
+      const result = tempary.filter((item, index, ary) => ary.indexOf(item) === index);
+      // 如果臨時亂數陣列的值不滿 3 個，就用已經在陣列裡的其中一個值 +1 作為要放入陣列的第三個值
+      if (result.length < 3) {
+        const num = result[1];
+        const addnum = num + 1;
+        if (result[0] !== addnum && result[1] !== addnum) {
+          result.push(addnum);
         }
       }
-      recommendObjList = [this.allProducts[recommendNumList[0]],
-        this.allProducts[recommendNumList[1]],
-        this.allProducts[recommendNumList[2]]];
+      recommendObjList = [this.allProducts[result[0]],
+        this.allProducts[result[1]],
+        this.allProducts[result[2]]];
       return recommendObjList;
     },
   },
