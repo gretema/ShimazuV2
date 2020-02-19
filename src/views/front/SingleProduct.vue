@@ -126,7 +126,7 @@
           <div class="list-group">
             <li class="list-group-item h4 text-center bg-primary text-white"
             style="margin-bottom: 0;">
-              推薦商品
+              熱銷商品
             </li>
             <a href="#" @click="openRecomProduct(item.id)"
             class="list-group-item list-group-item-action d-flex justify-content-between"
