@@ -60,7 +60,7 @@
                         <button
                           class="btn btn-primary rounded-0"
                           type="button"
-                          id="button-addon1"
+                          id="reduceButton"
                           @click.prevent="changeQty(item.id, item.product.id, item.qty, false)"
                         >-</button>
                       </div>
@@ -75,7 +75,7 @@
                         <button
                           class="btn btn-primary"
                           type="button"
-                          id="button-addon2"
+                          id="addButton"
                           @click.prevent="changeQty(item.id, item.product.id, item.qty, true)"
                         >+</button>
                       </div>
