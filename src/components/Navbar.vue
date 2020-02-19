@@ -135,31 +135,13 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav text-center ml-auto">
-            <li
-              class="nav-item"
-              :class="{ active: activeStatus == 'home' }"
-              @click="activeStatus = 'home'"
-            >
-              <router-link class="nav-link" to="/">
+          <div class="navbar-nav text-center ml-auto">
+            <router-link class="nav-link nav-item" to="/" exact>
                 首頁
-              </router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: activeStatus == 'products' }"
-              @click="activeStatus = 'products'"
-            >
-              <router-link class="nav-link" to="/products">肉品</router-link>
-            </li>
-            <li
-              class="nav-item"
-              :class="{ active: activeStatus == 'login' }"
-              @click="activeStatus = 'login'"
-            >
-              <router-link class="nav-link" to="/signin">登入</router-link>
-            </li>
-          </ul>
+            </router-link>
+            <router-link class="nav-link nav-item" to="/products">肉品</router-link>
+            <router-link class="nav-link nav-item" to="/signin" exact>登入</router-link>
+          </div>
         </div>
       </div>
     </nav>
@@ -168,11 +150,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      activeStatus: 'home',
-    };
-  },
   methods: {
     getCart() {
       this.$store.dispatch('getCart');
@@ -212,9 +189,6 @@ export default {
 td {
   font-size: 16px;
 }
-</style>
-
-<style lang="scss" scoped>
 .dropdown-menu-width {
   width: 350px;
   @media (max-width: 768px) {
