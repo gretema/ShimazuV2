@@ -126,9 +126,9 @@
           <div class="list-group">
             <li class="list-group-item h4 text-center bg-primary text-white"
             style="margin-bottom: 0;">
-              熱銷商品
+              推薦商品
             </li>
-            <router-link :to="`/products/${item.id}`"
+            <a href="#" @click="openRecomProduct(item.id)"
             class="list-group-item list-group-item-action d-flex justify-content-between"
             v-for="(item, key) in recommendProducts" :key="key">
               <span class="align-self-center">
@@ -136,7 +136,7 @@
               </span>
               <div :style="{backgroundImage: `url(${item.imageUrl})`}"
               class="rec-item-pic bg-cover d-inline-block"></div>
-            </router-link>
+            </a>
           </div>
         </div>
       </div>
@@ -205,6 +205,11 @@ export default {
     },
     getProducts(page = 1) {
       this.$store.dispatch('getCusProducts', page);
+    },
+    openRecomProduct(recomId) {
+      this.id = recomId;
+      this.$router.push(`/products/${this.id}`);
+      this.getSingleProduct();
     },
   },
   created() {
