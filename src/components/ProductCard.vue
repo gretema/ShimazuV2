@@ -7,6 +7,9 @@
     ]"
   >
     <div class="item-card h-100 border-0">
+      <div class="item-icon text-primary" @click="clickHeart">
+        <i class="heart-border" :class="heartStyle"></i>
+      </div>
       <router-link :to="`/products/${thisCard.id}`">
         <!-- item-image -->
         <div
@@ -14,9 +17,6 @@
           :style="{ backgroundImage: `url(${thisCard.imageUrl})` }"
         >
           <div class="item-tag">{{ thisCard.category }}</div>
-          <div class="item-icon text-primary" @click="clickHeart">
-            <i class="heart-border" :class="heartStyle"></i>
-          </div>
         </div>
         <!-- item-info -->
         <div

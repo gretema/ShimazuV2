@@ -1,7 +1,8 @@
-.item-image {
-  height: 315px;
+.item-card {
   position: relative;
-
+  .item-image {
+    height: 315px;
+  }
   .item-tag {
     writing-mode: vertical-lr;
     padding: 15px 10px;
@@ -14,14 +15,13 @@
     top: 0;
     background-color: $primary;
   }
-
-  .item-icon {
-    position: absolute;
-    top: 20px;
-    right: 22px;
-    font-size: 1.5em;
-    cursor: pointer;
-  }
+}
+.item-icon {
+  position: absolute;
+  top: 20px;
+  right: 22px;
+  font-size: 1.5em;
+  cursor: pointer;
 }
 
 .item-info {
