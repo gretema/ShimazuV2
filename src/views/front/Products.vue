@@ -71,6 +71,8 @@
               </div>
             </div>
           </div>
+          <Pagination :childPaginations="pagination" @changeCurrPage="getProducts"
+          v-if="filterData.length > 10"/>
         </div>
       </div>
     </div>
@@ -79,10 +81,12 @@
 
 <script>
 import ProductCard from '../../components/ProductCard.vue';
+import Pagination from '../../components/Pagination.vue';
 
 export default {
   components: {
     ProductCard,
+    Pagination,
   },
   computed: {
     pagination() {
