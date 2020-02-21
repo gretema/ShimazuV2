@@ -61,7 +61,7 @@
                       <a
                         href="#"
                         class="text-muted"
-                        @click.prevent="addtoCart(item.id), disCollected(item.id)"
+                        @click.prevent="addtoCart(item.id), disCollected(item.id), openAddModal()"
                       >
                         <i class="fas fa-cart-plus"></i>
                       </a>
@@ -162,6 +162,9 @@ export default {
     },
     addtoCart(id, qty = 1) {
       this.$store.dispatch('addtoCart', { id, qty });
+    },
+    openAddModal() {
+      this.$emit('openAddModal');
     },
   },
   computed: {

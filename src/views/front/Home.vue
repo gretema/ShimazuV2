@@ -107,8 +107,7 @@
           v-for="item in filterData"
           :key="item.id"
           :this-card="item"
-          @change-heart="setHeart"
-          @openModal="addtoCartModal"
+          @openAddModal="addtoCartModal"
         ></ProductCard>
       </div>
     </div>
@@ -205,9 +204,6 @@ export default {
       window.setTimeout(() => {
         $('#couponModal').modal('show');
       }, 1700);
-    },
-    setHeart(lovedItemTitle) {
-      this.$store.dispatch('setHeart', lovedItemTitle);
     },
     slidetoCard() {
       $('html, body').animate(

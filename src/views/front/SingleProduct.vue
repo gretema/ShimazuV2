@@ -51,7 +51,6 @@
           <hr class="d-none d-md-block" />
           <div class="input-group mb-3">
             <select class="form-control mr-1" v-model="singleProduct.num">
-              <option value="0" disabled selected>請選擇數量</option>
               <option :value="num" v-for="num in 10" :key="num"
                 >{{ num }} {{ singleProduct.unit }}</option
               >
@@ -60,7 +59,7 @@
               type="submit"
               class="btn btn-primary"
               id="button-addCart"
-              @click="addtoCart(singleProduct.id, singleProduct.num)"
+              @click="addtoCart(singleProduct.id, singleProduct.num), addtoCartModal()"
             >
               加入購物車
             </button>
@@ -141,15 +140,33 @@
         </div>
       </div>
     </div>
+    <!-- 成功加入購物車 Modal -->
+    <div class="modal fade" id="addtoCartModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            成功加入購物車！
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import $ from 'jquery';
+
 export default {
   data() {
     return {
       id: '',
-      singleProduct: {},
+      singleProduct: {
+        num: 1,
+      },
     };
   },
   computed: {
@@ -210,6 +227,14 @@ export default {
       this.id = recomId;
       this.$router.push(`/products/${this.id}`);
       this.getSingleProduct();
+    },
+    addtoCartModal() {
+      window.setTimeout(() => {
+        $('#addtoCartModal').modal('show');
+      }, 2500);
+      window.setTimeout(() => {
+        $('#addtoCartModal').modal('hide');
+      }, 4000);
     },
   },
   created() {

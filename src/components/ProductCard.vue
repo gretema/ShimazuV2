@@ -7,7 +7,7 @@
     ]"
   >
     <div class="item-card h-100 border-0">
-      <div class="item-icon text-primary" @click="clickHeart(thisCard.id)">
+      <div class="item-icon text-primary" @click="clickHeart()">
         <i class="heart-border" :class="heartStyle"></i>
       </div>
       <router-link :to="`/products/${thisCard.id}`">
@@ -77,19 +77,17 @@ export default {
       this.$store.dispatch('addtoCart', { id, qty });
     },
     openAddModal() {
-      this.$emit('openModal');
+      this.$emit('openAddModal');
     },
     // 取得單一產品頁
     openSingleProduct(id) {
       this.$router.push(`/products/${id}`);
     },
-    clickHeart(itemId) {
-      // 被點擊愛心的商品送到父元件的 method
+    clickHeart() {
       if (this.loveItemIdList.indexOf(this.thisCard.id) === -1) {
-        // this.$emit('change-heart', this.thisCard);
         this.$store.commit('COLLECTED', this.thisCard);
       } else {
-        this.$store.commit('DISCOLLECTED', itemId);
+        this.$store.commit('DISCOLLECTED', this.thisCard.id);
       }
     },
   },

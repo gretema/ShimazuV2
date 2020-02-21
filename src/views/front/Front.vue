@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Navbar @openModal="openDelModal" />
+    <Navbar @openModal="openDelModal" @openAddModal="addtoCartModal" />
     <main role="main">
       <router-view></router-view>
     </main>
@@ -23,6 +23,21 @@
           <div class="modal-footer">
             <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
             <button type="button" class="btn btn-danger" @click="removeCart">確認刪除</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 成功加入購物車 Modal -->
+    <div class="modal fade" id="addtoCartModal" tabindex="-1" role="dialog"
+     aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content">
+          <div class="modal-body">
+            成功加入購物車！
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
         </div>
       </div>
@@ -60,6 +75,14 @@ export default {
     },
     getCart() {
       this.$store.dispatch('getCart');
+    },
+    addtoCartModal() {
+      window.setTimeout(() => {
+        $('#addtoCartModal').modal('show');
+      }, 2500);
+      window.setTimeout(() => {
+        $('#addtoCartModal').modal('hide');
+      }, 4000);
     },
   },
   created() {
