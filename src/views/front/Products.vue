@@ -66,7 +66,6 @@
                   v-for="item in filterData"
                   :key="item.id"
                   :this-card="item"
-                  @change-heart="setHeart"
                 >
                 </ProductCard>
               </div>
@@ -123,9 +122,6 @@ export default {
     },
     getText(cateText) {
       this.$store.dispatch('getText', cateText);
-    },
-    setHeart(lovedItem) {
-      this.$store.dispatch('setHeart', lovedItem);
     },
   },
   created() {

@@ -27,16 +27,8 @@ export default {
       state.searchText = payload;
     },
     COLLECTED(state, lovedItem) {
-      if (state.loveItemIdList.indexOf(lovedItem.title) === -1) {
-        // 商品不存在則加入陣列
-        state.loveItemIdList.push(lovedItem.id);
-        state.collected.push(lovedItem);
-      } else {
-        // 存在則將商品移除
-        const index = state.loveItemIdList.indexOf(lovedItem.id);
-        state.loveItemIdList.splice(index, 1);
-        state.collected.splice(index, 1);
-      }
+      state.loveItemIdList.push(lovedItem.id);
+      state.collected.push(lovedItem);
       // 儲存至 localStorage
       localStorage.setItem('collectedItems', JSON.stringify(state.collected));
     },
@@ -60,9 +52,6 @@ export default {
     },
     getText(context, text) {
       context.commit('SEARCHTEXT', text);
-    },
-    setHeart(context, lovedItem) {
-      context.commit('COLLECTED', lovedItem);
     },
   },
 };
