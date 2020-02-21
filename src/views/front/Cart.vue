@@ -217,6 +217,8 @@ export default {
       let num;
       if (calc === true) {
         num = qty + 1;
+      } else if (qty === 1) {
+        num = 1;
       } else {
         num = qty - 1;
       }
