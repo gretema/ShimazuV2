@@ -33,7 +33,7 @@
       <button
         v-if="thisPage == 'homeCard'"
         class="btn btn-block btn-primary btn-item"
-        @click="addtoCart(thisCard.id), openAddModal()"
+        @click="addtoCart(thisCard.id)"
         >
         加入購物車
       </button>
@@ -75,6 +75,7 @@ export default {
   methods: {
     addtoCart(id, qty = 1) {
       this.$store.dispatch('addtoCart', { id, qty });
+      this.openAddModal();
     },
     openAddModal() {
       this.$emit('openAddModal');

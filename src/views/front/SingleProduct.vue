@@ -59,7 +59,7 @@
               type="submit"
               class="btn btn-primary"
               id="button-addCart"
-              @click="addtoCart(singleProduct.id, singleProduct.num), addtoCartModal()"
+              @click="addtoCart(singleProduct.id, singleProduct.num)"
             >
               加入購物車
             </button>
@@ -220,6 +220,7 @@ export default {
     },
     addtoCart(id, qty = 1) {
       this.$store.dispatch('addtoCart', { id, qty });
+      this.addtoCartModal();
     },
     getProducts(page = 1) {
       this.$store.dispatch('getCusProducts', page);
