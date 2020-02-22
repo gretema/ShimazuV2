@@ -209,6 +209,7 @@ export default {
       vm.$http.get(api).then((response) => {
         vm.$store.commit('LOADING', false);
         vm.singleProduct = response.data.product;
+        vm.singleProduct.num = 1;
       });
     },
     getCart() {
