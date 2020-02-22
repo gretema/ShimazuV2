@@ -1,12 +1,33 @@
 $secondary: #f8f9fa;
 $primary: #b54434;
 
-.cartitem-font-size {
+.cart-item-title {
+  font-size: 24px;
   @media (max-width: 576px) {
-    font-size: 18px;
+    font-size: 20px;
   }
 }
-
+.cart-item-title-box {
+  width: 200px;
+  margin-right: 60px;
+}
+.cart-item-single-price {
+  @media (max-width: 576px) {
+    font-size: 14px;
+  }
+}
+.cart-item-qty-price {
+  font-size: 24px;
+  @media (max-width: 576px) {
+    font-size: 20px;
+  }
+}
+.qty-box {
+  width: 120px;
+}
+.qty-group {
+  width: 100px;
+}
 .form-control {
   border-radius: 0;
 }

@@ -28,11 +28,10 @@
               v-for="item in cart.carts"
               :key="item.id"
             >
-              <!-- 圖與 form 水平排列 -->
-              <div class="d-flex flex-md-grow-1 mr-md-3">
-                <!-- to grow to fill available space -->
+              <!-- 圖與文字水平排列 -->
+              <div class="d-flex flex-md-grow-1">
                 <div
-                  class="bg-cover my-4 mr-4 flex-grow-1 flex-md-grow-0 d-none d-md-block"
+                  class="bg-cover my-4 mr-4 d-none d-md-block"
                   :style="[
                     { backgroundImage: `url(${item.product.imageUrl})` },
                     { height: '110px' },
@@ -41,21 +40,21 @@
                 ></div>
                 <div
                   class="d-flex flex-column flex-md-row align-items-md-center
-                  justify-content-center justify-content-md-between flex-grow-1"
+                  justify-content-center justify-content-md-between"
                 >
                   <!-- 品項 -->
-                  <div class="mr-md-4">
-                    <span class="h5 cartitem-font-size">
+                  <div class="flex-md-grow-1 flex-shrink-1 cart-item-title-box">
+                    <span class="cart-item-title">
                       {{ item.product.title }}
                     </span>
                     <br />
-                    <span class="cartitem-font-size">
+                    <span class="cart-item-single-price">
                       {{ item.product.price | currency }}
                     </span>
                   </div>
                   <!-- 數量 -->
-                  <div class="ml-md-auto" style="width: 120px;">
-                    <div class="input-group input-group-sm mb-3" style="width: 100px;">
+                  <div class="qty-box flex-md-grow-1 flex-shrink-0 mr-md-auto">
+                    <div class="input-group input-group-sm mb-3 qty-group">
                       <div class="input-group-prepend">
                         <button
                           class="btn btn-primary rounded-0"
@@ -84,12 +83,12 @@
                 </div>
                 <!--手機版價格和刪除-->
                 <div class="d-md-none ml-auto align-items-center justify-content-end">
-                  <span class="h5 mr-md-3 mb-0 cartitem-font-size">
+                  <span class="mr-md-3 mb-0 cart-item-qty-price">
                     {{ item.product.price*item.qty | currency }}
                   </span>
                   <a
                     href="#"
-                    class="btn cartitem-font-size"
+                    class="btn p-0 ml-1"
                     @click.prevent="openDelModal(item)"
                   >
                     <i class="fa fa-trash" aria-hidden="true"></i>
@@ -99,9 +98,10 @@
               <!--桌機版價格和刪除-->
               <div
                 class="d-none d-md-flex align-items-center justify-content-end
-                justify-content-md-start py-3 cart-border"
+                justify-content-md-start py-3"
               >
-                <span class="h5 mr-md-3 mb-0">{{ item.product.price*item.qty | currency }}</span>
+                <span class="mb-0 cart-item-qty-price">
+                  {{ item.product.price*item.qty | currency }}</span>
                 <a href="#" class="btn" @click.prevent="openDelModal(item)">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>
