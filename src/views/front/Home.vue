@@ -112,6 +112,10 @@
       </div>
     </div>
 
+    <!-- Gotop button -->
+    <button class="gotop-btn" id="gotopBtn" @click="gotop">
+      <i class="fas fa-arrow-up gotop-arrow"></i>
+    </button>
     <!--優惠券 Modal-->
     <div
       class="modal fade"
@@ -221,9 +225,21 @@ export default {
         $('#addtoCartModal').modal('hide');
       }, 4000);
     },
+    gotop() {
+      $('html, body').animate({ scrollTop: 0 }, 1500);
+    },
   },
   created() {
     this.getProducts();
+    // 偵測頁面往下滑超過 400px 就讓 Gotop 按鈕出現
+    // eslint-disable-next-line func-names
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 400) {
+        $('#gotopBtn').fadeIn();
+      } else {
+        $('#gotopBtn').fadeOut();
+      }
+    });
   },
   mounted() {
     this.showCouponModal();

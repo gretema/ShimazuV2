@@ -76,10 +76,15 @@
         </div>
       </div>
     </div>
+    <!-- Gotop button -->
+    <button class="gotop-btn" id="gotopBtn" @click="gotop">
+      <i class="fas fa-arrow-up gotop-arrow"></i>
+    </button>
   </div>
 </template>
 
 <script>
+import $ from 'jquery';
 import ProductCard from '../../components/ProductCard.vue';
 import Pagination from '../../components/Pagination.vue';
 
@@ -127,11 +132,23 @@ export default {
     getText(cateText) {
       this.$store.dispatch('getText', cateText);
     },
+    gotop() {
+      $('html, body').animate({ scrollTop: 0 }, 1500);
+    },
   },
   created() {
     this.getProducts();
     this.getCart();
     this.getText('');
+    // 偵測頁面往下滑超過 400px 就讓 Gotop 按鈕出現
+    // eslint-disable-next-line func-names
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 400) {
+        $('#gotopBtn').fadeIn();
+      } else {
+        $('#gotopBtn').fadeOut();
+      }
+    });
   },
 };
 </script>

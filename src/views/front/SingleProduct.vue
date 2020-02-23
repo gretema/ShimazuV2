@@ -140,6 +140,10 @@
         </div>
       </div>
     </div>
+    <!-- Gotop button -->
+    <button class="gotop-btn" id="gotopBtn" @click="gotop">
+      <i class="fas fa-arrow-up gotop-arrow"></i>
+    </button>
     <!-- 成功加入購物車 Modal -->
     <div class="modal fade" id="addtoCartModal" tabindex="-1" role="dialog"
      aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -238,12 +242,24 @@ export default {
         $('#addtoCartModal').modal('hide');
       }, 4000);
     },
+    gotop() {
+      $('html, body').animate({ scrollTop: 0 }, 1500);
+    },
   },
   created() {
     this.id = this.$route.params.productId;
     this.getSingleProduct();
     this.getCart();
     this.getProducts();
+    // 偵測頁面往下滑超過 400px 就讓 Gotop 按鈕出現
+    // eslint-disable-next-line func-names
+    $(window).scroll(function () {
+      if ($(this).scrollTop() > 400) {
+        $('#gotopBtn').fadeIn();
+      } else {
+        $('#gotopBtn').fadeOut();
+      }
+    });
   },
 };
 </script>
@@ -251,6 +267,9 @@ export default {
 <style lang="scss" scoped>
 $images: '~@/assets/images/';
 
+.breadcrumb-item {
+  font-size: 15px;
+}
 .breadcrumb-item.active {
   color: #f7f3f3;
 }
@@ -275,8 +294,12 @@ $images: '~@/assets/images/';
   background-repeat: no-repeat;
   background-position: center center;
   height: 600px;
+  @media (max-width: 576px) {
+    height: 400px;
+  }
 }
 .feature-title {
+  margin: 30px 0;
   text-align: center;
   position: relative;   /* 定位橫線（當橫線的父元素）*/
 }
@@ -290,9 +313,15 @@ $images: '~@/assets/images/';
 }
 .feature-title:before {
   left: 25%;
+  @media (max-width: 576px) {
+    left: 20%;
+  }
 }
 .feature-title:after {
   right: 25%;
+   @media (max-width: 576px) {
+    right: 20%;
+  }
 }
 .notice p{
   font-size: 18px;
