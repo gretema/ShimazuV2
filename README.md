@@ -1,72 +1,79 @@
 # 電商網站 —— 島津燒肉 Shimazu
+> 為您獻上最上等的和牛肉品，這是一份 Vue CLI 3 前端電商練習。
 
-## 專案說明
+![](https://i.imgur.com/pXS0V8h.jpg)
 
-本專案初版建立於 2019.10，運用以下技術完成切版：
+## DEMO
+https://gretema.github.io/Shimazu/
 
-- Bootstrap 4
-  - Flex 排版
-  - Grid 排版
-- SCSS
-- 配合 Bootstrap 部分元件使用 jQuery 製作互動效果
+## 簡介
+此作品為 Vue.js 前端練習，功能包含：
+- 前台：
+  - 電商展示（商品分類、單一商品介紹）
+  - 商品收藏功能
+  - 購物車
+  - 優惠碼套用
+  - 下單 / 結帳
+- 後台：
+  - 管理者登入
+  - 商品管理（建立、更新、刪除）
+  - 優惠碼管理（建立、更新、刪除） 
+  - 訂單列表
 
-二版建立於 2020.01，以初版為基礎，
-運用 Vue.js / Vue CLI 3 / Vue Router / Vuex 製作 SPA 網站，
-使本專案趨於完整。
+## 使用技術
+* Vue Cli 3
+* Vue Router
+* Vue Components
+* Vuex
+* RESTful APIs
+* RWD
+* Bootstrap 4
+* JavaScript（ES6、LocalStorage 等）
+* SCSS
+* ESlint Aribnb
 
-初版程式碼放置在 master 分支，
-二版程式碼放置在 develop 分支，
-DEMO 是以 gh-pages 分支建立而成。
+## 使用 Vue-Plugin
+* [Vue-axios](https://www.npmjs.com/package/vue-axios)
+* [VeeValidate](https://logaretm.github.io/vee-validate/guide/basics.html#validation-provider)
+* [Vue-loading-overlay](https://www.npmjs.com/package/vue-loading-overlay)
 
-## 初版資料夾結構
+## 前端介紹
+### 首頁畫面
+![](https://i.imgur.com/pXS0V8h.jpg)
+點擊商品類別方格，畫面會往下滑動並顯示相對應的商品，此時畫面右下角會出現「回到最上方」按鈕。
+![](https://i.imgur.com/Kn1KS1U.jpg)
 
-- images
-- js
-- stylesheets
-  - components
-  - helpers
-- 各頁面 HTML 檔
+### 商品列表
+![](https://i.imgur.com/jnRy7fn.jpg)
 
-## 二版資料夾結構
+點擊整張商品卡片或是點擊「查看更多」，可跳轉至單一商品介紹頁。
 
-- assets
-  - components
-  - helpers
-  - images
-- components
-- filters
-- router
-- store
-- views
+![](https://i.imgur.com/t4CGoOy.jpg)
 
-## Clone Project
+點擊商品卡片右上角的愛心可加入收藏清單，再點擊一次則移除。收藏清單顯示於頁面最上方的 Navbar，收藏清單 dropdown 內的品項可按下購物車按鈕以加入購物車。
 
-```
-git clone https://github.com/gretema/Shimazu.git
-```
+### 單一商品介紹頁
+![](https://i.imgur.com/sVkR7ae.jpg)
 
-## Install Vue CLI
+「熱銷商品」區塊為隨機推薦，從所有商品中亂數抓取不重複之三個商品予以展示，點擊該區塊中的商品可跳轉至該商品介紹頁。
+### 購物車
+![](https://i.imgur.com/4qYx2cH.png)
 
-若本身已經安裝過 Vue CLI 3 以上版本則可以忽略該行指令。
-```
-npm install -g @vue/cli
-```
+此頁面可調整欲購買之商品數量，並可輸入優惠碼進行折扣，按下「下一步」即開始結帳程序。
 
-## Install package
+![](https://i.imgur.com/km66G3o.png)
 
-```
-npm install
-```
+![](https://i.imgur.com/2f7nKVx.png)
 
-## Develop mode
+![](https://i.imgur.com/RaBUlE8.jpg)
 
-```
-npm run serve
-```
 
-## Build mode
-此模式會重新產生 dist 資料夾。
+### 後台登入介面
+![](https://i.imgur.com/w0Bv4w9.png)
+### 後台管理介面
+![](https://i.imgur.com/6EQkX4G.png)
 
-```
-npm run build
-```
+![](https://i.imgur.com/23t60kY.png)
+
+### 其餘更多細節部分，歡迎至 Demo 網站觀看。
+https://gretema.github.io/Shimazu/
