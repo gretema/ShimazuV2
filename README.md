@@ -53,7 +53,7 @@ https://gretema.github.io/Shimazu/
 點擊商品卡片右上角的愛心可加入收藏清單，再點擊一次則移除。收藏清單顯示於頁面最上方的 Navbar，收藏清單 dropdown 內的品項可按下購物車按鈕以加入購物車。
 
 ### 單一商品介紹頁
-![](https://i.imgur.com/sVkR7ae.jpg)
+![](https://i.imgur.com/w8cEVBP.jpg)
 
 「熱銷商品」區塊為隨機推薦，從所有商品中亂數抓取不重複之三個商品予以展示，點擊該區塊中的商品可跳轉至該商品介紹頁。
 ### 購物車
