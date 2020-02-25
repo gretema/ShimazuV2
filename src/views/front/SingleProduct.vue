@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="container mb-10 py-4">
+    <div class="container mb-10 py-4" v-if="singleProduct.title">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-transparent pl-1 mb-0">
           <li class="breadcrumb-item">
