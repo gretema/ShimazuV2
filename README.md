@@ -1,4 +1,4 @@
-# 電商網站 —— 島津燒肉 Shimazu
+# 島津燒肉 Shimazu 電商網站
 > 為您獻上最上等的和牛肉品，這是一份 Vue CLI 3 前端電商練習。
 
 ![](https://i.imgur.com/pXS0V8h.jpg)
@@ -45,6 +45,7 @@ https://gretema.github.io/Shimazu/
 
 ### 商品列表
 ![](https://i.imgur.com/jnRy7fn.jpg)
+<<<<<<< HEAD
 
 點擊整張商品卡片或是點擊「查看更多」，可跳轉至單一商品介紹頁。
 
@@ -54,13 +55,24 @@ https://gretema.github.io/Shimazu/
 
 ### 單一商品介紹頁
 ![](https://i.imgur.com/sVkR7ae.jpg)
+=======
+點擊整張商品卡片或是點擊「查看更多」，可跳轉至單一商品介紹頁。
+![](https://i.imgur.com/t4CGoOy.jpg)
+點擊商品卡片右上角的愛心可加入收藏清單，再點擊一次則移除。收藏清單顯示於頁面最上方的 Navbar，收藏清單 dropdown 內的品項可按下購物車按鈕以加入購物車。
+### 單一商品介紹頁
+![](https://i.imgur.com/w8cEVBP.jpg)
+>>>>>>> dc2f29f09aa77574f9d2754f120e58786682db07
 
 「熱銷商品」區塊為隨機推薦，從所有商品中亂數抓取不重複之三個商品予以展示，點擊該區塊中的商品可跳轉至該商品介紹頁。
 ### 購物車
 ![](https://i.imgur.com/4qYx2cH.png)
+<<<<<<< HEAD
 
 此頁面可調整欲購買之商品數量，並可輸入優惠碼進行折扣，按下「下一步」即開始結帳程序。
 
+=======
+此頁面可調整欲購買之商品數量，並可輸入優惠碼進行折扣，按下「下一步」即開始結帳程序。
+>>>>>>> dc2f29f09aa77574f9d2754f120e58786682db07
 ![](https://i.imgur.com/km66G3o.png)
 
 ![](https://i.imgur.com/2f7nKVx.png)
