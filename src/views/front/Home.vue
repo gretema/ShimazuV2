@@ -139,9 +139,7 @@
             >
               <p class="activity-text-box text-bg text-center p-3">
                 歡慶鼠年！
-                <br />即日起至
-                <span class="font-weight-bolder">2020.2.28</span>，
-                <br />結帳輸入優惠碼
+                <br />即日起結帳輸入優惠碼
                 <span class="text-danger h4 font-weight-bolder">yearofrat</span>，
                 <br />即享所有品項半價優惠！
               </p>
