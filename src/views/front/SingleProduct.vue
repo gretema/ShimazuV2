@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="container mb-10 py-4" v-if="singleProduct.title">
+    <div class="container mb-md-10 py-md-4" v-if="singleProduct.title">
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb bg-transparent pl-1 mb-0">
+        <ol class="breadcrumb bg-transparent px-0 mb-0">
           <li class="breadcrumb-item">
             <router-link to="/" class="text-primary-light">首頁</router-link>
           </li>
@@ -18,8 +18,8 @@
       </nav>
       <div class="row">
         <!--圖片區-->
-        <div class="col-md-7 mb-5">
-          <h2 class="h3 text-center bg-accent text-white p-2 d-md-none">
+        <div class="col-md-7 mb-md-5 px-0">
+          <h2 class="h3 text-center bg-accent text-white p-2 d-md-none mb-0">
             {{ singleProduct.title }}
           </h2>
           <div
@@ -84,30 +84,21 @@
           </p>
           <div class="notice">
             <h3 class="h4 feature-title">購買須知</h3>
-            <h4 class="h5"><i class="far fa-hand-point-down"></i> 商品成分</h4>
-            <p>
-              牛肉<br>
-              <small>
-                ＊商品皆以原物料直接切割，圖片僅供參考，每批商品油花可能會有所差異，如可接受再請下單訂購。
-              </small>
-            </p>
-            <h4 class="h5"><i class="far fa-hand-point-down"></i> 保存期限</h4>
-            <p>冷凍 -18℃ 可保存 300 天，詳情請見商品標示。</p>
-            <h4 class="h5"><i class="far fa-hand-point-down"></i> 保存方式</h4>
-            <p>請置於冷凍 -18℃ 保存。</p>
-            <h4 class="h5"><i class="far fa-hand-point-down"></i> 解凍方式</h4>
-            <p>
+            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 保存期限</h4>
+            <p class="notice-text">冷凍 -18℃ 可保存 300 天，詳情請見商品標示。</p>
+            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 解凍方式</h4>
+            <p class="notice-text">
               請先將預備要料理之牛肉在未拆封前，置於冰箱冷藏室自然解凍。<br>
               ＊如未食用完畢之解凍牛肉，請使用保鮮袋或保鮮盒放置於冷藏室，最長可保存不超過 24 小時。<br>
               ＊勿將產品反覆回溫、冷凍以免影響品質，產品開封後請一次食用完畢，以免因儲存不當而影響品質。<br>
             </p>
-            <h4 class="h5"><i class="far fa-hand-point-down"></i> 注意事項</h4>
-            <p>
+            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 注意事項</h4>
+            <p class="notice-text">
               1. 圖片僅供參考，商品內容物以實際收到商品為主。<br>
               2. 商品若於送達時即有損壞，請拍照存證並立即與我們聯繫。
             </p>
-            <h4 class="h5"><i class="far fa-hand-point-down"></i> 退換貨須知</h4>
-            <p>
+            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 退換貨須知</h4>
+            <p class="notice-text">
               基於食品安全衛生考量，生鮮易腐敗商品依法已排除適用七天鑑賞期，恕無法退換貨。<br>
               當您收到商品後，請立即確認商品品項及數量是否正確，若收到商品與訂單內容不符，或商品本身有瑕疵
               （舉凡：運送途中損壞、商品解凍），請您立即拍照存證，並請於收到商品後一天內，
@@ -121,7 +112,7 @@
           </div>
 
         </div>
-        <div class="col-md-5" style="padding: 0 0;">
+        <div class="col-md-5 mt-5 mt-md-0" style="padding: 0 0;">
           <div class="list-group">
             <li class="list-group-item h4 text-center bg-primary text-white"
             style="margin-bottom: 0;">
@@ -134,7 +125,7 @@
                 {{ item.title }} {{ item.price | currency }}
               </span>
               <div :style="{backgroundImage: `url(${item.imageUrl})`}"
-              class="rec-item-pic bg-cover d-inline-block"></div>
+              class="recom-item-pic bg-cover d-inline-block"></div>
             </a>
           </div>
         </div>
@@ -265,8 +256,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$images: '~@/assets/images/';
-
+.breadcrumb {
+  @media (min-width: 576px) {
+    margin-left: -15px !important;
+  }
+}
 .breadcrumb-item {
   font-size: 15px;
 }
@@ -275,59 +269,5 @@ $images: '~@/assets/images/';
 }
 .breadcrumb-item + .breadcrumb-item::before {
   color: #f7f3f3;
-}
-.buy-area {
-  height: 380px;
-  @media (max-width: 576px) {
-    height: auto;
-  }
-}
-.cattles-picbox{
-  background: url($images+'/cattles-eating-grass.jpg');
-  background-size: cover;
-  background-position: center center;
-  height: 300px;
-}
-.wagyu-admit-picbox {
-  background: url($images+'/wagyu.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 600px;
-  @media (max-width: 576px) {
-    height: 400px;
-  }
-}
-.feature-title {
-  margin: 30px 0;
-  text-align: center;
-  position: relative;   /* 定位橫線（當橫線的父元素）*/
-}
-.feature-title:before, .feature-title:after{
-  content: '';  /* 偽元素用法 */
-  position: absolute;  /* 定位横線的位置 */
-  top: 52%;
-  background: #ffffff;
-  width: 9%;
-  height: 2px;
-}
-.feature-title:before {
-  left: 25%;
-  @media (max-width: 576px) {
-    left: 20%;
-  }
-}
-.feature-title:after {
-  right: 25%;
-   @media (max-width: 576px) {
-    right: 20%;
-  }
-}
-.notice p{
-  font-size: 18px;
-}
-.rec-item-pic {
-  width: 80px;
-  height: 80px;
 }
 </style>

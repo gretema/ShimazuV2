@@ -1,0 +1,58 @@
+.buy-area {
+  height: 380px;
+  @media (max-width: 576px) {
+    height: auto;
+  }
+}
+.cattles-picbox{
+  background: url($images+'/cattles-eating-grass.jpg');
+  background-size: cover;
+  background-position: center center;
+  height: 300px;
+}
+.wagyu-admit-picbox {
+  background: url($images+'/wagyu.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 600px;
+  @media (max-width: 576px) {
+    height: 400px;
+  }
+}
+.feature-title {
+  margin: 30px 0;
+  text-align: center;
+  position: relative;   /* 定位橫線（當橫線的父元素）*/
+}
+.feature-title:before, .feature-title:after{
+  content: '';  /* 偽元素用法 */
+  position: absolute;  /* 定位横線的位置 */
+  top: 52%;
+  background: #ffffff;
+  width: 9%;
+  height: 2px;
+}
+.feature-title:before {
+  left: 25%;
+  @media (max-width: 576px) {
+    left: 20%;
+  }
+}
+.feature-title:after {
+  right: 25%;
+   @media (max-width: 576px) {
+    right: 20%;
+  }
+}
+.notice-title {
+  font-size: 20px;
+}
+.notice-text {
+  font-size: 16px;
+  line-height: 1.5rem;
+}
+.recom-item-pic {
+  width: 80px;
+  height: 80px;
+}
