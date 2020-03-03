@@ -31,7 +31,8 @@
           ></div>
         </div>
         <!--購買區-->
-        <div class="col-md-5 p-3 bg-white buy-area">
+        <div class="col-md-5 p-3 bg-white buy-area d-md-flex flex-md-column
+        justify-content-md-center">
           <h2 class="d-none d-md-block">{{ singleProduct.title }}</h2>
           <p class="d-none d-md-block">{{ singleProduct.description }}</p>
           <div
