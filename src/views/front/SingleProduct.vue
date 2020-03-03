@@ -69,17 +69,17 @@
       <div class="row">
         <div class="col-md-7 text-white">
           <h3 class="h4 feature-title">產品特色</h3>
-          <p>{{ singleProduct.content }}</p>
+          <p class="mb-md-8">{{ singleProduct.content }}</p>
           <h3 class="h4 feature-title">天然放牧</h3>
           <div class="cattles-picbox my-2"></div>
-          <p>
+          <p class="mb-md-8">
             不同於人工室內餵養，讓牛隻有充足的空間活動與成長，
             擁有全天然的生長環境。
           </p>
           <h3 class="h4 feature-title">和牛認證</h3>
           <div class="wagyu-admit-picbox my-2"></div>
           <p class="text-center"><small>(圖：日本食肉格付協會)</small></p>
-          <p>只有純正的日本產和牛，才能獲得日本食肉格付協會認證，使用和牛統一標誌。
+          <p class="mb-md-8">只有純正的日本產和牛，才能獲得日本食肉格付協會認證，使用和牛統一標誌。
             本店所販售之和牛均擁有該標章，從出生證明、血統紀錄到屠宰販售的相關資料，都能追溯確認。
           </p>
           <div class="notice">
