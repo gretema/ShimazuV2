@@ -213,6 +213,9 @@ export default {
         this.allProducts[result[2]]];
       return recommendObjList;
     },
+    cart() {
+      return this.$store.state.cart;
+    },
   },
   methods: {
     getSingleProduct() {
@@ -233,8 +236,34 @@ export default {
       this.$store.dispatch('removeCart', id);
     },
     addtoCart(id, qty = 1) {
-      this.$store.dispatch('addtoCart', { id, qty });
-      this.addtoCartModal();
+      const vm = this;
+      function updateProductQty(cartId, productId, newQty) {
+        vm.$store.commit('LOADING', true);
+        const delAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${cartId}`;
+        const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
+        const changeCart = {
+          product_id: productId,
+          qty: newQty,
+        };
+        vm.$http
+          .all([vm.$http.delete(delAPI), vm.$http.post(addAPI, { data: changeCart })])
+          .then(vm.$http.spread(() => {
+            vm.$store.dispatch('getCart');
+            vm.$store.commit('LOADING', false);
+          }));
+      }
+      vm.cart.carts.forEach((item) => {
+        if (item.product_id === id) {
+          const sameCartItem = item;
+          const originQty = sameCartItem.qty;
+          const newQty = originQty + qty;
+          updateProductQty(sameCartItem.id, sameCartItem.product.id, newQty);
+          this.addtoCartModal();
+        } else {
+          this.$store.dispatch('addtoCart', { id, qty });
+          this.addtoCartModal();
+        }
+      });
     },
     getProducts(page = 1) {
       this.$store.dispatch('getCusProducts', page);
