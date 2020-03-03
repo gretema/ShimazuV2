@@ -56,8 +56,8 @@ export default {
     getOrders(page = 1) {
       const api = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/admin/orders?page=${page}`;
       const vm = this;
-      this.$store.commit('LOADING', true);
-      this.$http.get(api).then((response) => {
+      vm.$store.commit('LOADING', true);
+      vm.$http.get(api).then((response) => {
         vm.$store.commit('LOADING', false);
         vm.orders = response.data.orders;
         vm.pagination = response.data.pagination;
