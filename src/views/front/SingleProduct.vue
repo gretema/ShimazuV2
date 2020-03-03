@@ -84,31 +84,49 @@
           </p>
           <div class="notice">
             <h3 class="h4 feature-title">購買須知</h3>
-            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 保存期限</h4>
-            <p class="notice-text">冷凍 -18℃ 可保存 300 天，詳情請見商品標示。</p>
-            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 解凍方式</h4>
-            <p class="notice-text">
-              請先將預備要料理之牛肉在未拆封前，置於冰箱冷藏室自然解凍。<br>
-              ＊如未食用完畢之解凍牛肉，請使用保鮮袋或保鮮盒放置於冷藏室，最長可保存不超過 24 小時。<br>
-              ＊勿將產品反覆回溫、冷凍以免影響品質，產品開封後請一次食用完畢，以免因儲存不當而影響品質。<br>
-            </p>
-            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 注意事項</h4>
-            <p class="notice-text">
-              1. 圖片僅供參考，商品內容物以實際收到商品為主。<br>
-              2. 商品若於送達時即有損壞，請拍照存證並立即與我們聯繫。
-            </p>
-            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 退換貨須知</h4>
-            <p class="notice-text">
-              基於食品安全衛生考量，生鮮易腐敗商品依法已排除適用七天鑑賞期，恕無法退換貨。<br>
-              當您收到商品後，請立即確認商品品項及數量是否正確，若收到商品與訂單內容不符，或商品本身有瑕疵
-              （舉凡：運送途中損壞、商品解凍），請您立即拍照存證，並請於收到商品後一天內，
-              備妥您的訂單編號或訂購人相關資料，與我們聯繫，我們會立即為您處理退換貨事宜。<br>
-              <small>
-                ※退換貨處理期間，請留存發票並保持商品整體完整，需要冷凍保存之商品務必置於冷凍庫保存，
-                若商品已拆封，或是因消費者對商品的不當處理及保存方式錯誤而造成商品損壞變質，
-                則本公司將有保留退換貨的權利。
-              </small>
-            </p>
+            <div class="notice-issues">
+              <div class="expiration-date">
+                <h4 class="notice-title" @click="accordions">
+                  保存期限 <i class="far fa-hand-point-down"></i>
+                </h4>
+                <p class="notice-text text-center">冷凍 -18℃ 可保存 300 天，詳情請見商品標示。</p>
+              </div>
+              <div class="unfreeze-method">
+                <h4 class="notice-title" @click="accordions">
+                  解凍方式 <i class="far fa-hand-point-down"></i>
+                </h4>
+                <p class="notice-text">
+                  請先將預備要料理之牛肉在未拆封前，置於冰箱冷藏室自然解凍。<br>
+                  ＊如未食用完畢，請使用保鮮袋或保鮮盒放置於冷藏室，最長可保存 24 小時。<br>
+                  ＊勿將產品反覆回溫、冷凍以免影響品質，產品開封後請一次食用完畢，以免因儲存不當而影響品質。<br>
+                </p>
+              </div>
+              <div class="attention">
+                <h4 class="notice-title" @click="accordions">
+                  注意事項 <i class="far fa-hand-point-down"></i>
+                </h4>
+                <p class="notice-text text-center">
+                  1. 圖片僅供參考，商品內容物以實際收到商品為主。<br>
+                  2. 商品若於送達時即有損壞，請拍照存證並立即與我們聯繫。
+                </p>
+              </div>
+              <div class="returns">
+                <h4 class="notice-title" @click="accordions">
+                  退換貨須知 <i class="far fa-hand-point-down"></i>
+                </h4>
+                <p class="notice-text">
+                  基於食品安全衛生考量，生鮮易腐敗商品依法已排除適用七天鑑賞期，恕無法退換貨。<br>
+                  當您收到商品後，請立即確認商品品項及數量是否正確，若收到商品與訂單內容不符，或商品本身有瑕疵
+                  （舉凡：運送途中損壞、商品解凍），請您立即拍照存證，並請於收到商品後一天內，
+                  備妥您的訂單編號或訂購人相關資料，與我們聯繫，我們會立即為您處理退換貨事宜。<br>
+                  <small>
+                    ※ 退換貨處理期間，請留存發票並保持商品整體完整，需要冷凍保存之商品務必置於冷凍庫保存，
+                    若商品已拆封，或是因消費者對商品的不當處理及保存方式錯誤而造成商品損壞變質，
+                    則本公司將有保留退換貨的權利。
+                  </small>
+                </p>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -235,6 +253,15 @@ export default {
     },
     gotop() {
       $('html, body').animate({ scrollTop: 0 }, 1500);
+    },
+    accordions(event) {
+      const { currentTarget } = event;
+      $(currentTarget).toggleClass('active');
+      $(currentTarget).parent().find('.notice-text').slideToggle();
+      $(currentTarget).parent().siblings().find('.notice-text')
+        .slideUp();
+      $(currentTarget).parent().siblings().find('.notice-title')
+        .removeClass('active');
     },
   },
   created() {
