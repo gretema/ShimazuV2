@@ -140,15 +140,16 @@ export default {
     this.getProducts();
     this.getCart();
     this.getText('');
+
     // 偵測頁面往下滑超過 400px 就讓 Gotop 按鈕出現
-    // eslint-disable-next-line func-names
-    $(window).scroll(function () {
+    function showBtnCondition() {
       if ($(this).scrollTop() > 400) {
         $('#gotopBtn').fadeIn();
       } else {
         $('#gotopBtn').fadeOut();
       }
-    });
+    }
+    $(window).scroll(showBtnCondition);
   },
 };
 </script>
