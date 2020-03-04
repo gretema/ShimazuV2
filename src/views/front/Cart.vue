@@ -1,9 +1,9 @@
 <template>
   <div>
-    <Alert />
     <div class="container my-md-5">
       <div class="row">
         <div class="col-md-8">
+          <!--表頭-->
           <div class="form-row py-4 mb-0 mx-0 bg-primary">
             <div class="col-md-6">
               <h2 class="h4 pl-3 text-md-left text-center text-light">您的購物車</h2>
@@ -21,94 +21,76 @@
             </div>
           </div>
 
-          <!--表格會在行動版破版，所以不用-->
+          <!--購物車清單-->
           <div class="bg-light p-3">
             <div
-              class="py-3 d-flex flex-column flex-md-row"
+              class="py-3 d-flex flex-column flex-md-row align-items-md-center"
               v-for="item in cart.carts"
               :key="item.id"
             >
-              <!-- 圖與文字水平排列 -->
-              <div class="d-flex flex-md-grow-1">
-                <div
-                  class="bg-cover my-4 mr-4 d-none d-md-block"
-                  :style="[
-                    { backgroundImage: `url(${item.product.imageUrl})` },
-                    { height: '110px' },
-                    { minWidth: '110px' }
-                  ]"
-                ></div>
-                <div
-                  class="d-flex flex-column flex-md-row align-items-md-center
-                  justify-content-center justify-content-md-between"
-                >
-                  <!-- 品項 -->
-                  <div class="flex-md-grow-1 flex-shrink-1 cart-item-title-box">
-                    <span class="cart-item-title">
-                      {{ item.product.title }}
-                    </span>
-                    <br />
-                    <span class="cart-item-single-price">
-                      {{ item.product.price | currency }}
-                    </span>
-                  </div>
-                  <!-- 數量 -->
-                  <div class="qty-box flex-md-grow-1 flex-shrink-0 mr-md-auto">
-                    <div class="input-group input-group-sm mb-3 qty-group">
-                      <div class="input-group-prepend">
-                        <button
-                          class="btn btn-primary rounded-0"
-                          type="button"
-                          id="reduceButton"
-                          @click.prevent="changeQty(item.id, item.product.id, item.qty, false)"
-                        >-</button>
-                      </div>
-                      <input
-                        type="text"
-                        class="form-control"
-                        aria-label="Example text with button addon"
-                        aria-describedby="button-addon1"
-                        v-model="item.qty"
-                      />
-                      <div class="input-group-append">
-                        <button
-                          class="btn btn-primary"
-                          type="button"
-                          id="addButton"
-                          @click.prevent="changeQty(item.id, item.product.id, item.qty, true)"
-                        >+</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--手機版價格和刪除-->
-                <div class="d-md-none ml-auto align-items-center justify-content-end">
-                  <span class="mr-md-3 mb-0 cart-item-qty-price">
-                    {{ item.product.price*item.qty | currency }}
-                  </span>
-                  <a
-                    href="#"
-                    class="btn p-0 ml-1"
-                    @click.prevent="openDelModal(item)"
-                  >
-                    <i class="fa fa-trash" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <!--桌機版價格和刪除-->
+              <!--圖片-->
               <div
-                class="d-none d-md-flex align-items-center justify-content-end
-                justify-content-md-start py-3"
+                class="bg-cover my-4 mr-4 d-none d-md-block"
+                :style="[
+                  { backgroundImage: `url(${item.product.imageUrl})` },
+                  { height: '110px' },
+                  { minWidth: '110px' }
+                ]"
+              ></div>
+              <!-- 品名與單價 -->
+              <div
+                class="d-flex flex-column flex-md-row align-items-md-center
+                justify-content-center justify-content-md-between"
               >
-                <span class="mb-0 cart-item-qty-price">
-                  {{ item.product.price*item.qty | currency }}</span>
-                <a href="#" class="btn" @click.prevent="openDelModal(item)">
-                  <i class="fa fa-trash" aria-hidden="true"></i>
-                </a>
+                <div class="cart-item-title-box">
+                  <span class="cart-item-title">
+                    {{ item.product.title }}
+                  </span>
+                  <br />
+                  <span class="cart-item-single-price">
+                    {{ item.product.price | currency }}
+                  </span>
+                </div>
               </div>
+              <!-- 數量 -->
+              <div class="input-group input-group-sm qty-group">
+                <div class="input-group-prepend">
+                  <button
+                    class="btn btn-primary rounded-0"
+                    type="button"
+                    id="reduceButton"
+                    @click.prevent="changeQty(item.id, item.product.id, item.qty, false)"
+                  >-</button>
+                </div>
+                <input
+                  type="text"
+                  class="form-control"
+                  aria-label="Example text with button addon"
+                  aria-describedby="button-addon1"
+                  v-model="item.qty"
+                />
+                <div class="input-group-append">
+                  <button
+                    class="btn btn-primary"
+                    type="button"
+                    id="addButton"
+                    @click.prevent="changeQty(item.id, item.product.id, item.qty, true)"
+                  >+</button>
+                </div>
+              </div>
+              <!--價格-->
+              <p class="ml-md-7 mb-0 cart-item-qty-price">
+                {{ item.product.price*item.qty | currency }}
+              </p>
+              <!--刪除-->
+              <a href="#" class="btn ml-md-5" @click.prevent="openDelModal(item)">
+                <i class="fa fa-trash" aria-hidden="true"></i>
+              </a>
             </div>
           </div>
         </div>
+
+        <!--右側訂單摘要-->
         <div class="col-md-4 mb-6 mb-md-0">
           <div class="text-light bg-accent p-3">
             <h1 class="h4 text-center py-3 bg-primary-lighter bg-md-primary">訂單摘要</h1>
@@ -166,12 +148,8 @@
 
 <script>
 import $ from 'jquery';
-import Alert from '../../components/AlertMessage.vue';
 
 export default {
-  components: {
-    Alert,
-  },
   data() {
     return {
       coupon_code: '',
