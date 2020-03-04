@@ -24,72 +24,77 @@
           <!--購物車清單-->
           <div class="bg-light p-3">
             <div
-              class="py-3 d-flex flex-column flex-md-row align-items-md-center"
+              class="py-3 d-flex align-items-md-center"
               v-for="item in cart.carts"
               :key="item.id"
             >
-              <!--圖片-->
-              <div
-                class="bg-cover my-4 mr-4 d-none d-md-block"
-                :style="[
-                  { backgroundImage: `url(${item.product.imageUrl})` },
-                  { height: '110px' },
-                  { minWidth: '110px' }
-                ]"
-              ></div>
-              <!-- 品名與單價 -->
-              <div
-                class="d-flex flex-column flex-md-row align-items-md-center
-                justify-content-center justify-content-md-between"
-              >
-                <div class="cart-item-title-box">
-                  <span class="cart-item-title">
-                    {{ item.product.title }}
-                  </span>
-                  <br />
-                  <span class="cart-item-single-price">
-                    {{ item.product.price | currency }}
-                  </span>
+              <div class="mobile-left d-flex flex-column align-content-center
+              flex-md-row align-items-md-center">
+                <!--圖片-->
+                <div
+                  class="bg-cover my-4 mr-4 d-none d-md-block"
+                  :style="[
+                    { backgroundImage: `url(${item.product.imageUrl})` },
+                    { height: '110px' },
+                    { minWidth: '110px' }
+                  ]"
+                ></div>
+                <!-- 品名與單價 -->
+                <div
+                  class="d-flex flex-column flex-md-row align-items-md-center
+                  justify-content-center justify-content-md-between"
+                >
+                  <div class="cart-item-title-box">
+                    <span class="cart-item-title">
+                      {{ item.product.title }}
+                    </span>
+                    <br />
+                    <span class="cart-item-single-price">
+                      {{ item.product.price | currency }}
+                    </span>
+                  </div>
+                </div>
+                <!-- 數量 -->
+                <div class="input-group input-group-sm qty-group">
+                  <div class="input-group-prepend">
+                    <button
+                      class="btn btn-primary rounded-0"
+                      type="button"
+                      id="reduceButton"
+                      @click.prevent="changeQty(item.id, item.product.id, item.qty, false)"
+                    >-</button>
+                  </div>
+                  <input
+                    type="text"
+                    class="form-control qty-input"
+                    aria-label="Example text with button addon"
+                    aria-describedby="button-addon1"
+                    v-model="item.qty"
+                  />
+                  <div class="input-group-append">
+                    <button
+                      class="btn btn-primary"
+                      type="button"
+                      id="addButton"
+                      @click.prevent="changeQty(item.id, item.product.id, item.qty, true)"
+                    >+</button>
+                  </div>
                 </div>
               </div>
-              <!-- 數量 -->
-              <div class="input-group input-group-sm qty-group">
-                <div class="input-group-prepend">
-                  <button
-                    class="btn btn-primary rounded-0"
-                    type="button"
-                    id="reduceButton"
-                    @click.prevent="changeQty(item.id, item.product.id, item.qty, false)"
-                  >-</button>
-                </div>
-                <input
-                  type="text"
-                  class="form-control qty-input"
-                  aria-label="Example text with button addon"
-                  aria-describedby="button-addon1"
-                  v-model="item.qty"
-                />
-                <div class="input-group-append">
-                  <button
-                    class="btn btn-primary"
-                    type="button"
-                    id="addButton"
-                    @click.prevent="changeQty(item.id, item.product.id, item.qty, true)"
-                  >+</button>
-                </div>
+              <div class="mobile-right d-flex flex-column-reverse align-content-center
+              justify-content-end flex-md-row align-items-md-center ml-md-7">
+                <!--價格-->
+                <p class="mb-0 cart-item-qty-price">
+                  {{ item.product.price*item.qty | currency }}
+                </p>
+                <!--刪除-->
+                <a href="#" class="btn remove-btn ml-md-5" @click.prevent="openDelModal(item)">
+                  <i class="fa fa-trash" aria-hidden="true"></i>
+                </a>
               </div>
-              <!--價格-->
-              <p class="ml-md-7 mb-0 cart-item-qty-price">
-                {{ item.product.price*item.qty | currency }}
-              </p>
-              <!--刪除-->
-              <a href="#" class="btn ml-md-5" @click.prevent="openDelModal(item)">
-                <i class="fa fa-trash" aria-hidden="true"></i>
-              </a>
             </div>
           </div>
         </div>
-
         <!--右側訂單摘要-->
         <div class="col-md-4 mb-6 mb-md-0">
           <div class="text-light bg-accent p-3">

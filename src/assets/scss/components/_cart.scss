@@ -19,14 +19,26 @@
     font-size: 20px;
   }
 }
+.mobile-right {
+  @media (min-width: 576px) {
+    height: 150px;
+  }
+}
 .qty-group {
   width: 100px;
+  height: 30px;
 }
 .form-control {
   border-radius: 0;
 }
 .qty-input {
   text-align: center;
+}
+.remove-btn {
+  padding: 0;
+  @media (max-width: 576px) {
+    margin-bottom: 30px;
+  }
 }
 .input-group-append > .btn {
   border-radius: 0;
