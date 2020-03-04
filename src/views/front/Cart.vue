@@ -64,7 +64,7 @@
                 </div>
                 <input
                   type="text"
-                  class="form-control"
+                  class="form-control qty-input"
                   aria-label="Example text with button addon"
                   aria-describedby="button-addon1"
                   v-model="item.qty"
