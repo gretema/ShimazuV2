@@ -244,7 +244,6 @@ export default {
         const originProductId = sameCartItem.product.id;
         const newQty = originQty + qty;
         this.$store.dispatch('updateProductQty', { originCartId, originProductId, newQty });
-        // updateProductQty(sameCartItem.id, sameCartItem.product.id, newQty);
         this.addtoCartModal();
       } else {
         this.$store.dispatch('addtoCart', { id, qty });

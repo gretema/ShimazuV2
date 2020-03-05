@@ -95,12 +95,12 @@ export default new Vuex.Store({
     removeMessage(context, num) {
       context.commit('REMOVEMESSAGE', num);
     },
-    updateProductQty(context, { cartId, productId, newQty }) {
+    updateProductQty(context, { originCartId, originProductId, newQty }) {
       context.commit('LOADING', true);
-      const delAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${cartId}`;
+      const delAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${originCartId}`;
       const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
       const changeCart = {
-        product_id: productId,
+        product_id: originProductId,
         qty: newQty,
       };
       axios
