@@ -95,6 +95,21 @@ export default new Vuex.Store({
     removeMessage(context, num) {
       context.commit('REMOVEMESSAGE', num);
     },
+    updateProductQty(context, { cartId, productId, newQty }) {
+      context.commit('LOADING', true);
+      const delAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${cartId}`;
+      const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
+      const changeCart = {
+        product_id: productId,
+        qty: newQty,
+      };
+      axios
+        .all([axios.delete(delAPI), axios.post(addAPI, { data: changeCart })])
+        .then(axios.spread(() => {
+          context.dispatch('getCart');
+          context.commit('LOADING', false);
+        }));
+    },
   },
   modules: {
     dashProducts,
