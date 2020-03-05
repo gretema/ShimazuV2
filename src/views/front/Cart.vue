@@ -88,7 +88,7 @@
                   {{ item.product.price*item.qty | currency }}
                 </p>
                 <!--刪除-->
-                <a href="#" class="btn remove-btn ml-md-5 align-self-end"
+                <a href="#" class="btn remove-btn ml-md-5 align-self-end align-self-md-center"
                 @click.prevent="openDelModal(item)">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>
