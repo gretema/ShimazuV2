@@ -6,7 +6,6 @@
 }
 .cart-item-title-box {
   width: 200px;
-  margin-right: 60px;
 }
 .cart-item-single-price {
   @media (max-width: 576px) {
@@ -19,14 +18,21 @@
     font-size: 20px;
   }
 }
+.mobile-left {
+  @media (max-width: 576px) {
+    width: 75%;
+  }
+}
 .mobile-right {
   @media (min-width: 576px) {
     height: 150px;
   }
 }
 .qty-group {
-  width: 100px;
   height: 30px;
+  @media (max-width: 576px) {
+    width: 120px;
+  }
 }
 .form-control {
   border-radius: 0;
@@ -40,8 +46,9 @@
     margin-bottom: 30px;
   }
 }
-.input-group-append > .btn {
+.input-group-append > .btn, .input-group-prepend > .btn {
   border-radius: 0;
+  padding: 0 0.5rem;
 }
 .process-steps {
   // 細細的橫線

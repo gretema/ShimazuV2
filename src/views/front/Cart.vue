@@ -44,7 +44,7 @@
                   class="d-flex flex-column flex-md-row align-items-md-center
                   justify-content-center justify-content-md-between"
                 >
-                  <div class="cart-item-title-box">
+                  <div class="cart-item-title-box mr-md-7">
                     <span class="cart-item-title">
                       {{ item.product.title }}
                     </span>
@@ -58,7 +58,7 @@
                 <div class="input-group input-group-sm qty-group">
                   <div class="input-group-prepend">
                     <button
-                      class="btn btn-primary rounded-0"
+                      class="btn btn-primary"
                       type="button"
                       id="reduceButton"
                       @click.prevent="changeQty(item.id, item.product.id, item.qty, false)"
@@ -88,7 +88,8 @@
                   {{ item.product.price*item.qty | currency }}
                 </p>
                 <!--刪除-->
-                <a href="#" class="btn remove-btn ml-md-5" @click.prevent="openDelModal(item)">
+                <a href="#" class="btn remove-btn ml-md-5 align-self-end"
+                @click.prevent="openDelModal(item)">
                   <i class="fa fa-trash" aria-hidden="true"></i>
                 </a>
               </div>
