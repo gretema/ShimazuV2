@@ -193,10 +193,7 @@ export default {
       });
     },
     changeQty(id, productId, qty, calc) {
-      const vm = this;
-      vm.$store.commit('LOADING', true);
-      const delAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
-      const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
+      this.$store.commit('LOADING', true);
       let num;
       if (calc === true) {
         num = qty + 1;
@@ -205,16 +202,7 @@ export default {
       } else {
         num = qty - 1;
       }
-      const changeCart = {
-        product_id: productId,
-        qty: num,
-      };
-      vm.$http
-        .all([vm.$http.delete(delAPI), vm.$http.post(addAPI, { data: changeCart })])
-        .then(vm.$http.spread(() => {
-          vm.$store.dispatch('getCart');
-          vm.$store.commit('LOADING', false);
-        }));
+      this.$store.dispatch('cartChangeQty', { id, productId, num });
     },
   },
   computed: {
