@@ -161,8 +161,19 @@ export default {
       this.$store.commit('DISCOLLECTED', itemId);
     },
     addtoCart(id, qty = 1) {
-      this.$store.dispatch('addtoCart', { id, qty });
-      this.openAddModal();
+      const target = this.cart.carts.filter(items => items.product_id === id);
+      if (target.length > 0) {
+        const sameCartItem = target[0];
+        const originQty = sameCartItem.qty;
+        const originCartId = sameCartItem.id;
+        const originProductId = sameCartItem.product.id;
+        const newQty = originQty + qty;
+        this.$store.dispatch('updateProductQty', { originCartId, originProductId, newQty });
+        this.openAddModal();
+      } else {
+        this.$store.dispatch('addtoCart', { id, qty });
+        this.openAddModal();
+      }
     },
     openAddModal() {
       this.$emit('openAddModal');

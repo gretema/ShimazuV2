@@ -95,6 +95,35 @@ export default new Vuex.Store({
     removeMessage(context, num) {
       context.commit('REMOVEMESSAGE', num);
     },
+    updateProductQty(context, { originCartId, originProductId, newQty }) {
+      context.commit('LOADING', true);
+      const delAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${originCartId}`;
+      const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
+      const changeCart = {
+        product_id: originProductId,
+        qty: newQty,
+      };
+      axios
+        .all([axios.delete(delAPI), axios.post(addAPI, { data: changeCart })])
+        .then(axios.spread(() => {
+          context.dispatch('getCart');
+          context.commit('LOADING', false);
+        }));
+    },
+    cartChangeQty(context, { id, productId, num }) {
+      const delAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart/${id}`;
+      const addAPI = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_CUSTOMPATH}/cart`;
+      const changeCart = {
+        product_id: productId,
+        qty: num,
+      };
+      axios
+        .all([axios.delete(delAPI), axios.post(addAPI, { data: changeCart })])
+        .then(axios.spread(() => {
+          context.dispatch('getCart');
+          context.commit('LOADING', false);
+        }));
+    },
   },
   modules: {
     dashProducts,

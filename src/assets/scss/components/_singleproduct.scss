@@ -46,13 +46,26 @@
   }
 }
 .notice-title {
-  font-size: 20px;
+  font-size: 22px;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px 5px;
+  transition: all 0.25s;
+  &:hover, &.active {
+    background-color: $accent;
+    color: $deepdark;
+  }
 }
 .notice-text {
   font-size: 16px;
   line-height: 1.5rem;
+  display: none;
 }
 .recom-item-pic {
   width: 80px;
   height: 80px;
+}
+
+.feature-text, .notice-text {
+  color: rgba(255,255,255,0.8);
 }

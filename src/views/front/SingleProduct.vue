@@ -31,7 +31,8 @@
           ></div>
         </div>
         <!--購買區-->
-        <div class="col-md-5 p-3 bg-white buy-area">
+        <div class="col-md-5 p-3 bg-white buy-area d-md-flex flex-md-column
+        justify-content-md-center">
           <h2 class="d-none d-md-block">{{ singleProduct.title }}</h2>
           <p class="d-none d-md-block">{{ singleProduct.description }}</p>
           <div
@@ -69,46 +70,64 @@
       <div class="row">
         <div class="col-md-7 text-white">
           <h3 class="h4 feature-title">產品特色</h3>
-          <p>{{ singleProduct.content }}</p>
+          <p class="mb-md-8 feature-text">{{ singleProduct.content }}</p>
           <h3 class="h4 feature-title">天然放牧</h3>
           <div class="cattles-picbox my-2"></div>
-          <p>
+          <p class="mb-md-8 feature-text">
             不同於人工室內餵養，讓牛隻有充足的空間活動與成長，
             擁有全天然的生長環境。
           </p>
           <h3 class="h4 feature-title">和牛認證</h3>
           <div class="wagyu-admit-picbox my-2"></div>
           <p class="text-center"><small>(圖：日本食肉格付協會)</small></p>
-          <p>只有純正的日本產和牛，才能獲得日本食肉格付協會認證，使用和牛統一標誌。
+          <p class="mb-md-8 feature-text">只有純正的日本產和牛，才能獲得日本食肉格付協會認證，使用和牛統一標誌。
             本店所販售之和牛均擁有該標章，從出生證明、血統紀錄到屠宰販售的相關資料，都能追溯確認。
           </p>
           <div class="notice">
             <h3 class="h4 feature-title">購買須知</h3>
-            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 保存期限</h4>
-            <p class="notice-text">冷凍 -18℃ 可保存 300 天，詳情請見商品標示。</p>
-            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 解凍方式</h4>
-            <p class="notice-text">
-              請先將預備要料理之牛肉在未拆封前，置於冰箱冷藏室自然解凍。<br>
-              ＊如未食用完畢之解凍牛肉，請使用保鮮袋或保鮮盒放置於冷藏室，最長可保存不超過 24 小時。<br>
-              ＊勿將產品反覆回溫、冷凍以免影響品質，產品開封後請一次食用完畢，以免因儲存不當而影響品質。<br>
-            </p>
-            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 注意事項</h4>
-            <p class="notice-text">
-              1. 圖片僅供參考，商品內容物以實際收到商品為主。<br>
-              2. 商品若於送達時即有損壞，請拍照存證並立即與我們聯繫。
-            </p>
-            <h4 class="notice-title"><i class="far fa-hand-point-down"></i> 退換貨須知</h4>
-            <p class="notice-text">
-              基於食品安全衛生考量，生鮮易腐敗商品依法已排除適用七天鑑賞期，恕無法退換貨。<br>
-              當您收到商品後，請立即確認商品品項及數量是否正確，若收到商品與訂單內容不符，或商品本身有瑕疵
-              （舉凡：運送途中損壞、商品解凍），請您立即拍照存證，並請於收到商品後一天內，
-              備妥您的訂單編號或訂購人相關資料，與我們聯繫，我們會立即為您處理退換貨事宜。<br>
-              <small>
-                ※退換貨處理期間，請留存發票並保持商品整體完整，需要冷凍保存之商品務必置於冷凍庫保存，
-                若商品已拆封，或是因消費者對商品的不當處理及保存方式錯誤而造成商品損壞變質，
-                則本公司將有保留退換貨的權利。
-              </small>
-            </p>
+            <div class="notice-issues">
+              <div class="expiration-date">
+                <h4 class="notice-title" @click="accordions">
+                  保存期限 <i class="far fa-hand-point-down"></i>
+                </h4>
+                <p class="notice-text text-center">冷凍 -18℃ 可保存 300 天，詳情請見商品標示。</p>
+              </div>
+              <div class="unfreeze-method">
+                <h4 class="notice-title" @click="accordions">
+                  解凍方式 <i class="far fa-hand-point-down"></i>
+                </h4>
+                <p class="notice-text">
+                  請先將預備要料理之牛肉在未拆封前，置於冰箱冷藏室自然解凍。<br>
+                  ＊如未食用完畢，請使用保鮮袋或保鮮盒放置於冷藏室，最長可保存 24 小時。<br>
+                  ＊勿將產品反覆回溫、冷凍以免影響品質，產品開封後請一次食用完畢，以免因儲存不當而影響品質。<br>
+                </p>
+              </div>
+              <div class="attention">
+                <h4 class="notice-title" @click="accordions">
+                  注意事項 <i class="far fa-hand-point-down"></i>
+                </h4>
+                <p class="notice-text text-center">
+                  1. 圖片僅供參考，商品內容物以實際收到商品為主。<br>
+                  2. 商品若於送達時即有損壞，請拍照存證並立即與我們聯繫。
+                </p>
+              </div>
+              <div class="returns">
+                <h4 class="notice-title" @click="accordions">
+                  退換貨須知 <i class="far fa-hand-point-down"></i>
+                </h4>
+                <p class="notice-text">
+                  基於食品安全衛生考量，生鮮易腐敗商品依法已排除適用七天鑑賞期，恕無法退換貨。<br>
+                  當您收到商品後，請立即確認商品品項及數量是否正確，若收到商品與訂單內容不符，或商品本身有瑕疵
+                  （舉凡：運送途中損壞、商品解凍），請您立即拍照存證，並請於收到商品後一天內，
+                  備妥您的訂單編號或訂購人相關資料，與我們聯繫，我們會立即為您處理退換貨事宜。<br>
+                  <small>
+                    ※ 退換貨處理期間，請留存發票並保持商品整體完整，需要冷凍保存之商品務必置於冷凍庫保存，
+                    若商品已拆封，或是因消費者對商品的不當處理及保存方式錯誤而造成商品損壞變質，
+                    則本公司將有保留退換貨的權利。
+                  </small>
+                </p>
+              </div>
+            </div>
           </div>
 
         </div>
@@ -194,6 +213,9 @@ export default {
         this.allProducts[result[2]]];
       return recommendObjList;
     },
+    cart() {
+      return this.$store.state.cart;
+    },
   },
   methods: {
     getSingleProduct() {
@@ -214,8 +236,19 @@ export default {
       this.$store.dispatch('removeCart', id);
     },
     addtoCart(id, qty = 1) {
-      this.$store.dispatch('addtoCart', { id, qty });
-      this.addtoCartModal();
+      const target = this.cart.carts.filter(items => items.product_id === id);
+      if (target.length > 0) {
+        const sameCartItem = target[0];
+        const originQty = sameCartItem.qty;
+        const originCartId = sameCartItem.id;
+        const originProductId = sameCartItem.product.id;
+        const newQty = originQty + qty;
+        this.$store.dispatch('updateProductQty', { originCartId, originProductId, newQty });
+        this.addtoCartModal();
+      } else {
+        this.$store.dispatch('addtoCart', { id, qty });
+        this.addtoCartModal();
+      }
     },
     getProducts(page = 1) {
       this.$store.dispatch('getCusProducts', page);
@@ -236,21 +269,31 @@ export default {
     gotop() {
       $('html, body').animate({ scrollTop: 0 }, 1500);
     },
+    accordions(event) {
+      const { currentTarget } = event;
+      $(currentTarget).toggleClass('active');
+      $(currentTarget).parent().find('.notice-text').slideToggle();
+      $(currentTarget).parent().siblings().find('.notice-text')
+        .slideUp();
+      $(currentTarget).parent().siblings().find('.notice-title')
+        .removeClass('active');
+    },
   },
   created() {
     this.id = this.$route.params.productId;
     this.getSingleProduct();
     this.getCart();
     this.getProducts();
+
     // 偵測頁面往下滑超過 400px 就讓 Gotop 按鈕出現
-    // eslint-disable-next-line func-names
-    $(window).scroll(function () {
+    function showBtnCondition() {
       if ($(this).scrollTop() > 400) {
         $('#gotopBtn').fadeIn();
       } else {
         $('#gotopBtn').fadeOut();
       }
-    });
+    }
+    $(window).scroll(showBtnCondition);
   },
 };
 </script>
