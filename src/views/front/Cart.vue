@@ -24,7 +24,8 @@
           <!--購物車清單-->
           <div class="bg-light p-3">
             <div
-              class="py-3 d-flex align-items-md-center"
+              class="py-3 d-flex align-items-md-center justify-content-between
+              justify-content-md-start"
               v-for="item in cart.carts"
               :key="item.id"
             >
@@ -82,7 +83,7 @@
                 </div>
               </div>
               <div class="mobile-right d-flex flex-column-reverse align-content-center
-              justify-content-end flex-md-row align-items-md-center ml-md-7">
+              justify-content-end flex-md-row align-items-md-center ml-md-auto">
                 <!--價格-->
                 <p class="mb-0 cart-item-qty-price">
                   {{ item.product.price*item.qty | currency }}

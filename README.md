@@ -48,7 +48,11 @@
 
 ### 首頁畫面
 
-![首頁畫面1](https://i.imgur.com/pXS0V8h.jpg)
+進場時跳出優惠訊息視窗。
+
+![首頁 Modal](https://i.imgur.com/o5VmbhL.jpg)
+
+![首頁畫面](https://i.imgur.com/pXS0V8h.jpg)
 
 點擊商品類別方格，畫面會往下滑動並顯示相對應的商品，此時畫面右下角會出現「回到最上方」按鈕。
 
@@ -66,13 +70,13 @@
 
 ### 單一商品介紹頁
 
-![單一商品介紹](https://i.imgur.com/w8cEVBP.jpg)
+![單一商品介紹](https://i.imgur.com/511fy70.jpg)
 
 「熱銷商品」區塊為隨機推薦，從所有商品中亂數抓取不重複之三個商品予以展示，點擊該區塊中的商品可跳轉至該商品介紹頁。
 
 ### 購物車
 
-![購物車畫面](https://i.imgur.com/4qYx2cH.png)
+![購物車畫面](https://i.imgur.com/4Mikuhp.png)
 
 此頁面可調整欲購買之商品數量，並可輸入優惠碼進行折扣，按下「下一步」即開始結帳程序。
 
