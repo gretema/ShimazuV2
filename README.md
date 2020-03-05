@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-# 島津燒肉 Shimazu 電商網站
-=======
 
 # 電商網站 —— 島津燒肉 Shimazu
 
->>>>>>> hotfix
 > 為您獻上最上等的和牛肉品，這是一份 Vue CLI 3 前端電商練習。
 
 ![島津燒肉首頁](https://i.imgur.com/pXS0V8h.jpg)
