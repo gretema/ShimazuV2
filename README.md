@@ -7,7 +7,7 @@
 
 ## DEMO
 
-<https://gretema.github.io/Shimazu/>
+<https://gretema.github.io/ShimazuV2//>
 
 ## 簡介
 
@@ -98,4 +98,4 @@
 
 ### 其餘更多細節部分，歡迎至 Demo 網站觀看
 
-<https://gretema.github.io/Shimazu/>
+<https://gretema.github.io/ShimazuV2/>
