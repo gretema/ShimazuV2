@@ -7,7 +7,7 @@
 
 ## DEMO
 
-<https://gretema.github.io/ShimazuV2//>
+<https://gretema.github.io/ShimazuV2/>
 
 ## 簡介
 
