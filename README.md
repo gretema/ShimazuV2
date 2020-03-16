@@ -36,7 +36,7 @@
 - Bootstrap 4
 - JavaScript（ES6、LocalStorage 等）
 - SCSS
-- ESlint Aribnb
+- ESlint Airbnb
 
 ## 使用 Vue-Plugin
 
